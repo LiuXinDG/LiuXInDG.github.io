@@ -229,7 +229,7 @@
 <li><p>异常屏蔽位寄存器(Exception Mask Register)</p>
 </li>
 </ul>
-<h3 id="2-4-存储器组织"><a href="#2-4-存储器组织" class="headerlink" title="2.4 存储器组织"></a>2.4 存储器组织</h3><h5 id="2-位带区"><a href="#2-位带区" class="headerlink" title="2.位带区"></a>2.位带区</h5><img src = "./5.png">
+<h3 id="2-4-存储器组织"><a href="#2-4-存储器组织" class="headerlink" title="2.4 存储器组织"></a>2.4 存储器组织</h3><h5 id="1-位带区"><a href="#1-位带区" class="headerlink" title="1.位带区"></a>1.位带区</h5><img src = "./5.png">
 
 <p>别名地址&#x3D;位带基地址+字节偏移量×32+位号×4</p>
 <ul>
@@ -240,6 +240,166 @@
 <li><p>位号：题目会给</p>
 </li>
 </ul>
+<h5 id="2-字节存储顺序"><a href="#2-字节存储顺序" class="headerlink" title="2.字节存储顺序"></a>2.字节存储顺序</h5><img src = "./6.png">
+
+<p>低位低，高位高（小端存储）；高位低，低位高（大端存储）</p>
+<h2 id="第四章-STM32-微控制器"><a href="#第四章-STM32-微控制器" class="headerlink" title="第四章 STM32 微控制器"></a>第四章 STM32 微控制器</h2><h3 id="4-1-STM32微控制器结构"><a href="#4-1-STM32微控制器结构" class="headerlink" title="4.1 STM32微控制器结构"></a>4.1 STM32微控制器结构</h3><h4 id="4-1-2-STM32系统结构"><a href="#4-1-2-STM32系统结构" class="headerlink" title="4.1.2 STM32系统结构"></a>4.1.2 STM32系统结构</h4><img src = "./7.png">
+
+<ul>
+<li>通用输入&#x2F;输出端口(GPIO)以及复用功能的输入&#x2F;输出端口(AFIO)</li>
+<li>通用同步&#x2F;异步接收发送器(USART)；通用异步接收发送器(UART)</li>
+<li>串行外设接口(SPI)</li>
+<li>内部集成电路I2C接口(I2C)</li>
+<li>看门狗(Watch Dog)，独立看门狗(IWDG)和窗口看门狗(WWDG)</li>
+<li>实时时钟(RTC)</li>
+<li>通用定时器(TIMx)</li>
+<li>模拟&#x2F;数字转换器ADC</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>外设名称</th>
+<th>缩写</th>
+<th>外设名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adc</td>
+<td>A&#x2F;D转换器</td>
+<td>bkp</td>
+<td>备份寄存器</td>
+</tr>
+<tr>
+<td>can</td>
+<td>CAN控制器局域网</td>
+<td>cec</td>
+<td>消费电子单元</td>
+</tr>
+<tr>
+<td>crc</td>
+<td>CRC计算单元</td>
+<td>dac</td>
+<td>D&#x2F;A转换器</td>
+</tr>
+<tr>
+<td>dbgmc</td>
+<td>MCU调试模块</td>
+<td>dma</td>
+<td>DMA控制器</td>
+</tr>
+<tr>
+<td>exti</td>
+<td>外部中断寄存器</td>
+<td>flash</td>
+<td>闪存</td>
+</tr>
+<tr>
+<td>fsmc</td>
+<td>灵活的静态存储器控制器</td>
+<td>gpio</td>
+<td>通用I&#x2F;O接口</td>
+</tr>
+<tr>
+<td>i2c</td>
+<td>I²C总线接口</td>
+<td>iwdg</td>
+<td>独立看门狗</td>
+</tr>
+<tr>
+<td>pwr</td>
+<td>电源控制</td>
+<td>rcc</td>
+<td>复位和时钟控制器</td>
+</tr>
+<tr>
+<td>rtc</td>
+<td>实时时钟</td>
+<td>sdio</td>
+<td>SD存储卡接口</td>
+</tr>
+<tr>
+<td>spi</td>
+<td>SPI串行外设接口</td>
+<td>tim</td>
+<td>定时器</td>
+</tr>
+<tr>
+<td>usart</td>
+<td>通用同步异步收发器</td>
+<td>wwdg</td>
+<td>窗口看门狗</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-STM32微控制器开发"><a href="#4-2-STM32微控制器开发" class="headerlink" title="4.2 STM32微控制器开发"></a>4.2 STM32微控制器开发</h3><h4 id="4-2-3-C语言应用"><a href="#4-2-3-C语言应用" class="headerlink" title="4.2.3 C语言应用"></a>4.2.3 C语言应用</h4><h5 id="2-C语言的位操作"><a href="#2-C语言的位操作" class="headerlink" title="2. C语言的位操作"></a>2. C语言的位操作</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">//位与实现复位:将整形变量a的D6位清零，其他位不变。</span></span><br><span class="line">a |= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位或实现置位:将整形变量a的D6位置位，其他位不变。</span></span><br><span class="line">a ^= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位异或实现求反：将整形变量a的D6位取反，其他位不变</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-复位与时钟控制-RCC"><a href="#4-3-复位与时钟控制-RCC" class="headerlink" title="4.3 复位与时钟控制(RCC)"></a>4.3 复位与时钟控制(RCC)</h3><h5 id="1-电源控制"><a href="#1-电源控制" class="headerlink" title="1. 电源控制"></a>1. 电源控制</h5><p>3种低功耗模式</p>
+<ul>
+<li><p>睡眠模式(Sleep Mode)</p>
+</li>
+<li><p>停止模式(Stop Mode)</p>
+</li>
+<li><p>备用模式(Standby Mode)</p>
+</li>
+</ul>
+<h5 id="2-复位"><a href="#2-复位" class="headerlink" title="2. 复位"></a>2. 复位</h5><p>三种复位：系统复位、电源复位和备份复位</p>
+<h5 id="3-时钟树"><a href="#3-时钟树" class="headerlink" title="3. 时钟树"></a>3. 时钟树</h5><p>系统时钟 SYSCLK</p>
+<p>内部高速时钟HIS、高速外部时钟HSE和锁相环PLL</p>
+<h2 id="第五章-STM32的通用I-x2F-O端口"><a href="#第五章-STM32的通用I-x2F-O端口" class="headerlink" title="第五章 STM32的通用I&#x2F;O端口"></a>第五章 STM32的通用I&#x2F;O端口</h2><h3 id="5-1-GPIO的结构和功能"><a href="#5-1-GPIO的结构和功能" class="headerlink" title="5.1 GPIO的结构和功能"></a>5.1 GPIO的结构和功能</h3><p>GPIO一共112个引脚，用GPIOx(x是A、B、C、D、E、F、G)表示，即GPIOA GPIOB … GPIOG。每组端口有16个外设引脚，分别用Px0,Px1,…Px15(x是A~G)表示。</p>
+<h5 id="1-输入模式"><a href="#1-输入模式" class="headerlink" title="1.输入模式"></a>1.输入模式</h5><p>4种输入模式：</p>
+<ul>
+<li>模拟输入模式(Analog): 不上拉也不下拉</li>
+<li>浮空输入模式(Input Floating): 不上拉也不下拉 </li>
+<li>上拉输入模式(Input Pull-up): 接上拉电阻</li>
+<li>下拉输入模式(Input Pull-down): 接下拉电阻</li>
+</ul>
+<h5 id="2-输出模式"><a href="#2-输出模式" class="headerlink" title="2. 输出模式"></a>2. 输出模式</h5><p>4中输出模式，但是常用以下两种输出模式:</p>
+<ul>
+<li><p>推挽输出(Output Push-Pull)</p>
+</li>
+<li><p>开漏输出(Output Open-Drain)</p>
+</li>
+</ul>
+<h3 id="5-3-GPIO-案例"><a href="#5-3-GPIO-案例" class="headerlink" title="5.3 GPIO 案例"></a>5.3 GPIO 案例</h3><h4 id="5-3-2-应用程序分析"><a href="#5-3-2-应用程序分析" class="headerlink" title="5.3.2 应用程序分析"></a>5.3.2 应用程序分析</h4><h5 id="1-开启外设时钟"><a href="#1-开启外设时钟" class="headerlink" title="1. 开启外设时钟"></a>1. 开启外设时钟</h5><h5 id="2-初始化外设"><a href="#2-初始化外设" class="headerlink" title="2. 初始化外设"></a>2. 初始化外设</h5><h5 id="3-控制外设工作"><a href="#3-控制外设工作" class="headerlink" title="3. 控制外设工作"></a>3. 控制外设工作</h5><h2 id="第六章-CM3异常和STM32中断"><a href="#第六章-CM3异常和STM32中断" class="headerlink" title="第六章 CM3异常和STM32中断"></a>第六章 CM3异常和STM32中断</h2><h3 id="6-1-Cortex-M3-的异常"><a href="#6-1-Cortex-M3-的异常" class="headerlink" title="6.1 Cortex-M3 的异常"></a>6.1 Cortex-M3 的异常</h3><h5 id="2-异常优先级"><a href="#2-异常优先级" class="headerlink" title="2.异常优先级"></a>2.异常优先级</h5><p>优先级的数值越小，优先级越高</p>
+<p>组优先级（Group Priority）和子优先级(Sub-Priority)。组优先级被称为抢占优先级。</p>
+<p>组优先级确定是否可以打断正在执行的中断，实现嵌套。子优先级只用于在相同组优先级时多个子优先级同时出现的情况，高优先级别（优先级数值小）的异常首先被处理。</p>
+<h5 id="3-嵌套向量中断控制器NVIC"><a href="#3-嵌套向量中断控制器NVIC" class="headerlink" title="3. 嵌套向量中断控制器NVIC"></a>3. 嵌套向量中断控制器NVIC</h5><p>NVIC 集成在 ARM Cortex-M3 内核中</p>
+<h3 id="6-2-STM32的中断应用"><a href="#6-2-STM32的中断应用" class="headerlink" title="6.2 STM32的中断应用"></a>6.2 STM32的中断应用</h3><h4 id="6-2-1-NVIC-初始化配置"><a href="#6-2-1-NVIC-初始化配置" class="headerlink" title="6.2.1 NVIC 初始化配置"></a>6.2.1 NVIC 初始化配置</h4><h5 id="1-配置组优先级"><a href="#1-配置组优先级" class="headerlink" title="1. 配置组优先级"></a>1. 配置组优先级</h5><img src = "./8.png">
+
+<h4 id="6-2-2-外部中断EXTI"><a href="#6-2-2-外部中断EXTI" class="headerlink" title="6.2.2 外部中断EXTI"></a>6.2.2 外部中断EXTI</h4><p>STM32 芯片外设的中断请求直接连接到 NVIC，来自芯片之外的外设中断请求需要通过EXTI（外部中断&#x2F;事件控制器）连接到NVIC。</p>
+<h5 id="2-EXTI-寄存器"><a href="#2-EXTI-寄存器" class="headerlink" title="2. EXTI 寄存器"></a>2. EXTI 寄存器</h5><img src = "./9.png">
+
+<img src = "./10.png">
+
+<h2 id="第七章-STM32-的串行通信接口"><a href="#第七章-STM32-的串行通信接口" class="headerlink" title="第七章 STM32 的串行通信接口"></a>第七章 STM32 的串行通信接口</h2><h3 id="7-1-串行异步通信"><a href="#7-1-串行异步通信" class="headerlink" title="7.1 串行异步通信"></a>7.1 串行异步通信</h3><p>串行通信有两类：<strong>一类</strong>是速度较快的同步串行通信，以数据块为基本传输单位，主要应用于网络连接；<strong>另一类</strong>是速度较慢的异步通信，以字符为单位传输，主要应用于近距离通信。通常所说的串行通信一般是指<strong>串行同步通信</strong></p>
+<h4 id="7-1-1-串行异步通信字符格式"><a href="#7-1-1-串行异步通信字符格式" class="headerlink" title="7.1.1 串行异步通信字符格式"></a>7.1.1 串行异步通信字符格式</h4><img src = "./11.png">
+
+<ul>
+<li><p>起始位(Start Bit): 采取逻辑 0 电平</p>
+</li>
+<li><p>数据位(Data Bit): 一般是8位</p>
+</li>
+<li><p>校验位(Parity Bit): 可有可无，一般是奇偶校验位</p>
+</li>
+<li><p>停止位(Stop Bit): 字符最后必须有停止位，采取逻辑1电平</p>
+</li>
+</ul>
+<p>通信传输速率要相同，如9600bps表示一秒传输9600位</p>
+<h4 id="7-1-2-串行异步通信接口"><a href="#7-1-2-串行异步通信接口" class="headerlink" title="7.1.2 串行异步通信接口"></a>7.1.2 串行异步通信接口</h4><h5 id="1-RS-232标准的引脚定义"><a href="#1-RS-232标准的引脚定义" class="headerlink" title="1. RS-232标准的引脚定义"></a>1. RS-232标准的引脚定义</h5><ul>
+<li>TxD(Transmitted Data,发送数据)</li>
+<li>RxD(Received Data, 接收数据)</li>
+<li>RTS(Request To Send，请求发送)</li>
+<li>CTS(Clear To Send，清除发送)</li>
+<li>DTR(Data Terminal Ready，数据终端准备好)</li>
+<li>DSR(Data Set Ready，数据装置准备好)</li>
+<li>GND(Ground，信号地)</li>
+<li>CD(Carrier Detected，载波检测)</li>
+<li>RI(RIng Indicator，振铃指示)</li>
+</ul>
+<h5 id="2-RS-232接口的连接"><a href="#2-RS-232接口的连接" class="headerlink" title="2. RS-232接口的连接"></a>2. RS-232接口的连接</h5><p>三线相连</p>
+<img src = "./12.png">
+
+<h3 id="7-2-通用同步-x2F-异步接收-x2F-发送器"><a href="#7-2-通用同步-x2F-异步接收-x2F-发送器" class="headerlink" title="7.2 通用同步&#x2F;异步接收&#x2F;发送器"></a>7.2 通用同步&#x2F;异步接收&#x2F;发送器</h3><p>通用同步&#x2F;异步接收&#x2F;发送器（USART）和通用异步接收&#x2F;发送器(UART)</p>
 
       
     </div>
