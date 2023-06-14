@@ -230,9 +230,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -346,6 +380,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
 
           
 
@@ -363,214 +428,14 @@
 
       
         
-          
-            <h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1.1 嵌入式系统概述"></a>1.1 嵌入式系统概述</h3><h4 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h4><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
-<h4 id="1-1-2-嵌入式系统的技术特点"><a href="#1-1-2-嵌入式系统的技术特点" class="headerlink" title="1.1.2 嵌入式系统的技术特点"></a>1.1.2 嵌入式系统的技术特点</h4><p>四大特性：专用性、低成本、可裁剪性、可靠性</p>
-<h4 id="1-1-3-嵌入式系统的组成"><a href="#1-1-3-嵌入式系统的组成" class="headerlink" title="1.1.3 嵌入式系统的组成"></a>1.1.3 嵌入式系统的组成</h4><p>分为硬件设备和软件设备，嵌入式处理器-&gt;硬件核心。</p>
-<img src = "./1.png">
-
-<h5 id="1）嵌入式处理器类型"><a href="#1）嵌入式处理器类型" class="headerlink" title="1）嵌入式处理器类型"></a>1）嵌入式处理器类型</h5><p>微控制器(MCU)；嵌入式微处理器(MPU)；数字信号处理器(DSP)；片上系统(Soc)</p>
-<h5 id="2）嵌入式操作系统"><a href="#2）嵌入式操作系统" class="headerlink" title="2）嵌入式操作系统"></a>2）嵌入式操作系统</h5><p>谷歌的Android系统和苹果的iOS系统。实时操作系统常用免费的uC&#x2F;OS-II或者商业化的VxWorks等。</p>
-<h3 id="1-2-嵌入式系统的开发"><a href="#1-2-嵌入式系统的开发" class="headerlink" title="1.2 嵌入式系统的开发"></a>1.2 嵌入式系统的开发</h3><h4 id="1-2-1-嵌入式系统的开发模式"><a href="#1-2-1-嵌入式系统的开发模式" class="headerlink" title="1.2.1 嵌入式系统的开发模式"></a>1.2.1 嵌入式系统的开发模式</h4><p>宿主机-目标机(开发模式)</p>
-<h2 id="第二章-ARM-Cortex-M3-处理器"><a href="#第二章-ARM-Cortex-M3-处理器" class="headerlink" title="第二章 ARM Cortex-M3 处理器"></a>第二章 ARM Cortex-M3 处理器</h2><h3 id="2-2-Cortex-M3-处理器"><a href="#2-2-Cortex-M3-处理器" class="headerlink" title="2.2 Cortex-M3 处理器"></a>2.2 Cortex-M3 处理器</h3><ul>
-<li>CM3的功能模块<br>高性能32位RISC处理器；大量寄存器，都可用于多种用途；采用Thumb指令集结构；3级流水线（取指-译码-执行）；采用哈佛存储结构；高级微控制器总线结构</li>
-</ul>
-<p>CM3的两个状态两个级别两种模式</p>
-<img src = "./2.png">
-
-<ul>
-<li>两个状态：Thumb状态、调试状态 </li>
-<li>两个级别：特权级、非特权级</li>
-<li>两种模式：异常处理模式、线程模式</li>
-</ul>
-<h3 id="2-3-寄存器"><a href="#2-3-寄存器" class="headerlink" title="2.3 寄存器"></a>2.3 寄存器</h3><h4 id="1-通用寄存器"><a href="#1-通用寄存器" class="headerlink" title="1.通用寄存器"></a>1.通用寄存器</h4><img src = "./3.png">
-
-<p>CM3设计有16个32位通用寄存器，R0~R12是真正意义上的通用寄存器。</p>
-<h4 id="2-专用寄存器"><a href="#2-专用寄存器" class="headerlink" title="2.专用寄存器"></a>2.专用寄存器</h4><img src = "./4.png">
-
-<p>专用寄存器不通过存储器地址访问，而是使用专用寄存器访问指令</p>
-<ul>
-<li><p>程序状态寄存器(Program Status Register,PSR)</p>
-</li>
-<li><p>异常屏蔽位寄存器(Exception Mask Register)</p>
-</li>
-</ul>
-<h3 id="2-4-存储器组织"><a href="#2-4-存储器组织" class="headerlink" title="2.4 存储器组织"></a>2.4 存储器组织</h3><h5 id="1-位带区"><a href="#1-位带区" class="headerlink" title="1.位带区"></a>1.位带区</h5><img src = "./5.png">
-
-<p>别名地址&#x3D;位带基地址+字节偏移量×32+位号×4</p>
-<ul>
-<li><p>位带基地址通常情况下为:0x22000以及0x42000</p>
-</li>
-<li><p>字节偏移量根据要访问的位带地址距离基地址0x2000和0x4000的偏移值</p>
-</li>
-<li><p>位号：题目会给</p>
-</li>
-</ul>
-<h5 id="2-字节存储顺序"><a href="#2-字节存储顺序" class="headerlink" title="2.字节存储顺序"></a>2.字节存储顺序</h5><img src = "./6.png">
-
-<p>低位低，高位高（小端存储）；高位低，低位高（大端存储）</p>
-<h2 id="第四章-STM32-微控制器"><a href="#第四章-STM32-微控制器" class="headerlink" title="第四章 STM32 微控制器"></a>第四章 STM32 微控制器</h2><h3 id="4-1-STM32微控制器结构"><a href="#4-1-STM32微控制器结构" class="headerlink" title="4.1 STM32微控制器结构"></a>4.1 STM32微控制器结构</h3><h4 id="4-1-2-STM32系统结构"><a href="#4-1-2-STM32系统结构" class="headerlink" title="4.1.2 STM32系统结构"></a>4.1.2 STM32系统结构</h4><img src = "./7.png">
-
-<ul>
-<li>通用输入&#x2F;输出端口(GPIO)以及复用功能的输入&#x2F;输出端口(AFIO)</li>
-<li>通用同步&#x2F;异步接收发送器(USART)；通用异步接收发送器(UART)</li>
-<li>串行外设接口(SPI)</li>
-<li>内部集成电路I2C接口(I2C)</li>
-<li>看门狗(Watch Dog)，独立看门狗(IWDG)和窗口看门狗(WWDG)</li>
-<li>实时时钟(RTC)</li>
-<li>通用定时器(TIMx)</li>
-<li>模拟&#x2F;数字转换器ADC</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>缩写</th>
-<th>外设名称</th>
-<th>缩写</th>
-<th>外设名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>adc</td>
-<td>A&#x2F;D转换器</td>
-<td>bkp</td>
-<td>备份寄存器</td>
-</tr>
-<tr>
-<td>can</td>
-<td>CAN控制器局域网</td>
-<td>cec</td>
-<td>消费电子单元</td>
-</tr>
-<tr>
-<td>crc</td>
-<td>CRC计算单元</td>
-<td>dac</td>
-<td>D&#x2F;A转换器</td>
-</tr>
-<tr>
-<td>dbgmc</td>
-<td>MCU调试模块</td>
-<td>dma</td>
-<td>DMA控制器</td>
-</tr>
-<tr>
-<td>exti</td>
-<td>外部中断寄存器</td>
-<td>flash</td>
-<td>闪存</td>
-</tr>
-<tr>
-<td>fsmc</td>
-<td>灵活的静态存储器控制器</td>
-<td>gpio</td>
-<td>通用I&#x2F;O接口</td>
-</tr>
-<tr>
-<td>i2c</td>
-<td>I²C总线接口</td>
-<td>iwdg</td>
-<td>独立看门狗</td>
-</tr>
-<tr>
-<td>pwr</td>
-<td>电源控制</td>
-<td>rcc</td>
-<td>复位和时钟控制器</td>
-</tr>
-<tr>
-<td>rtc</td>
-<td>实时时钟</td>
-<td>sdio</td>
-<td>SD存储卡接口</td>
-</tr>
-<tr>
-<td>spi</td>
-<td>SPI串行外设接口</td>
-<td>tim</td>
-<td>定时器</td>
-</tr>
-<tr>
-<td>usart</td>
-<td>通用同步异步收发器</td>
-<td>wwdg</td>
-<td>窗口看门狗</td>
-</tr>
-</tbody></table>
-<h3 id="4-2-STM32微控制器开发"><a href="#4-2-STM32微控制器开发" class="headerlink" title="4.2 STM32微控制器开发"></a>4.2 STM32微控制器开发</h3><h4 id="4-2-3-C语言应用"><a href="#4-2-3-C语言应用" class="headerlink" title="4.2.3 C语言应用"></a>4.2.3 C语言应用</h4><h5 id="2-C语言的位操作"><a href="#2-C语言的位操作" class="headerlink" title="2. C语言的位操作"></a>2. C语言的位操作</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">//位与实现复位:将整形变量a的D6位清零，其他位不变。</span></span><br><span class="line">a |= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位或实现置位:将整形变量a的D6位置位，其他位不变。</span></span><br><span class="line">a ^= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位异或实现求反：将整形变量a的D6位取反，其他位不变</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3-复位与时钟控制-RCC"><a href="#4-3-复位与时钟控制-RCC" class="headerlink" title="4.3 复位与时钟控制(RCC)"></a>4.3 复位与时钟控制(RCC)</h3><h5 id="1-电源控制"><a href="#1-电源控制" class="headerlink" title="1. 电源控制"></a>1. 电源控制</h5><p>3种低功耗模式</p>
-<ul>
-<li><p>睡眠模式(Sleep Mode)</p>
-</li>
-<li><p>停止模式(Stop Mode)</p>
-</li>
-<li><p>备用模式(Standby Mode)</p>
-</li>
-</ul>
-<h5 id="2-复位"><a href="#2-复位" class="headerlink" title="2. 复位"></a>2. 复位</h5><p>三种复位：系统复位、电源复位和备份复位</p>
-<h5 id="3-时钟树"><a href="#3-时钟树" class="headerlink" title="3. 时钟树"></a>3. 时钟树</h5><p>系统时钟 SYSCLK</p>
-<p>内部高速时钟HIS、高速外部时钟HSE和锁相环PLL</p>
-<h2 id="第五章-STM32的通用I-x2F-O端口"><a href="#第五章-STM32的通用I-x2F-O端口" class="headerlink" title="第五章 STM32的通用I&#x2F;O端口"></a>第五章 STM32的通用I&#x2F;O端口</h2><h3 id="5-1-GPIO的结构和功能"><a href="#5-1-GPIO的结构和功能" class="headerlink" title="5.1 GPIO的结构和功能"></a>5.1 GPIO的结构和功能</h3><p>GPIO一共112个引脚，用GPIOx(x是A、B、C、D、E、F、G)表示，即GPIOA GPIOB … GPIOG。每组端口有16个外设引脚，分别用Px0,Px1,…Px15(x是A~G)表示。</p>
-<h5 id="1-输入模式"><a href="#1-输入模式" class="headerlink" title="1.输入模式"></a>1.输入模式</h5><p>4种输入模式：</p>
-<ul>
-<li>模拟输入模式(Analog): 不上拉也不下拉</li>
-<li>浮空输入模式(Input Floating): 不上拉也不下拉 </li>
-<li>上拉输入模式(Input Pull-up): 接上拉电阻</li>
-<li>下拉输入模式(Input Pull-down): 接下拉电阻</li>
-</ul>
-<h5 id="2-输出模式"><a href="#2-输出模式" class="headerlink" title="2. 输出模式"></a>2. 输出模式</h5><p>4中输出模式，但是常用以下两种输出模式:</p>
-<ul>
-<li><p>推挽输出(Output Push-Pull)</p>
-</li>
-<li><p>开漏输出(Output Open-Drain)</p>
-</li>
-</ul>
-<h3 id="5-3-GPIO-案例"><a href="#5-3-GPIO-案例" class="headerlink" title="5.3 GPIO 案例"></a>5.3 GPIO 案例</h3><h4 id="5-3-2-应用程序分析"><a href="#5-3-2-应用程序分析" class="headerlink" title="5.3.2 应用程序分析"></a>5.3.2 应用程序分析</h4><h5 id="1-开启外设时钟"><a href="#1-开启外设时钟" class="headerlink" title="1. 开启外设时钟"></a>1. 开启外设时钟</h5><h5 id="2-初始化外设"><a href="#2-初始化外设" class="headerlink" title="2. 初始化外设"></a>2. 初始化外设</h5><h5 id="3-控制外设工作"><a href="#3-控制外设工作" class="headerlink" title="3. 控制外设工作"></a>3. 控制外设工作</h5><h4 id="5-3-3-实例代码"><a href="#5-3-3-实例代码" class="headerlink" title="5.3.3 实例代码"></a>5.3.3 实例代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HAL_GPIO_WritePin(GPIOB，GPIO_PIN_5，GPIO_PIN_RESET)；</span><br><span class="line"><span class="comment">// PB5引脚输出低电平，LED0灯亮</span></span><br><span class="line">HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5,GPIO_PIN_SET);</span><br><span class="line"><span class="comment">// PE5 引脚输出高电平，LED1灯灭</span></span><br><span class="line">HAL_Delay(<span class="number">1000</span>) <span class="comment">//持续1秒</span></span><br><span class="line"></span><br><span class="line">HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_5);</span><br><span class="line"><span class="comment">// 读取PC5引脚的电平状态</span></span><br><span class="line"></span><br><span class="line">HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);</span><br><span class="line"><span class="comment">// 反转 PE3 引脚的电平状态</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="第六章-CM3异常和STM32中断"><a href="#第六章-CM3异常和STM32中断" class="headerlink" title="第六章 CM3异常和STM32中断"></a>第六章 CM3异常和STM32中断</h2><h3 id="6-1-Cortex-M3-的异常"><a href="#6-1-Cortex-M3-的异常" class="headerlink" title="6.1 Cortex-M3 的异常"></a>6.1 Cortex-M3 的异常</h3><h5 id="2-异常优先级"><a href="#2-异常优先级" class="headerlink" title="2.异常优先级"></a>2.异常优先级</h5><p>优先级的数值越小，优先级越高</p>
-<p>组优先级（Group Priority）和子优先级(Sub-Priority)。组优先级被称为抢占优先级。</p>
-<p>组优先级确定是否可以打断正在执行的中断，实现嵌套。子优先级只用于在相同组优先级时多个子优先级同时出现的情况，高优先级别（优先级数值小）的异常首先被处理。</p>
-<h5 id="3-嵌套向量中断控制器NVIC"><a href="#3-嵌套向量中断控制器NVIC" class="headerlink" title="3. 嵌套向量中断控制器NVIC"></a>3. 嵌套向量中断控制器NVIC</h5><p>NVIC 集成在 ARM Cortex-M3 内核中</p>
-<h3 id="6-2-STM32的中断应用"><a href="#6-2-STM32的中断应用" class="headerlink" title="6.2 STM32的中断应用"></a>6.2 STM32的中断应用</h3><h4 id="6-2-1-NVIC-初始化配置"><a href="#6-2-1-NVIC-初始化配置" class="headerlink" title="6.2.1 NVIC 初始化配置"></a>6.2.1 NVIC 初始化配置</h4><h5 id="1-配置组优先级"><a href="#1-配置组优先级" class="headerlink" title="1. 配置组优先级"></a>1. 配置组优先级</h5><img src = "./8.png">
-
-<h4 id="6-2-2-外部中断EXTI"><a href="#6-2-2-外部中断EXTI" class="headerlink" title="6.2.2 外部中断EXTI"></a>6.2.2 外部中断EXTI</h4><p>STM32 芯片外设的中断请求直接连接到 NVIC，来自芯片之外的外设中断请求需要通过EXTI（外部中断&#x2F;事件控制器）连接到NVIC。</p>
-<h5 id="2-EXTI-寄存器"><a href="#2-EXTI-寄存器" class="headerlink" title="2. EXTI 寄存器"></a>2. EXTI 寄存器</h5><img src = "./9.png">
-
-<img src = "./10.png">
-
-<h2 id="第七章-STM32-的串行通信接口"><a href="#第七章-STM32-的串行通信接口" class="headerlink" title="第七章 STM32 的串行通信接口"></a>第七章 STM32 的串行通信接口</h2><h3 id="7-1-串行异步通信"><a href="#7-1-串行异步通信" class="headerlink" title="7.1 串行异步通信"></a>7.1 串行异步通信</h3><p>串行通信有两类：<strong>一类</strong>是速度较快的同步串行通信，以数据块为基本传输单位，主要应用于网络连接；<strong>另一类</strong>是速度较慢的异步通信，以字符为单位传输，主要应用于近距离通信。通常所说的串行通信一般是指<strong>串行同步通信</strong></p>
-<h4 id="7-1-1-串行异步通信字符格式"><a href="#7-1-1-串行异步通信字符格式" class="headerlink" title="7.1.1 串行异步通信字符格式"></a>7.1.1 串行异步通信字符格式</h4><img src = "./11.png">
-
-<ul>
-<li><p>起始位(Start Bit): 采取逻辑 0 电平</p>
-</li>
-<li><p>数据位(Data Bit): 一般是8位</p>
-</li>
-<li><p>校验位(Parity Bit): 可有可无，一般是奇偶校验位</p>
-</li>
-<li><p>停止位(Stop Bit): 字符最后必须有停止位，采取逻辑1电平</p>
-</li>
-</ul>
-<p>通信传输速率要相同，如9600bps表示一秒传输9600位</p>
-<h4 id="7-1-2-串行异步通信接口"><a href="#7-1-2-串行异步通信接口" class="headerlink" title="7.1.2 串行异步通信接口"></a>7.1.2 串行异步通信接口</h4><h5 id="1-RS-232标准的引脚定义"><a href="#1-RS-232标准的引脚定义" class="headerlink" title="1. RS-232标准的引脚定义"></a>1. RS-232标准的引脚定义</h5><ul>
-<li>TxD(Transmitted Data,发送数据)</li>
-<li>RxD(Received Data, 接收数据)</li>
-<li>RTS(Request To Send，请求发送)</li>
-<li>CTS(Clear To Send，清除发送)</li>
-<li>DTR(Data Terminal Ready，数据终端准备好)</li>
-<li>DSR(Data Set Ready，数据装置准备好)</li>
-<li>GND(Ground，信号地)</li>
-<li>CD(Carrier Detected，载波检测)</li>
-<li>RI(RIng Indicator，振铃指示)</li>
-</ul>
-<h5 id="2-RS-232接口的连接"><a href="#2-RS-232接口的连接" class="headerlink" title="2. RS-232接口的连接"></a>2. RS-232接口的连接</h5><p>三线相连</p>
-<img src = "./12.png">
-
-<h3 id="7-2-通用同步-x2F-异步接收-x2F-发送器"><a href="#7-2-通用同步-x2F-异步接收-x2F-发送器" class="headerlink" title="7.2 通用同步&#x2F;异步接收&#x2F;发送器"></a>7.2 通用同步&#x2F;异步接收&#x2F;发送器</h3><p>通用同步&#x2F;异步接收&#x2F;发送器（USART）和通用异步接收&#x2F;发送器(UART)</p>
-
-          
+          <h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1.1 嵌入式系统概述"></a>1.1 嵌入式系统概述</h3><h4 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h4><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2023/06/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -679,6 +544,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  173
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -831,6 +727,37 @@
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  75
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
           
 
           
@@ -994,11 +921,39 @@
           
           
 
-          
-          
+        
+        
+	 <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()",1000);
+BirthDay=new Date("06/12/2023 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+
+
 
           
-
         </div>
       </section>
 
@@ -1007,6 +962,10 @@
       
 
     </div>
+    
+    
+
+
   </aside>
 
 
@@ -1022,6 +981,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">琉心</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">2.2k</span>
   
 </div>
 
@@ -1052,6 +1020,12 @@
       </div>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
   </div>
@@ -1208,6 +1182,323 @@
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1219,6 +1510,43 @@
   
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   
