@@ -198,10 +198,49 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h3><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
-<h3 id="1-1-2-嵌入式系统的技术特点"><a href="#1-1-2-嵌入式系统的技术特点" class="headerlink" title="1.1.2 嵌入式系统的技术特点"></a>1.1.2 嵌入式系统的技术特点</h3><p>四大特性：专用性、低成本、可裁剪性、可靠性</p>
-<h3 id="1-1-3-嵌入式系统的组成"><a href="#1-1-3-嵌入式系统的组成" class="headerlink" title="1.1.3 嵌入式系统的组成"></a>1.1.3 嵌入式系统的组成</h3><p>分为硬件设备和软件设备，嵌入式处理器-&gt;硬件核心。</p>
+        <h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1.1 嵌入式系统概述"></a>1.1 嵌入式系统概述</h3><h4 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h4><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
+<h4 id="1-1-2-嵌入式系统的技术特点"><a href="#1-1-2-嵌入式系统的技术特点" class="headerlink" title="1.1.2 嵌入式系统的技术特点"></a>1.1.2 嵌入式系统的技术特点</h4><p>四大特性：专用性、低成本、可裁剪性、可靠性</p>
+<h4 id="1-1-3-嵌入式系统的组成"><a href="#1-1-3-嵌入式系统的组成" class="headerlink" title="1.1.3 嵌入式系统的组成"></a>1.1.3 嵌入式系统的组成</h4><p>分为硬件设备和软件设备，嵌入式处理器-&gt;硬件核心。</p>
 <img src = "./1.png">
+
+<h5 id="1）嵌入式处理器类型"><a href="#1）嵌入式处理器类型" class="headerlink" title="1）嵌入式处理器类型"></a>1）嵌入式处理器类型</h5><p>微控制器(MCU)；嵌入式微处理器(MPU)；数字信号处理器(DSP)；片上系统(Soc)</p>
+<h5 id="2）嵌入式操作系统"><a href="#2）嵌入式操作系统" class="headerlink" title="2）嵌入式操作系统"></a>2）嵌入式操作系统</h5><p>谷歌的Android系统和苹果的iOS系统。实时操作系统常用免费的uC&#x2F;OS-II或者商业化的VxWorks等。</p>
+<h3 id="1-2-嵌入式系统的开发"><a href="#1-2-嵌入式系统的开发" class="headerlink" title="1.2 嵌入式系统的开发"></a>1.2 嵌入式系统的开发</h3><h4 id="1-2-1-嵌入式系统的开发模式"><a href="#1-2-1-嵌入式系统的开发模式" class="headerlink" title="1.2.1 嵌入式系统的开发模式"></a>1.2.1 嵌入式系统的开发模式</h4><p>宿主机-目标机(开发模式)</p>
+<h2 id="第二章-ARM-Cortex-M3-处理器"><a href="#第二章-ARM-Cortex-M3-处理器" class="headerlink" title="第二章 ARM Cortex-M3 处理器"></a>第二章 ARM Cortex-M3 处理器</h2><h3 id="2-2-Cortex-M3-处理器"><a href="#2-2-Cortex-M3-处理器" class="headerlink" title="2.2 Cortex-M3 处理器"></a>2.2 Cortex-M3 处理器</h3><ul>
+<li>CM3的功能模块<br>高性能32位RISC处理器；大量寄存器，都可用于多种用途；采用Thumb指令集结构；3级流水线（取指-译码-执行）；采用哈佛存储结构；高级微控制器总线结构</li>
+</ul>
+<p>CM3的两个状态两个级别两种模式</p>
+<img src = "./2.png">
+
+<ul>
+<li>两个状态：Thumb状态、调试状态 </li>
+<li>两个级别：特权级、非特权级</li>
+<li>两种模式：异常处理模式、线程模式</li>
+</ul>
+<h3 id="2-3-寄存器"><a href="#2-3-寄存器" class="headerlink" title="2.3 寄存器"></a>2.3 寄存器</h3><h4 id="1-通用寄存器"><a href="#1-通用寄存器" class="headerlink" title="1.通用寄存器"></a>1.通用寄存器</h4><img src = "./3.png">
+
+<p>CM3设计有16个32位通用寄存器，R0~R12是真正意义上的通用寄存器。</p>
+<h4 id="2-专用寄存器"><a href="#2-专用寄存器" class="headerlink" title="2.专用寄存器"></a>2.专用寄存器</h4><img src = "./4.png">
+
+<p>专用寄存器不通过存储器地址访问，而是使用专用寄存器访问指令</p>
+<ul>
+<li><p>程序状态寄存器(Program Status Register,PSR)</p>
+</li>
+<li><p>异常屏蔽位寄存器(Exception Mask Register)</p>
+</li>
+</ul>
+<h3 id="2-4-存储器组织"><a href="#2-4-存储器组织" class="headerlink" title="2.4 存储器组织"></a>2.4 存储器组织</h3><h5 id="2-位带区"><a href="#2-位带区" class="headerlink" title="2.位带区"></a>2.位带区</h5><img src = "./5.png">
+
+<p>别名地址&#x3D;位带基地址+字节偏移量×32+位号×4</p>
+<ul>
+<li><p>位带基地址通常情况下为:0x22000以及0x42000</p>
+</li>
+<li><p>字节偏移量根据要访问的位带地址距离基地址0x2000和0x4000的偏移值</p>
+</li>
+<li><p>位号：题目会给</p>
+</li>
+</ul>
+
       
     </div>
     
