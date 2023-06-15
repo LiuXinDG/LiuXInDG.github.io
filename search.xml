@@ -382,6 +382,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Golang学习_指针</title>
+    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h1 id="Go语言基础之指针"><a href="#Go语言基础之指针" class="headerlink" title="Go语言基础之指针"></a>Go语言基础之指针</h1><h2 id="一、Go语言中的指针"><a href="#一、Go语言中的指针" class="headerlink" title="一、Go语言中的指针"></a>一、Go语言中的指针</h2><p>任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。</p>
+<p>Go语言中的指针不能进行偏移和运算，因此Go语言中的指针操作非常简单，我们只需要记住两个符号：<code>&amp;（取地址）</code>和<code>*（根据地址取值）</code>。</p>
+<span id="more"></span>
+
+<h3 id="1-1-指针地址和指针类型"><a href="#1-1-指针地址和指针类型" class="headerlink" title="1.1 指针地址和指针类型"></a>1.1 指针地址和指针类型</h3><p>个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用&amp;字符放在变量前面对变量进行“取地址”操作。 Go语言中的值类型（int、float、bool、string、array、struct）都有对应的指针类型，如:<code>*int</code>、<code>*int64</code>、<code>*string</code>等。</p>
+<p>取变量指针的语法如下：</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">ptr := &amp;v</span><br></pre></td></tr></table></figure>
+<p>其中:</p>
+<ul>
+<li>v: 代表被取地址的变量，类型为 T</li>
+<li>ptr: 用于接收地址的变量，ptr的类型为 <code>*T</code>，称作T的指针类型。*表示指针。</li>
+</ul>
+<h3 id="1-2-指针取值"><a href="#1-2-指针取值" class="headerlink" title="1.2 指针取值"></a>1.2 指针取值</h3><p>在对普通变量使用&amp;操作符取地址后会获得这个变量的指针，然后可以对指针使用*操作，也就是指针取值，代码如下。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">10</span></span><br><span class="line">    b := &amp;a <span class="comment">//取变量a的地址，将指针保存在b中</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of b:%T\n&quot;</span>, b)</span><br><span class="line">    c := *b <span class="comment">//指针取值</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of c:%T\n&quot;</span>, c)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;value of c:%v\n&quot;</span>,c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结： 取地址操作符&amp;和取值操作符<em>是一对互补操作符，&amp;取出地址，</em>根据地址取出地址指向的值。</p>
+<p>变量、指针地址、指针变量、取地址、取值的相互关系和特性如下：</p>
+<ul>
+<li>对变量进行取地址（&amp;）操作，可以获得这个变量的指针变量。</li>
+<li>指针变量的值是指针地址。</li>
+<li>对指针变量进行取值(*)操作，可以获得指针变量指向的原变量的值。</li>
+</ul>
+<h3 id="1-3-new和make"><a href="#1-3-new和make" class="headerlink" title="1.3 new和make"></a>1.3 new和make</h3><h4 id="1-new"><a href="#1-new" class="headerlink" title="1) new"></a>1) new</h4><p>new是一个内置的函数，它的函数签名如下:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">new</span><span class="params">(Type)</span></span> *Type</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Type表示类型，new函数只接受一个参数，这个参数是一个类型</li>
+<li>*Type表示类型指针，new函数返回一个指向该类型内存地址的指针。</li>
+</ul>
+<p>指针作为引用类型需要初始化后才会拥有内存空间，才可以给它复制。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a *<span class="type">int</span></span><br><span class="line">    a = <span class="built_in">new</span>(<span class="type">int</span>)</span><br><span class="line">    *a = <span class="number">10</span></span><br><span class="line">    fmt.Println(*a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-make"><a href="#2-make" class="headerlink" title="2) make"></a>2) make</h4><p>make也是用于内存分配的，区别于new，它只用于slice、map以及channel的内存创建，而且它返回的类型就是这三个类型本身，而不是他们的指针类型，因为这三种类型就是引用类型，所以就没有必要返回他们的指针了。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">make</span><span class="params">(t Type,size ...IntegerType)</span></span> Type</span><br></pre></td></tr></table></figure>
+<p>make函数是无可替代的，我们在使用slice、map以及channel的时候，都需要使用make进行初始化，然后才可以对它们进行操作。</p>
+<h4 id="3-new与make的区别"><a href="#3-new与make的区别" class="headerlink" title="3) new与make的区别"></a>3) new与make的区别</h4><p>1.二者都是用来做内存分配的。<br>2.make只用于slice、map以及channel的初始化，返回的还是这三个引用类型本身;<br>3.而new用于类型的内存分配，并且内存对应的值为类型零值，返回的是指向类型的指针。</p>
+]]></content>
+      <categories>
+        <category>Go语言</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+        <tag>指针</tag>
+        <tag>point</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Golang学习_基础语法</title>
     <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Go语言"><a href="#Go语言" class="headerlink" title="Go语言"></a>Go语言</h1><p>Go语言（Google开源、编译型语言、21世纪的C语言）</p>
@@ -859,55 +908,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Golang学习_指针</title>
-    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h1 id="Go语言基础之指针"><a href="#Go语言基础之指针" class="headerlink" title="Go语言基础之指针"></a>Go语言基础之指针</h1><h2 id="一、Go语言中的指针"><a href="#一、Go语言中的指针" class="headerlink" title="一、Go语言中的指针"></a>一、Go语言中的指针</h2><p>任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。</p>
-<p>Go语言中的指针不能进行偏移和运算，因此Go语言中的指针操作非常简单，我们只需要记住两个符号：<code>&amp;（取地址）</code>和<code>*（根据地址取值）</code>。</p>
-<span id="more"></span>
-
-<h3 id="1-1-指针地址和指针类型"><a href="#1-1-指针地址和指针类型" class="headerlink" title="1.1 指针地址和指针类型"></a>1.1 指针地址和指针类型</h3><p>个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用&amp;字符放在变量前面对变量进行“取地址”操作。 Go语言中的值类型（int、float、bool、string、array、struct）都有对应的指针类型，如:<code>*int</code>、<code>*int64</code>、<code>*string</code>等。</p>
-<p>取变量指针的语法如下：</p>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">ptr := &amp;v</span><br></pre></td></tr></table></figure>
-<p>其中:</p>
-<ul>
-<li>v: 代表被取地址的变量，类型为 T</li>
-<li>ptr: 用于接收地址的变量，ptr的类型为 <code>*T</code>，称作T的指针类型。*表示指针。</li>
-</ul>
-<h3 id="1-2-指针取值"><a href="#1-2-指针取值" class="headerlink" title="1.2 指针取值"></a>1.2 指针取值</h3><p>在对普通变量使用&amp;操作符取地址后会获得这个变量的指针，然后可以对指针使用*操作，也就是指针取值，代码如下。</p>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">10</span></span><br><span class="line">    b := &amp;a <span class="comment">//取变量a的地址，将指针保存在b中</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of b:%T\n&quot;</span>, b)</span><br><span class="line">    c := *b <span class="comment">//指针取值</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of c:%T\n&quot;</span>, c)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;value of c:%v\n&quot;</span>,c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结： 取地址操作符&amp;和取值操作符<em>是一对互补操作符，&amp;取出地址，</em>根据地址取出地址指向的值。</p>
-<p>变量、指针地址、指针变量、取地址、取值的相互关系和特性如下：</p>
-<ul>
-<li>对变量进行取地址（&amp;）操作，可以获得这个变量的指针变量。</li>
-<li>指针变量的值是指针地址。</li>
-<li>对指针变量进行取值(*)操作，可以获得指针变量指向的原变量的值。</li>
-</ul>
-<h3 id="1-3-new和make"><a href="#1-3-new和make" class="headerlink" title="1.3 new和make"></a>1.3 new和make</h3><h4 id="1-new"><a href="#1-new" class="headerlink" title="1) new"></a>1) new</h4><p>new是一个内置的函数，它的函数签名如下:</p>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">new</span><span class="params">(Type)</span></span> *Type</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Type表示类型，new函数只接受一个参数，这个参数是一个类型</li>
-<li>*Type表示类型指针，new函数返回一个指向该类型内存地址的指针。</li>
-</ul>
-<p>指针作为引用类型需要初始化后才会拥有内存空间，才可以给它复制。</p>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a *<span class="type">int</span></span><br><span class="line">    a = <span class="built_in">new</span>(<span class="type">int</span>)</span><br><span class="line">    *a = <span class="number">10</span></span><br><span class="line">    fmt.Println(*a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-make"><a href="#2-make" class="headerlink" title="2) make"></a>2) make</h4><p>make也是用于内存分配的，区别于new，它只用于slice、map以及channel的内存创建，而且它返回的类型就是这三个类型本身，而不是他们的指针类型，因为这三种类型就是引用类型，所以就没有必要返回他们的指针了。</p>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">make</span><span class="params">(t Type,size ...IntegerType)</span></span> Type</span><br></pre></td></tr></table></figure>
-<p>make函数是无可替代的，我们在使用slice、map以及channel的时候，都需要使用make进行初始化，然后才可以对它们进行操作。</p>
-<h4 id="3-new与make的区别"><a href="#3-new与make的区别" class="headerlink" title="3) new与make的区别"></a>3) new与make的区别</h4><p>1.二者都是用来做内存分配的。<br>2.make只用于slice、map以及channel的初始化，返回的还是这三个引用类型本身;<br>3.而new用于类型的内存分配，并且内存对应的值为类型零值，返回的是指向类型的指针。</p>
-]]></content>
-      <categories>
-        <category>Go语言</category>
-      </categories>
-      <tags>
-        <tag>golang</tag>
-        <tag>指针</tag>
-        <tag>point</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Golang学习_结构体</title>
     <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E7%BB%93%E6%9E%84%E4%BD%93/</url>
     <content><![CDATA[<h1 id="Go语言基础之结构体"><a href="#Go语言基础之结构体" class="headerlink" title="Go语言基础之结构体"></a>Go语言基础之结构体</h1><h2 id="一、类型别名和自定义类型"><a href="#一、类型别名和自定义类型" class="headerlink" title="一、类型别名和自定义类型"></a>一、类型别名和自定义类型</h2><h3 id="1-1-自定义类型"><a href="#1-1-自定义类型" class="headerlink" title="1.1 自定义类型"></a>1.1 自定义类型</h3><p>在Go语言中有一些基本的数据类型，如<code>string</code>、<code>整型</code>、<code>浮点型</code>、<code>布尔</code>等数据类型， Go语言中可以使用<code>type</code>关键字来定义自定义类型。</p>
@@ -1043,34 +1043,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>text1</title>
-    <url>/2023/06/13/text1/</url>
-    <content><![CDATA[<h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><ol start="5">
-<li>. 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。</li>
-<li>202.96.128.128</li>
-<li>D 节省</li>
-<li>银行</li>
-<li>对<br>10 无缓冲是同步的<br>11。 132<br>12 func f(a,b int) (value int, error)</li>
-</ol>
-<p>13 int 和体系架构</p>
-<p>14 其他三个</p>
-<p>15 主键是唯一、不为空</p>
-<p>16 direct </p>
-<p>17 直接插入</p>
-<p>18 堆</p>
-<p>19 在100000</p>
-<p>20 不选进程是动态的过程</p>
-<p>21 不选 HTTP返回码 302</p>
-<p>22 选 协程和线程都可以 以及 通过 channel</p>
-<p>23 不选接口赋值</p>
-<p>24 不选 数据库索引的存在</p>
-<p>25 不选 POST比get安全 </p>
-<p>26 不选域名解析</p>
-<p>27 只选快速 12</p>
-<p>28</p>
 ]]></content>
   </entry>
   <entry>
@@ -1294,5 +1266,33 @@
     <title>近代史</title>
     <url>/2023/06/15/%E8%BF%91%E4%BB%A3%E5%8F%B2/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>text1</title>
+    <url>/2023/06/13/text1/</url>
+    <content><![CDATA[<h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><ol start="5">
+<li>. 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。</li>
+<li>202.96.128.128</li>
+<li>D 节省</li>
+<li>银行</li>
+<li>对<br>10 无缓冲是同步的<br>11。 132<br>12 func f(a,b int) (value int, error)</li>
+</ol>
+<p>13 int 和体系架构</p>
+<p>14 其他三个</p>
+<p>15 主键是唯一、不为空</p>
+<p>16 direct </p>
+<p>17 直接插入</p>
+<p>18 堆</p>
+<p>19 在100000</p>
+<p>20 不选进程是动态的过程</p>
+<p>21 不选 HTTP返回码 302</p>
+<p>22 选 协程和线程都可以 以及 通过 channel</p>
+<p>23 不选接口赋值</p>
+<p>24 不选 数据库索引的存在</p>
+<p>25 不选 POST比get安全 </p>
+<p>26 不选域名解析</p>
+<p>27 只选快速 12</p>
+<p>28</p>
+]]></content>
   </entry>
 </search>
