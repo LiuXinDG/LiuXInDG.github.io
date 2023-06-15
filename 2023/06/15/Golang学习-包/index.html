@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/1.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="golang,包,package," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Go语言基础之包一、包与依赖管理1.1 包(package)1）包介绍Go语言中支持模块化的开发理念，在Go语言中 包 package来支持代码模块化和代码复用。Go语言为我们提供了很多内置包，如fmt、os、io等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Golang学习_包">
+<meta property="og:url" content="https://liuxindg.gitbub.io/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%8C%85/index.html">
+<meta property="og:site_name" content="琉心的博客">
+<meta property="og:description" content="Go语言基础之包一、包与依赖管理1.1 包(package)1）包介绍Go语言中支持模块化的开发理念，在Go语言中 包 package来支持代码模块化和代码复用。Go语言为我们提供了很多内置包，如fmt、os、io等。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-06-15T05:07:20.000Z">
+<meta property="article:modified_time" content="2023-06-15T05:10:18.414Z">
+<meta property="article:author" content="琉心">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="包">
+<meta property="article:tag" content="package">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://LiuXinDG.gitbub.io/2023/06/15/Golang学习-包/"/>
+
+
+
+
+
+  <title>Golang学习_包 | 琉心的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">琉心的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学以致用，方能翱翔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://LiuXinDG.gitbub.io/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/20230613-193018.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="琉心的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Golang学习_包</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-06-15T13:07:20+08:00">
+                2023-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Go%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Go语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%8C%85/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%8C%85/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Go语言基础之包"><a href="#Go语言基础之包" class="headerlink" title="Go语言基础之包"></a>Go语言基础之包</h1><h2 id="一、包与依赖管理"><a href="#一、包与依赖管理" class="headerlink" title="一、包与依赖管理"></a>一、包与依赖管理</h2><h3 id="1-1-包-package"><a href="#1-1-包-package" class="headerlink" title="1.1 包(package)"></a>1.1 包(package)</h3><h4 id="1）包介绍"><a href="#1）包介绍" class="headerlink" title="1）包介绍"></a>1）包介绍</h4><p>Go语言中支持模块化的开发理念，在Go语言中 <code>包 package</code>来支持代码模块化和代码复用。Go语言为我们提供了很多内置包，如<code>fmt</code>、<code>os</code>、<code>io</code>等。</p>
+<span id="more"></span>
+
+<h4 id="2）定义包"><a href="#2）定义包" class="headerlink" title="2）定义包"></a>2）定义包</h4><p>我们可以根据自己的需要创建定义包。一个包可以简单理解成一个存放<code>.go</code>文件的文件夹。该文件夹下的所有文件都需要在非注释的第一行进行声明，声明该文件所属的包</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> packagename</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>package: 声明包的关键字</p>
+</li>
+<li><p>pakagename: 包名，可以不与文件夹的名称一致，不能包含<code>-</code>符号，最好与其实现的功能相互对应</p>
+</li>
+</ul>
+<p>一个文件夹下面直接包含的文件只能归属一个包，同一个包的文件不能在多个文件夹下。</p>
+<h4 id="3）标识符可见性"><a href="#3）标识符可见性" class="headerlink" title="3）标识符可见性"></a>3）标识符可见性</h4><p>在同一个包内部声明的标识符都位于同一个命名空间下，在不同的包内部声明的标识符就属于不同的命名空间。想要在包的外部使用包内部的标识符就需要添加包名前缀，例如<code>fmt.Println(&quot;Hello world!&quot;)</code>，就是指调用<code>fmt</code>包中的<code>Println</code>函数。</p>
+<p>Go语言中通过标识符的首字母大&#x2F;小写来控制标识符的对外可见(public)&#x2F;不可见(private)的。在一个包内部只有首字母大写的标识符才是对外可见的。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> demo</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// num定义一个全局整型变量</span></span><br><span class="line"><span class="comment">// 首字母小写，对外不可见</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mode 定义一个常量</span></span><br><span class="line"><span class="comment">// 首字母大写，对外可见</span></span><br><span class="line"><span class="keyword">const</span> Mode = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// person定义一个代表人的结构体</span></span><br><span class="line"><span class="comment">// 首字母小写，对外不可见</span></span><br><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="type">string</span></span><br><span class="line">    Age <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Add 返回两个整数和的函数</span></span><br><span class="line"><span class="comment">// 首字母大写，对外可见</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Add</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// sayHi 打招呼的函数</span></span><br><span class="line"><span class="comment">// 首字母小写，对外不可见</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHi</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> myName = <span class="string">&quot;七米&quot;</span></span><br><span class="line">    fmt.Println(myName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结构体中可导出字段的字段名称必须首字母大写</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="type">string</span> <span class="comment">//可在包外访问</span></span><br><span class="line">    class <span class="type">string</span> <span class="comment">//仅在包内访问</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4）包的引入"><a href="#4）包的引入" class="headerlink" title="4）包的引入"></a>4）包的引入</h4><p>要在当前包中使用另外一个包的内容就需要使用import关键字引入这个包，并且import语句通常放在文件的开头，package声明语句的下方。完整的引入声明语句格式如下:</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> importname <span class="string">&quot;path/to/package&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>importname: 引入的包名，通常都省略。默认值为引入包的包名。</p>
+</li>
+<li><p>path&#x2F;to&#x2F;package: 引入包的路径名称，必须使用双引号包裹起来。</p>
+</li>
+<li><p>Go语言中禁止循环导入包</p>
+</li>
+</ul>
+<p>一个Go源码文件可以同时引入多个包</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;net/http&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;os&quot;</span></span><br></pre></td></tr></table></figure>
+<p>当然也可以采用批量引入的方式</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>当引入的多个包中存在相同的包名或者想自行为某个引入的包设置一个新包名时，都需要通过importname指定一个在当前文件中使用的新包名。例如，在引入fmt包时为其指定一个新包名f。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">&quot;fmt&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果引入一个包的时候为其设置了一个特殊_作为包名，那么这个包的引入方式就称为匿名引入。一个包被匿名引入的目的主要是为了加载这个包，从而使得这个包中的资源得以初始化。 被匿名引入的包中的init函数将被执行并且仅执行一遍。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;github.com/go-sql-driver/mysql&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5）init初始化函数"><a href="#5）init初始化函数" class="headerlink" title="5）init初始化函数"></a>5）init初始化函数</h4><p>在每一个Go源文件中，都可以定义任意个如下格式的特殊函数:</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种特殊的函数不接收任何参数也没有任何返回值，我们也不能在代码中主动调用它。当程序启动的时候，init函数会按照它们声明的顺序自动执行。</p>
+<p>一个包的初始化过程是按照代码中引入的顺序来进行的，所有在该包中声明的init函数都将被串行调用并且仅调用执行一次。每一个包初始化的时候都是先执行依赖的包中声明的init函数再执行当前包中声明的init函数。</p>
+<h3 id="1-2-go-module"><a href="#1-2-go-module" class="headerlink" title="1.2 go module"></a>1.2 go module</h3><h4 id="1）go-module介绍"><a href="#1）go-module介绍" class="headerlink" title="1）go module介绍"></a>1）go module介绍</h4><p>go module相关指令</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>go mod init</td>
+<td>初始化项目依赖，生成go.mod文件</td>
+</tr>
+<tr>
+<td>go mod download</td>
+<td>根据go.mod文件下载依赖</td>
+</tr>
+<tr>
+<td>go mod tidy</td>
+<td>对比项目文件中引入的依赖与go.mod进行对比</td>
+</tr>
+<tr>
+<td>go mod graph</td>
+<td>输出依赖关系图</td>
+</tr>
+<tr>
+<td>go mod edit</td>
+<td>编辑go.mod文件</td>
+</tr>
+<tr>
+<td>go mod vendor</td>
+<td>将项目的所有依赖导出至vendor目录</td>
+</tr>
+<tr>
+<td>go mod verify</td>
+<td>检验一个依赖包是否被篡改过</td>
+</tr>
+<tr>
+<td>go mod why</td>
+<td>解释为什么需要这个依赖</td>
+</tr>
+</tbody></table>
+<h6 id="GOPROXY"><a href="#GOPROXY" class="headerlink" title="GOPROXY"></a>GOPROXY</h6><p>这个环境变量主要是用于设置Go模块代理(Go module proxy)，其作用是用于使Go在后续拉取模块版本时能够脱离传统的VCS方式，直接通过镜像站点来快速拉取。</p>
+<p>设置GOPROXY的命令如下：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go env -v GOPROXY=https://goproxy.cn,dirct</span><br></pre></td></tr></table></figure>
+
+<h6 id="GOPRIVATE"><a href="#GOPRIVATE" class="headerlink" title="GOPRIVATE"></a>GOPRIVATE</h6><p>设置了GOPROXY 之后，go 命令就会从配置的代理地址拉取和校验依赖包。当我们在项目中引入了非公开的包（公司内部git仓库或 github 私有仓库等），此时便无法正常从代理拉取到这些非公开的依赖包，这个时候就需要配置 GOPRIVATE 环境变量。GOPRIVATE用来告诉 go 命令哪些仓库属于私有仓库，不必通过代理服务器拉取和校验。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go env -w GOPRIVATE=&quot;git.mycompany.com&quot;</span><br></pre></td></tr></table></figure>
+<p>这样在拉取以git.mycompany.com为路径前缀的依赖包时就能正常拉取了。</p>
+<p>此外，如果公司内部自建了 GOPROXY 服务，那么我们可以通过设置 GONOPROXY&#x3D;none，允许通内部代理拉取私有仓库的包。</p>
+<h4 id="2）使用go-module引入包"><a href="#2）使用go-module引入包" class="headerlink" title="2）使用go module引入包"></a>2）使用go module引入包</h4><p>初始化项目：我们在本地新建一个名为 <code>holiday</code> 项目，按如下方式创建一个名为 <code>holiday</code> 的文件夹并切换到该目录下;</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> holiday</span><br><span class="line">$ <span class="built_in">cd</span> holiday</span><br></pre></td></tr></table></figure>
+
+<p>接下来初始化项目</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">go</span> <span class="built_in">mod</span> init holiday</span><br><span class="line"><span class="built_in">go</span>: creating <span class="built_in">new</span> <span class="built_in">go</span>.<span class="built_in">mod</span>: module holiday</span><br></pre></td></tr></table></figure>
+<p>该命令会自动在项目目录下创建一个 <code>go.mod</code> 文件，其内容如下:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">module</span> holiday</span><br><span class="line"></span><br><span class="line"><span class="attribute">go</span> <span class="number">1</span>.<span class="number">16</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>module holiday: 定义当前项目的导入路径</p>
+</li>
+<li><p>go 1.16: 标识当前项目使用的Go版本</p>
+</li>
+</ul>
+<p>下载依赖包的两种方法<br>一: 在项目目录下执行 <code>go get</code> 命令手动下载依赖的包，默认下载最新的发布版本。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/q1mi/hello</span><br><span class="line"><span class="keyword">go</span> <span class="built_in">get</span>: added github.<span class="keyword">com</span>/q1mi/hello v0.<span class="number">1.1</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以指定想要下载指定的版本号。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">go</span> get -u github.com/q1mi/hello@v0.<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">go</span>: downloading github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">go</span> get: downgraded github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">1</span> =&gt; v0.<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想指定下载某个 commit 对应的代码，可以直接指定commit hash，一般写出前7位即可。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">go</span> get github.com/q1mi/hello@<span class="number">2</span>ccfadd</span><br><span class="line"><span class="attribute">go</span>: downloading github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">2</span>-<span class="number">0</span>.<span class="number">20210219092711</span>-<span class="number">2</span>ccfaddad6a3</span><br><span class="line"><span class="attribute">go</span> get: added github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">2</span>-<span class="number">0</span>.<span class="number">20210219092711</span>-<span class="number">2</span>ccfaddad6a3</span><br></pre></td></tr></table></figure>
+
+<p>二: 直接编辑<code>go.mod</code>文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module holiday</span><br><span class="line"></span><br><span class="line">go 1.16</span><br><span class="line"></span><br><span class="line">require github.com/q1mi/hello latest</span><br></pre></td></tr></table></figure>
+
+<p>表示当前项目需要使用 <code>github.com/q1mi/hello</code> 库的最新版本，然后在项目目录下执行 <code>go mod download</code> 下载依赖包</p>
+<p>可以在 <code>go.mod</code> 文件中指定需要的版本进行下载，只用指定<code>commit hash</code>的前7位就好了。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require github.com<span class="regexp">/q1mi/</span>hello <span class="number">2</span>ccfadda</span><br></pre></td></tr></table></figure>
+
+<p>Go语言支持在一个项目（project）下定义多个包（package）。</p>
+<p>例如，我们在<code>holiday</code>项目内部创建一个新的package-<code>summer</code>，此时新的项目目录结构如下:</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">holidy</span><br><span class="line">├── <span class="built_in">go</span>.<span class="built_in">mod</span></span><br><span class="line">├── <span class="built_in">go</span>.<span class="built_in">sum</span></span><br><span class="line">├── main.<span class="built_in">go</span></span><br><span class="line">└── summer</span><br><span class="line">    └── summer.<span class="built_in">go</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>holiday/summer/summer.go</code> 文件内容如下:</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> summer</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Diving潜水</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Diving</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;夏天去诗巴丹潜水...&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当我们需要调用的时候</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;holiday/summer&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    summer.Diving()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以在holidy&#x2F;go.mod文件中正常引入liwenzhou.com&#x2F;overtime包，然后像下面的示例那样使用replace语句将这个依赖替换为使用相对路径表示的本地包。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module holiday</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">require github.com/q1mi/hello v0<span class="number">.1</span><span class="number">.1</span></span><br><span class="line"></span><br><span class="line">replace liwenzhou.com/overtime =&gt; ../overtime</span><br></pre></td></tr></table></figure>
+
+<p><strong>go.mod文件</strong></p>
+<p><code>go.mod</code>文件中记录了当前项目中所有依赖包的相关信息，声明依赖的格式如下:</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="built_in">module</span>/<span class="built_in">path</span> v1<span class="number">.2</span><span class="number">.3</span></span><br></pre></td></tr></table></figure>
+
+<p>其中:</p>
+<ul>
+<li><p>require: 声明依赖的关键字</p>
+</li>
+<li><p>module&#x2F;path: 依赖包的引入路径</p>
+</li>
+<li><p>v1.2.3: 依赖包的版本号。支持以下几种格式:</p>
+<ul>
+<li>latest: 最新版本</li>
+<li>v1.0.0: 详细版本号</li>
+<li>commit hash: 指定某次commit hash</li>
+</ul>
+</li>
+</ul>
+<p><strong>go.sum文件</strong></p>
+<p><code>go.sum</code>这个文件中详细记录了当前项目中引入的依赖包的信息及其hash 值。文件内容通常是以类似下面的格式出现。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&lt;module&gt;</span><span class="symbol">&lt;version&gt;</span>/<span class="keyword">go</span>.<span class="keyword">mod</span> <span class="symbol">&lt;hash&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&lt;module&gt;</span> <span class="symbol">&lt;version&gt;</span> <span class="symbol">&lt;hash&gt;</span></span><br><span class="line"><span class="symbol">&lt;module&gt;</span> <span class="symbol">&lt;version&gt;</span>/<span class="keyword">go</span>.<span class="keyword">mod</span> <span class="symbol">&lt;hash&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>依赖保存位置</strong></p>
+<p>Go module 会把下载到本地的依赖包会以类似下面的形式保存在 <code>$GOPATH/pkg/mod</code> 目录下，每个依赖包都会带有版本号进行区分，这样就允许在本地存在同一个包的多个不同版本。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mod</span><br><span class="line">├── <span class="keyword">cache</span></span><br><span class="line"><span class="keyword"></span>├── <span class="keyword">cloud.google.com</span></span><br><span class="line"><span class="keyword"></span>├── github.com</span><br><span class="line">    	└──q1mi</span><br><span class="line">          ├── hello@<span class="built_in">v0</span>.<span class="number">0</span>.<span class="number">0</span><span class="number">-20210218074646</span><span class="number">-139</span>b<span class="symbol">0b</span>cd549d</span><br><span class="line">          ├── hello@<span class="built_in">v0</span>.<span class="number">1</span>.<span class="number">1</span></span><br><span class="line">          └── hello@<span class="built_in">v0</span>.<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>如果想清除所有本地已缓存的依赖包数据，可以执行<code>go clean -modcache</code>命令。</p>
+<h4 id="3）使用go-module发布包"><a href="#3）使用go-module发布包" class="headerlink" title="3）使用go module发布包"></a>3）使用go module发布包</h4><p>我们首先在自己的 github 账号下新建一个项目，并把它下载到本地。我这里就以创建和发布一个名为hello的项目为例进行演示。这个hello包将对外提供一个名为SayHi的函数，它的作用非常简单就是向调用者发去问候。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/q1mi/hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> hello</span></span><br></pre></td></tr></table></figure>
+
+<p>我们当前位于<code>hello</code>项目目录下，执行下面的命令初始化项目，创建<code>go.mod</code>文件。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">go</span> <span class="keyword">mod</span> init github.<span class="keyword">com</span>/q1mi/hello</span><br><span class="line"><span class="keyword">go</span>: creating <span class="keyword">new</span> <span class="keyword">go</span>.<span class="keyword">mod</span>: module github.<span class="keyword">com</span>/q1mi/hello</span><br></pre></td></tr></table></figure>
+
+<p>接下来在该项目根目录下创建<code>hello.go</code>文件，添加下面的内容:</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SayHi</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;你好，我是七米。很高兴认识你。&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将该项目的代码push到仓库的远端分支，这样就对外发布了一个Go包。</p>
+<p>一个设计完善的包应该包含开源许可证及文档等内容，并且我们还应该尽心维护并适时发布适当的版本。github 上发布版本号使用git tag为代码包打上标签即可。</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">tag</span> <span class="title">-a</span> v0.<span class="number">1.0</span> -m <span class="string">&quot;release version v0.1.0&quot;</span></span><br><span class="line">$ git push origin v0.<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">v1</span>.<span class="number">2</span>.<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主版本号：发布了不兼容的版本迭代时递增(brakinng changes)。</li>
+<li>次版本号：发布了功能性更新时递增。</li>
+<li>修订号: 发布了bug修复类更新时递增。</li>
+</ul>
+<p><strong>发布新的主版本</strong></p>
+<p>现在我们的<code>hello</code>项目要进行与之前版本不兼容的更新，我们计划让<code>SayHi</code>函数支持向指定人发出问候。更新后的<code>SayHi</code>函数内容以下:</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// SayHi 向指定人打招呼的函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SayHi</span><span class="params">(name <span class="type">string</span>)</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;你好%s，我是七米。我很高兴认识你。\n&quot;</span>,name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于这次改动巨大（修改了函数之前的调用规则），对之前使用该包作为依赖的用户影响巨大。因此我们需要发布一个主版本号递增的v2版本。在这种情况下，我们通常会修改当前包的引入路径，像下面的示例一样为引入路径添加版本后缀。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">module</span> github.com/q1mi/hello/v2</span><br><span class="line"></span><br><span class="line"><span class="attribute">go</span> <span class="number">1</span>.<span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<p>把修改后的代码提交:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git add .</span><br><span class="line"><span class="variable">$ </span>git commit -m <span class="string">&quot;feat: sayHi现在支持给指定人打招呼&quot;</span></span><br><span class="line"><span class="variable">$ </span>git push</span><br></pre></td></tr></table></figure>
+
+<p>打好tag推送到远程仓库。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git tag -a <span class="built_in">v2</span>.<span class="number">0</span>.<span class="number">0</span> -m <span class="string">&quot;release version v2.0.0&quot;</span></span><br><span class="line">$ git <span class="keyword">push</span> origin <span class="built_in">v2</span>.<span class="number">0</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>这样在不影响使用旧版本的用户的前提下，我们新的版本也发布出去了。想要使用v2版本的代码包的用户只需按修改后的引入路径下载即可。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">go</span> get github.com/q1mi/hello/v2@<span class="number">2</span>.<span class="number">0</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>在代码中使用的过程与之前类似，只是需要注意引入路径要添加 v2 版本后缀。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;github.com/q1mi/hello/v2&quot;</span> <span class="comment">// 引入v2版本</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;现在是假期时间...&quot;</span>)</span><br><span class="line"></span><br><span class="line">	hello.SayHi(<span class="string">&quot;张三&quot;</span>) <span class="comment">// v2版本的SayHi函数需要传入字符串参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><font color=#FF000>废弃已发布的版本</font></strong></p>
+<p>如果某个发布的版本存在致命缺陷不再想让用户使用时，我们可以使用retract声明废弃的版本。例如我们在hello&#x2F;go.mod文件中按如下方式声明即可对外废弃v0.1.2版本。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">module</span> github.com/q1mi/hello</span><br><span class="line"></span><br><span class="line"><span class="attribute">go</span> <span class="number">1</span>.<span class="number">16</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">retract</span> v0.<span class="number">1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>用户使用go get下载 <code>v0.1.2</code> 版本时就会收到提示，催促其升级到其他版本。</p>
+
+      
+    </div>
+    
+    
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">---------------- The End ----------------</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/golang/" rel="tag"># golang</a>
+          
+            <a href="/tags/%E5%8C%85/" rel="tag"># 包</a>
+          
+            <a href="/tags/package/" rel="tag"># package</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E7%BB%93%E6%9E%84%E4%BD%93/" rel="next" title="Golang学习_结构体">
+                <i class="fa fa-chevron-left"></i> Golang学习_结构体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/20230613-193018.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+           
+      		<div>
+         		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="410" height="110" src="//music.163.com/outchain/player?type=2&id=29808787&auto=1&height=66"></iframe>
+      		</div>
+	   
+
+          
+
+          
+          
+
+        
+        
+	 <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()",1000);
+BirthDay=new Date("06/12/2023 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+
+
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">Go语言基础之包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8C%85%E4%B8%8E%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">一、包与依赖管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E5%8C%85-package"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 包(package)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%89%E5%8C%85%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1）包介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%89%E5%AE%9A%E4%B9%89%E5%8C%85"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2）定义包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%BC%89%E6%A0%87%E8%AF%86%E7%AC%A6%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">3）标识符可见性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%BC%89%E5%8C%85%E7%9A%84%E5%BC%95%E5%85%A5"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">4）包的引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%EF%BC%89init%E5%88%9D%E5%A7%8B%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">5）init初始化函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-go-module"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 go module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%89go-module%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1）go module介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#GOPROXY"><span class="nav-number">1.1.2.1.0.1.</span> <span class="nav-text">GOPROXY</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#GOPRIVATE"><span class="nav-number">1.1.2.1.0.2.</span> <span class="nav-text">GOPRIVATE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%89%E4%BD%BF%E7%94%A8go-module%E5%BC%95%E5%85%A5%E5%8C%85"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2）使用go module引入包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%BC%89%E4%BD%BF%E7%94%A8go-module%E5%8F%91%E5%B8%83%E5%8C%85"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">3）使用go module发布包</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+    
+    
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">琉心</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">18k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'IWy6tSVGzpjqE5k3X9oGaYSu-gzGzoHsz',
+        appKey: 'EENYTfdO0kN9fjOAWsPpK60a',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

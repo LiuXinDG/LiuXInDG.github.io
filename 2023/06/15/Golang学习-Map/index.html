@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="golang,map," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="111 . 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。 202.96.128.128 D 节省 银行 对10 无缓冲是同步的11。 13212 func f(a,b int) (value int, error)  13 int 和体系架构 14 其他三个 15 主键是唯一、不为空 16 direct  17 直接插入 18 堆 19 在100000 20">
+<meta name="description" content="Go语言基础之 mapGo 语言中提供的映射关系容器为 map，其内部使用 散列表(hash) 实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="text1">
-<meta property="og:url" content="https://liuxindg.gitbub.io/2023/06/13/text1/index.html">
+<meta property="og:title" content="Golang学习_Map">
+<meta property="og:url" content="https://liuxindg.gitbub.io/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-Map/index.html">
 <meta property="og:site_name" content="琉心的博客">
-<meta property="og:description" content="111 . 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。 202.96.128.128 D 节省 银行 对10 无缓冲是同步的11。 13212 func f(a,b int) (value int, error)  13 int 和体系架构 14 其他三个 15 主键是唯一、不为空 16 direct  17 直接插入 18 堆 19 在100000 20">
+<meta property="og:description" content="Go语言基础之 mapGo 语言中提供的映射关系容器为 map，其内部使用 散列表(hash) 实现。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-06-13T11:18:32.000Z">
-<meta property="article:modified_time" content="2023-06-13T11:23:55.046Z">
+<meta property="article:published_time" content="2023-06-15T05:05:59.000Z">
+<meta property="article:modified_time" content="2023-06-15T05:06:41.093Z">
 <meta property="article:author" content="琉心">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="map">
 <meta name="twitter:card" content="summary">
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://LiuXinDG.gitbub.io/2023/06/13/text1/"/>
+  <link rel="canonical" href="https://LiuXinDG.gitbub.io/2023/06/15/Golang学习-Map/"/>
 
 
 
 
 
-  <title>text1 | 琉心的博客</title>
+  <title>Golang学习_Map | 琉心的博客</title>
   
 
 
@@ -296,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuXinDG.gitbub.io/2023/06/13/text1/">
+    <link itemprop="mainEntityOfPage" href="https://LiuXinDG.gitbub.io/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-Map/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -313,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">text1</h1>
+          <h1 class="post-title" itemprop="name headline">Golang学习_Map</h1>
         
 
         <div class="post-meta">
@@ -325,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-06-13T19:18:32+08:00">
-                2023-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-06-15T13:05:59+08:00">
+                2023-06-15
               </time>
             
 
@@ -336,6 +338,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Go%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
+                    <span itemprop="name">Go语言</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -344,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2023/06/13/text1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2023/06/13/text1/" itemprop="commentCount"></span>
+                <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-Map/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-Map/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  173
+                  994
                 </span>
               
 
@@ -383,7 +407,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -404,30 +428,45 @@
       
 
       
-        <h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><ol start="5">
-<li>. 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。</li>
-<li>202.96.128.128</li>
-<li>D 节省</li>
-<li>银行</li>
-<li>对<br>10 无缓冲是同步的<br>11。 132<br>12 func f(a,b int) (value int, error)</li>
-</ol>
-<p>13 int 和体系架构</p>
-<p>14 其他三个</p>
-<p>15 主键是唯一、不为空</p>
-<p>16 direct </p>
-<p>17 直接插入</p>
-<p>18 堆</p>
-<p>19 在100000</p>
-<p>20 不选进程是动态的过程</p>
-<p>21 不选 HTTP返回码 302</p>
-<p>22 选 协程和线程都可以 以及 通过 channel</p>
-<p>23 不选接口赋值</p>
-<p>24 不选 数据库索引的存在</p>
-<p>25 不选 POST比get安全 </p>
-<p>26 不选域名解析</p>
-<p>27 只选快速 12</p>
-<p>28</p>
+        <h1 id="Go语言基础之-map"><a href="#Go语言基础之-map" class="headerlink" title="Go语言基础之 map"></a>Go语言基础之 map</h1><p>Go 语言中提供的映射关系容器为 <code>map</code>，其内部使用 <code>散列表(hash)</code> 实现。</p>
+<span id="more"></span>
+<h2 id="1-map"><a href="#1-map" class="headerlink" title="1. map"></a>1. map</h2><p>map 是一种无序的 <code>key-value</code> 的数据结构，Go 语言中的 map 是引用类型，必须初始化才能使用</p>
+<h3 id="1-1-map定义"><a href="#1-1-map定义" class="headerlink" title="1.1 map定义"></a>1.1 map定义</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">map</span>[keyType]ValueType</span><br><span class="line"><span class="comment">// KeyType: 表示键的类型</span></span><br><span class="line"><span class="comment">// ValueType: 表示值的类型</span></span><br></pre></td></tr></table></figure>
 
+<p>map 类型的变量默认初始值为 nil ，需要使用 <code>make()</code>函数来分配内存</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span>(<span class="keyword">map</span>[keyType]ValueType, [<span class="built_in">cap</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-map基本使用"><a href="#1-2-map基本使用" class="headerlink" title="1.2 map基本使用"></a>1.2 map基本使用</h3><p>map的数据都是成对出现的，基本使用如下</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    scoreMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">10</span>)</span><br><span class="line">    scoreMap[<span class="string">&quot;张三&quot;</span>] = <span class="number">20</span></span><br><span class="line">    scoreMap[<span class="string">&quot;李四&quot;</span>] = <span class="number">22</span></span><br><span class="line">    fmt.Println(scoreMap)</span><br><span class="line">    fmt.Println(scoreMap[<span class="string">&quot;张三&quot;</span>])</span><br><span class="line">    fmt.Println(<span class="string">&quot;type of a:%T\n&quot;</span>, scoreMap)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">map</span>[小明:<span class="number">20</span> 张三:<span class="number">22</span>]</span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="keyword">type</span> of a:<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span></span><br></pre></td></tr></table></figure>
+
+<p>map 支持在声明的时候填充元素</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    userInfo := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">        <span class="string">&quot;username&quot;</span>: <span class="string">&quot;琉心&quot;</span>,</span><br><span class="line">        <span class="string">&quot;password&quot;</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-判断某个值是否存在"><a href="#1-3-判断某个值是否存在" class="headerlink" title="1.3 判断某个值是否存在"></a>1.3 判断某个值是否存在</h3><p>Go 语言中有个判断 map 中键是否存在的特殊写法</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value, ok := <span class="keyword">map</span>[key]</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-map的遍历"><a href="#1-4-map的遍历" class="headerlink" title="1.4 map的遍历"></a>1.4 map的遍历</h3><p>Go 语言中使用 <code>for range</code> 遍历 map</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    scoreMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>)</span><br><span class="line">    scoreMap[<span class="string">&quot;张三&quot;</span>] = <span class="number">90</span></span><br><span class="line">    scoreMap[<span class="string">&quot;小明&quot;</span>] = <span class="number">100</span></span><br><span class="line">    scoreMap[<span class="string">&quot;娜扎&quot;</span>] = <span class="number">60</span></span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> scroeMap &#123;</span><br><span class="line">        fmt.Println(k, v)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但当我们只想着遍历 key 的时候，可以采用</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    scoreMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>)</span><br><span class="line">    scoreMap[<span class="string">&quot;张三&quot;</span>] = <span class="number">90</span></span><br><span class="line">    scoreMap[<span class="string">&quot;小明&quot;</span>] = <span class="number">100</span></span><br><span class="line">    scoreMap[<span class="string">&quot;娜扎&quot;</span>] = <span class="number">60</span></span><br><span class="line">    <span class="keyword">for</span> k := <span class="keyword">range</span> scoreMap &#123;</span><br><span class="line">        fmt.Println(k)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-使用-delete-函数删除键值对"><a href="#1-5-使用-delete-函数删除键值对" class="headerlink" title="1.5 使用 delete() 函数删除键值对"></a>1.5 使用 delete() 函数删除键值对</h3><p>使用<code>delete()</code> 函数从 map中删除一组键值对。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">delete</span>(<span class="keyword">map</span>, key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// map：表示要删除键值对的 map</span></span><br><span class="line"><span class="comment">// key：表示要删除键值对的键</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6-按照指定顺序遍历-map"><a href="#1-6-按照指定顺序遍历-map" class="headerlink" title="1.6 按照指定顺序遍历 map"></a>1.6 按照指定顺序遍历 map</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> scoreMap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">100</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">50</span>; i++ &#123;</span><br><span class="line">		key := fmt.Sprintf(<span class="string">&quot;stu%02d&quot;</span>, i)</span><br><span class="line">		value := rand.Intn(<span class="number">100</span>)</span><br><span class="line">		scoreMap[key] = value</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// for k, v := range scoreMap &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(k, v)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">// 取出所有的 key 存放到切片中</span></span><br><span class="line">	keys := <span class="built_in">make</span>([]<span class="type">string</span>, <span class="number">0</span>, <span class="number">100</span>)</span><br><span class="line">	<span class="keyword">for</span> k := <span class="keyword">range</span> scoreMap &#123;</span><br><span class="line">		keys = <span class="built_in">append</span>(keys, k)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 对key做排序</span></span><br><span class="line">	sort.Strings(keys)</span><br><span class="line">	<span class="comment">// 按照排序后的 key 对 scoreMap 排序</span></span><br><span class="line">	<span class="keyword">for</span> _, key := <span class="keyword">range</span> keys &#123;</span><br><span class="line">		fmt.Println(key,scoreMap[key])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-7-元素为-map-类型的切片"><a href="#1-7-元素为-map-类型的切片" class="headerlink" title="1.7 元素为 map 类型的切片"></a>1.7 元素为 map 类型的切片</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> mapSlice = <span class="built_in">make</span>([]<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>, <span class="number">3</span>) <span class="comment">// 只完成了切片的初始化</span></span><br><span class="line">    <span class="keyword">for</span> index, key := <span class="keyword">range</span> mapSlice &#123;</span><br><span class="line">        fmt.Printf(<span class="string">&quot;index:%d value:%v\n&quot;</span>, index, value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 对切片中的 map元素进行初始化</span></span><br><span class="line">    mapSlice[<span class="number">0</span>] = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>, <span class="number">10</span>) <span class="comment">// 完成了 map 的初始化</span></span><br><span class="line">    mapSlice[<span class="number">0</span>][<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;小王子&quot;</span></span><br><span class="line">    mapSlice[<span class="number">0</span>][<span class="string">&quot;password&quot;</span>] = <span class="string">&quot;123456&quot;</span></span><br><span class="line">    mapSlice[<span class="number">0</span>][<span class="string">&quot;address&quot;</span>] = <span class="string">&quot;沙河&quot;</span></span><br><span class="line">    <span class="keyword">for</span> index, value := <span class="keyword">range</span> mapSlice &#123;</span><br><span class="line">        fmt.Printf(<span class="string">&quot;index:%d value:%v\n&quot;</span>, index, value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-8-值为切片类型的-map"><a href="#1-8-值为切片类型的-map" class="headerlink" title="1.8 值为切片类型的 map"></a>1.8 值为切片类型的 map</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> sliceMap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>][]<span class="type">int</span>, <span class="number">8</span>) <span class="comment">//只完成了map的初始化</span></span><br><span class="line">	v, ok := sliceMap[<span class="string">&quot;中国&quot;</span>]</span><br><span class="line">    <span class="keyword">if</span> ok &#123;</span><br><span class="line">        fmt.Println(v)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>] = <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">8</span>) <span class="comment">// 完成了对切片的初始化</span></span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>][<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>][<span class="number">1</span>] = <span class="number">200</span></span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>][<span class="number">2</span>] = <span class="number">300</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 遍历 sliceMap</span></span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> sliceMap &#123;</span><br><span class="line">        fmt.Println(k, v)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><h3 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h3><p>写一个程序，统计一个字符串中每个单词出现的次数。比如：”how do you do”中how&#x3D;1 do&#x3D;2 you&#x3D;1。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 定义一个 map[string]int</span></span><br><span class="line">	<span class="keyword">var</span> s = <span class="string">&quot;how do you do&quot;</span></span><br><span class="line">	<span class="keyword">var</span> wordCount = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">10</span>)</span><br><span class="line">	<span class="comment">// 字符串中有哪些单词</span></span><br><span class="line">	words := strings.Split(s, <span class="string">&quot; &quot;</span>)</span><br><span class="line">	<span class="comment">// 遍历单词做统计</span></span><br><span class="line">	<span class="keyword">for</span> _, word := <span class="keyword">range</span> words &#123;</span><br><span class="line">		v, ok := wordCount[word]</span><br><span class="line">		<span class="keyword">if</span> ok &#123;</span><br><span class="line">			<span class="comment">// map中有这个单词的统计记录</span></span><br><span class="line">			wordCount[word] = v + <span class="number">1</span></span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// map 中没有这个单词的记录</span></span><br><span class="line">			wordCount[word] = <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> k, v := <span class="keyword">range</span> wordCount &#123;</span><br><span class="line">		fmt.Println(k, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">type</span> Map <span class="keyword">map</span>[<span class="type">string</span>][]<span class="type">int</span></span><br><span class="line">	m := <span class="built_in">make</span>(Map)</span><br><span class="line">	s := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">	s = <span class="built_in">append</span>(s, <span class="number">3</span>)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%+v\n&quot;</span>, s)</span><br><span class="line">	m[<span class="string">&quot;q1mi&quot;</span>] = s</span><br><span class="line">	s = <span class="built_in">append</span>(s[:<span class="number">1</span>], s[<span class="number">2</span>:]...)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%+v\n&quot;</span>, s)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%+v\n&quot;</span>, m[<span class="string">&quot;q1mi&quot;</span>])</span><br><span class="line">&#125;</span><br><span class="line">查看上述代码的输出结果</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span> <span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span> <span class="number">3</span> <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -441,6 +480,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/golang/" rel="tag"># golang</a>
+          
+            <a href="/tags/map/" rel="tag"># map</a>
+          
+        </div>
       
 
       
@@ -466,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2023/06/13/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" rel="next" title="Golang学习_基础语法">
+                <i class="fa fa-chevron-left"></i> Golang学习_基础语法
               </a>
             
           </div>
@@ -476,8 +523,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2023/06/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/" rel="prev" title="嵌入式笔记">
-                嵌入式笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%87%BD%E6%95%B0/" rel="prev" title="Golang学习_函数">
+                Golang学习_函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -654,7 +701,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#111"><span class="nav-number">1.</span> <span class="nav-text">111</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E4%B9%8B-map"><span class="nav-number">1.</span> <span class="nav-text">Go语言基础之 map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-map"><span class="nav-number">1.1.</span> <span class="nav-text">1. map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-map%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 map定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-map%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 map基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%88%A4%E6%96%AD%E6%9F%90%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 判断某个值是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-map%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 map的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E4%BD%BF%E7%94%A8-delete-%E5%87%BD%E6%95%B0%E5%88%A0%E9%99%A4%E9%94%AE%E5%80%BC%E5%AF%B9"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.5 使用 delete() 函数删除键值对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E6%8C%89%E7%85%A7%E6%8C%87%E5%AE%9A%E9%A1%BA%E5%BA%8F%E9%81%8D%E5%8E%86-map"><span class="nav-number">1.1.6.</span> <span class="nav-text">1.6 按照指定顺序遍历 map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E5%85%83%E7%B4%A0%E4%B8%BA-map-%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%87%E7%89%87"><span class="nav-number">1.1.7.</span> <span class="nav-text">1.7 元素为 map 类型的切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-%E5%80%BC%E4%B8%BA%E5%88%87%E7%89%87%E7%B1%BB%E5%9E%8B%E7%9A%84-map"><span class="nav-number">1.1.8.</span> <span class="nav-text">1.8 值为切片类型的 map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

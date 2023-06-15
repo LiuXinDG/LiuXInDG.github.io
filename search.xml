@@ -1,267 +1,385 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/06/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>嵌入式笔记</title>
-    <url>/2023/06/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1.1 嵌入式系统概述"></a>1.1 嵌入式系统概述</h3><h4 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h4><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
+    <title>Golang学习_Map</title>
+    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-Map/</url>
+    <content><![CDATA[<h1 id="Go语言基础之-map"><a href="#Go语言基础之-map" class="headerlink" title="Go语言基础之 map"></a>Go语言基础之 map</h1><p>Go 语言中提供的映射关系容器为 <code>map</code>，其内部使用 <code>散列表(hash)</code> 实现。</p>
 <span id="more"></span>
-<h4 id="1-1-2-嵌入式系统的技术特点"><a href="#1-1-2-嵌入式系统的技术特点" class="headerlink" title="1.1.2 嵌入式系统的技术特点"></a>1.1.2 嵌入式系统的技术特点</h4><p>四大特性：专用性、低成本、可裁剪性、可靠性</p>
-<h4 id="1-1-3-嵌入式系统的组成"><a href="#1-1-3-嵌入式系统的组成" class="headerlink" title="1.1.3 嵌入式系统的组成"></a>1.1.3 嵌入式系统的组成</h4><p>分为硬件设备和软件设备，嵌入式处理器-&gt;硬件核心。</p>
-<img src = "./1.png">
+<h2 id="1-map"><a href="#1-map" class="headerlink" title="1. map"></a>1. map</h2><p>map 是一种无序的 <code>key-value</code> 的数据结构，Go 语言中的 map 是引用类型，必须初始化才能使用</p>
+<h3 id="1-1-map定义"><a href="#1-1-map定义" class="headerlink" title="1.1 map定义"></a>1.1 map定义</h3><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">map</span>[keyType]ValueType</span><br><span class="line"><span class="comment">// KeyType: 表示键的类型</span></span><br><span class="line"><span class="comment">// ValueType: 表示值的类型</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="1）嵌入式处理器类型"><a href="#1）嵌入式处理器类型" class="headerlink" title="1）嵌入式处理器类型"></a>1）嵌入式处理器类型</h5><p>微控制器(MCU)；嵌入式微处理器(MPU)；数字信号处理器(DSP)；片上系统(Soc)</p>
-<h5 id="2）嵌入式操作系统"><a href="#2）嵌入式操作系统" class="headerlink" title="2）嵌入式操作系统"></a>2）嵌入式操作系统</h5><p>谷歌的Android系统和苹果的iOS系统。实时操作系统常用免费的uC&#x2F;OS-II或者商业化的VxWorks等。</p>
-<h3 id="1-2-嵌入式系统的开发"><a href="#1-2-嵌入式系统的开发" class="headerlink" title="1.2 嵌入式系统的开发"></a>1.2 嵌入式系统的开发</h3><h4 id="1-2-1-嵌入式系统的开发模式"><a href="#1-2-1-嵌入式系统的开发模式" class="headerlink" title="1.2.1 嵌入式系统的开发模式"></a>1.2.1 嵌入式系统的开发模式</h4><p>宿主机-目标机(开发模式)</p>
-<h2 id="第二章-ARM-Cortex-M3-处理器"><a href="#第二章-ARM-Cortex-M3-处理器" class="headerlink" title="第二章 ARM Cortex-M3 处理器"></a>第二章 ARM Cortex-M3 处理器</h2><h3 id="2-2-Cortex-M3-处理器"><a href="#2-2-Cortex-M3-处理器" class="headerlink" title="2.2 Cortex-M3 处理器"></a>2.2 Cortex-M3 处理器</h3><ul>
-<li>CM3的功能模块<br>高性能32位RISC处理器；大量寄存器，都可用于多种用途；采用Thumb指令集结构；3级流水线（取指-译码-执行）；采用哈佛存储结构；高级微控制器总线结构</li>
-</ul>
-<p>CM3的两个状态两个级别两种模式</p>
-<img src = "./2.png">
+<p>map 类型的变量默认初始值为 nil ，需要使用 <code>make()</code>函数来分配内存</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="built_in">make</span>(<span class="keyword">map</span>[keyType]ValueType, [<span class="built_in">cap</span>])</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>两个状态：Thumb状态、调试状态 </li>
-<li>两个级别：特权级、非特权级</li>
-<li>两种模式：异常处理模式、线程模式</li>
-</ul>
-<h3 id="2-3-寄存器"><a href="#2-3-寄存器" class="headerlink" title="2.3 寄存器"></a>2.3 寄存器</h3><h4 id="1-通用寄存器"><a href="#1-通用寄存器" class="headerlink" title="1.通用寄存器"></a>1.通用寄存器</h4><img src = "./3.png">
+<h3 id="1-2-map基本使用"><a href="#1-2-map基本使用" class="headerlink" title="1.2 map基本使用"></a>1.2 map基本使用</h3><p>map的数据都是成对出现的，基本使用如下</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    scoreMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">10</span>)</span><br><span class="line">    scoreMap[<span class="string">&quot;张三&quot;</span>] = <span class="number">20</span></span><br><span class="line">    scoreMap[<span class="string">&quot;李四&quot;</span>] = <span class="number">22</span></span><br><span class="line">    fmt.Println(scoreMap)</span><br><span class="line">    fmt.Println(scoreMap[<span class="string">&quot;张三&quot;</span>])</span><br><span class="line">    fmt.Println(<span class="string">&quot;type of a:%T\n&quot;</span>, scoreMap)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">map</span>[小明:<span class="number">20</span> 张三:<span class="number">22</span>]</span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="keyword">type</span> of a:<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span></span><br></pre></td></tr></table></figure>
 
-<p>CM3设计有16个32位通用寄存器，R0~R12是真正意义上的通用寄存器。</p>
-<h4 id="2-专用寄存器"><a href="#2-专用寄存器" class="headerlink" title="2.专用寄存器"></a>2.专用寄存器</h4><img src = "./4.png">
+<p>map 支持在声明的时候填充元素</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    userInfo := <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>&#123;</span><br><span class="line">        <span class="string">&quot;username&quot;</span>: <span class="string">&quot;琉心&quot;</span>,</span><br><span class="line">        <span class="string">&quot;password&quot;</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>专用寄存器不通过存储器地址访问，而是使用专用寄存器访问指令</p>
-<ul>
-<li><p>程序状态寄存器(Program Status Register,PSR)</p>
-</li>
-<li><p>异常屏蔽位寄存器(Exception Mask Register)</p>
-</li>
-</ul>
-<h3 id="2-4-存储器组织"><a href="#2-4-存储器组织" class="headerlink" title="2.4 存储器组织"></a>2.4 存储器组织</h3><h5 id="1-位带区"><a href="#1-位带区" class="headerlink" title="1.位带区"></a>1.位带区</h5><img src = "./5.png">
+<h3 id="1-3-判断某个值是否存在"><a href="#1-3-判断某个值是否存在" class="headerlink" title="1.3 判断某个值是否存在"></a>1.3 判断某个值是否存在</h3><p>Go 语言中有个判断 map 中键是否存在的特殊写法</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">value, ok := <span class="keyword">map</span>[key]</span><br></pre></td></tr></table></figure>
 
-<p>别名地址&#x3D;位带基地址+字节偏移量×32+位号×4</p>
-<ul>
-<li><p>位带基地址通常情况下为:0x22000以及0x42000</p>
-</li>
-<li><p>字节偏移量根据要访问的位带地址距离基地址0x2000和0x4000的偏移值</p>
-</li>
-<li><p>位号：题目会给</p>
-</li>
-</ul>
-<h5 id="2-字节存储顺序"><a href="#2-字节存储顺序" class="headerlink" title="2.字节存储顺序"></a>2.字节存储顺序</h5><img src = "./6.png">
+<h3 id="1-4-map的遍历"><a href="#1-4-map的遍历" class="headerlink" title="1.4 map的遍历"></a>1.4 map的遍历</h3><p>Go 语言中使用 <code>for range</code> 遍历 map</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    scoreMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>)</span><br><span class="line">    scoreMap[<span class="string">&quot;张三&quot;</span>] = <span class="number">90</span></span><br><span class="line">    scoreMap[<span class="string">&quot;小明&quot;</span>] = <span class="number">100</span></span><br><span class="line">    scoreMap[<span class="string">&quot;娜扎&quot;</span>] = <span class="number">60</span></span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> scroeMap &#123;</span><br><span class="line">        fmt.Println(k, v)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但当我们只想着遍历 key 的时候，可以采用</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    scoreMap := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>)</span><br><span class="line">    scoreMap[<span class="string">&quot;张三&quot;</span>] = <span class="number">90</span></span><br><span class="line">    scoreMap[<span class="string">&quot;小明&quot;</span>] = <span class="number">100</span></span><br><span class="line">    scoreMap[<span class="string">&quot;娜扎&quot;</span>] = <span class="number">60</span></span><br><span class="line">    <span class="keyword">for</span> k := <span class="keyword">range</span> scoreMap &#123;</span><br><span class="line">        fmt.Println(k)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>低位低，高位高（小端存储）；高位低，低位高（大端存储）</p>
-<h2 id="第四章-STM32-微控制器"><a href="#第四章-STM32-微控制器" class="headerlink" title="第四章 STM32 微控制器"></a>第四章 STM32 微控制器</h2><h3 id="4-1-STM32微控制器结构"><a href="#4-1-STM32微控制器结构" class="headerlink" title="4.1 STM32微控制器结构"></a>4.1 STM32微控制器结构</h3><h4 id="4-1-2-STM32系统结构"><a href="#4-1-2-STM32系统结构" class="headerlink" title="4.1.2 STM32系统结构"></a>4.1.2 STM32系统结构</h4><img src = "./7.png">
+<h3 id="1-5-使用-delete-函数删除键值对"><a href="#1-5-使用-delete-函数删除键值对" class="headerlink" title="1.5 使用 delete() 函数删除键值对"></a>1.5 使用 delete() 函数删除键值对</h3><p>使用<code>delete()</code> 函数从 map中删除一组键值对。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="built_in">delete</span>(<span class="keyword">map</span>, key)</span><br><span class="line"></span><br><span class="line"><span class="comment">// map：表示要删除键值对的 map</span></span><br><span class="line"><span class="comment">// key：表示要删除键值对的键</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>通用输入&#x2F;输出端口(GPIO)以及复用功能的输入&#x2F;输出端口(AFIO)</li>
-<li>通用同步&#x2F;异步接收发送器(USART)；通用异步接收发送器(UART)</li>
-<li>串行外设接口(SPI)</li>
-<li>内部集成电路I2C接口(I2C)</li>
-<li>看门狗(Watch Dog)，独立看门狗(IWDG)和窗口看门狗(WWDG)</li>
-<li>实时时钟(RTC)</li>
-<li>通用定时器(TIMx)</li>
-<li>模拟&#x2F;数字转换器ADC</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>缩写</th>
-<th>外设名称</th>
-<th>缩写</th>
-<th>外设名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>adc</td>
-<td>A&#x2F;D转换器</td>
-<td>bkp</td>
-<td>备份寄存器</td>
-</tr>
-<tr>
-<td>can</td>
-<td>CAN控制器局域网</td>
-<td>cec</td>
-<td>消费电子单元</td>
-</tr>
-<tr>
-<td>crc</td>
-<td>CRC计算单元</td>
-<td>dac</td>
-<td>D&#x2F;A转换器</td>
-</tr>
-<tr>
-<td>dbgmc</td>
-<td>MCU调试模块</td>
-<td>dma</td>
-<td>DMA控制器</td>
-</tr>
-<tr>
-<td>exti</td>
-<td>外部中断寄存器</td>
-<td>flash</td>
-<td>闪存</td>
-</tr>
-<tr>
-<td>fsmc</td>
-<td>灵活的静态存储器控制器</td>
-<td>gpio</td>
-<td>通用I&#x2F;O接口</td>
-</tr>
-<tr>
-<td>i2c</td>
-<td>I²C总线接口</td>
-<td>iwdg</td>
-<td>独立看门狗</td>
-</tr>
-<tr>
-<td>pwr</td>
-<td>电源控制</td>
-<td>rcc</td>
-<td>复位和时钟控制器</td>
-</tr>
-<tr>
-<td>rtc</td>
-<td>实时时钟</td>
-<td>sdio</td>
-<td>SD存储卡接口</td>
-</tr>
-<tr>
-<td>spi</td>
-<td>SPI串行外设接口</td>
-<td>tim</td>
-<td>定时器</td>
-</tr>
-<tr>
-<td>usart</td>
-<td>通用同步异步收发器</td>
-<td>wwdg</td>
-<td>窗口看门狗</td>
-</tr>
-</tbody></table>
-<h3 id="4-2-STM32微控制器开发"><a href="#4-2-STM32微控制器开发" class="headerlink" title="4.2 STM32微控制器开发"></a>4.2 STM32微控制器开发</h3><h4 id="4-2-3-C语言应用"><a href="#4-2-3-C语言应用" class="headerlink" title="4.2.3 C语言应用"></a>4.2.3 C语言应用</h4><h5 id="2-C语言的位操作"><a href="#2-C语言的位操作" class="headerlink" title="2. C语言的位操作"></a>2. C语言的位操作</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">//位与实现复位:将整形变量a的D6位清零，其他位不变。</span></span><br><span class="line">a |= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位或实现置位:将整形变量a的D6位置位，其他位不变。</span></span><br><span class="line">a ^= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位异或实现求反：将整形变量a的D6位取反，其他位不变</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-6-按照指定顺序遍历-map"><a href="#1-6-按照指定顺序遍历-map" class="headerlink" title="1.6 按照指定顺序遍历 map"></a>1.6 按照指定顺序遍历 map</h3><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> scoreMap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">100</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">50</span>; i++ &#123;</span><br><span class="line">		key := fmt.Sprintf(<span class="string">&quot;stu%02d&quot;</span>, i)</span><br><span class="line">		value := rand.Intn(<span class="number">100</span>)</span><br><span class="line">		scoreMap[key] = value</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// for k, v := range scoreMap &#123;</span></span><br><span class="line">	<span class="comment">// 	fmt.Println(k, v)</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="comment">// 取出所有的 key 存放到切片中</span></span><br><span class="line">	keys := <span class="built_in">make</span>([]<span class="type">string</span>, <span class="number">0</span>, <span class="number">100</span>)</span><br><span class="line">	<span class="keyword">for</span> k := <span class="keyword">range</span> scoreMap &#123;</span><br><span class="line">		keys = <span class="built_in">append</span>(keys, k)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 对key做排序</span></span><br><span class="line">	sort.Strings(keys)</span><br><span class="line">	<span class="comment">// 按照排序后的 key 对 scoreMap 排序</span></span><br><span class="line">	<span class="keyword">for</span> _, key := <span class="keyword">range</span> keys &#123;</span><br><span class="line">		fmt.Println(key,scoreMap[key])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-3-复位与时钟控制-RCC"><a href="#4-3-复位与时钟控制-RCC" class="headerlink" title="4.3 复位与时钟控制(RCC)"></a>4.3 复位与时钟控制(RCC)</h3><h5 id="1-电源控制"><a href="#1-电源控制" class="headerlink" title="1. 电源控制"></a>1. 电源控制</h5><p>3种低功耗模式</p>
-<ul>
-<li><p>睡眠模式(Sleep Mode)</p>
-</li>
-<li><p>停止模式(Stop Mode)</p>
-</li>
-<li><p>备用模式(Standby Mode)</p>
-</li>
-</ul>
-<h5 id="2-复位"><a href="#2-复位" class="headerlink" title="2. 复位"></a>2. 复位</h5><p>三种复位：系统复位、电源复位和备份复位</p>
-<h5 id="3-时钟树"><a href="#3-时钟树" class="headerlink" title="3. 时钟树"></a>3. 时钟树</h5><p>系统时钟 SYSCLK</p>
-<p>内部高速时钟HIS、高速外部时钟HSE和锁相环PLL</p>
-<h2 id="第五章-STM32的通用I-x2F-O端口"><a href="#第五章-STM32的通用I-x2F-O端口" class="headerlink" title="第五章 STM32的通用I&#x2F;O端口"></a>第五章 STM32的通用I&#x2F;O端口</h2><h3 id="5-1-GPIO的结构和功能"><a href="#5-1-GPIO的结构和功能" class="headerlink" title="5.1 GPIO的结构和功能"></a>5.1 GPIO的结构和功能</h3><p>GPIO一共112个引脚，用GPIOx(x是A、B、C、D、E、F、G)表示，即GPIOA GPIOB … GPIOG。每组端口有16个外设引脚，分别用Px0,Px1,…Px15(x是A~G)表示。</p>
-<h5 id="1-输入模式"><a href="#1-输入模式" class="headerlink" title="1.输入模式"></a>1.输入模式</h5><p>4种输入模式：</p>
-<ul>
-<li>模拟输入模式(Analog): 不上拉也不下拉</li>
-<li>浮空输入模式(Input Floating): 不上拉也不下拉 </li>
-<li>上拉输入模式(Input Pull-up): 接上拉电阻</li>
-<li>下拉输入模式(Input Pull-down): 接下拉电阻</li>
-</ul>
-<h5 id="2-输出模式"><a href="#2-输出模式" class="headerlink" title="2. 输出模式"></a>2. 输出模式</h5><p>4中输出模式，但是常用以下两种输出模式:</p>
-<ul>
-<li><p>推挽输出(Output Push-Pull)</p>
-</li>
-<li><p>开漏输出(Output Open-Drain)</p>
-</li>
-</ul>
-<h3 id="5-3-GPIO-案例"><a href="#5-3-GPIO-案例" class="headerlink" title="5.3 GPIO 案例"></a>5.3 GPIO 案例</h3><h4 id="5-3-2-应用程序分析"><a href="#5-3-2-应用程序分析" class="headerlink" title="5.3.2 应用程序分析"></a>5.3.2 应用程序分析</h4><h5 id="1-开启外设时钟"><a href="#1-开启外设时钟" class="headerlink" title="1. 开启外设时钟"></a>1. 开启外设时钟</h5><h5 id="2-初始化外设"><a href="#2-初始化外设" class="headerlink" title="2. 初始化外设"></a>2. 初始化外设</h5><h5 id="3-控制外设工作"><a href="#3-控制外设工作" class="headerlink" title="3. 控制外设工作"></a>3. 控制外设工作</h5><h4 id="5-3-3-实例代码"><a href="#5-3-3-实例代码" class="headerlink" title="5.3.3 实例代码"></a>5.3.3 实例代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">HAL_GPIO_WritePin(GPIOB，GPIO_PIN_5，GPIO_PIN_RESET)；</span><br><span class="line"><span class="comment">// PB5引脚输出低电平，LED0灯亮</span></span><br><span class="line">HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5,GPIO_PIN_SET);</span><br><span class="line"><span class="comment">// PE5 引脚输出高电平，LED1灯灭</span></span><br><span class="line">HAL_Delay(<span class="number">1000</span>) <span class="comment">//持续1秒</span></span><br><span class="line"></span><br><span class="line">HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_5);</span><br><span class="line"><span class="comment">// 读取PC5引脚的电平状态</span></span><br><span class="line"></span><br><span class="line">HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);</span><br><span class="line"><span class="comment">// 反转 PE3 引脚的电平状态</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-7-元素为-map-类型的切片"><a href="#1-7-元素为-map-类型的切片" class="headerlink" title="1.7 元素为 map 类型的切片"></a>1.7 元素为 map 类型的切片</h3><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> mapSlice = <span class="built_in">make</span>([]<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>, <span class="number">3</span>) <span class="comment">// 只完成了切片的初始化</span></span><br><span class="line">    <span class="keyword">for</span> index, key := <span class="keyword">range</span> mapSlice &#123;</span><br><span class="line">        fmt.Printf(<span class="string">&quot;index:%d value:%v\n&quot;</span>, index, value)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 对切片中的 map元素进行初始化</span></span><br><span class="line">    mapSlice[<span class="number">0</span>] = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">string</span>, <span class="number">10</span>) <span class="comment">// 完成了 map 的初始化</span></span><br><span class="line">    mapSlice[<span class="number">0</span>][<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;小王子&quot;</span></span><br><span class="line">    mapSlice[<span class="number">0</span>][<span class="string">&quot;password&quot;</span>] = <span class="string">&quot;123456&quot;</span></span><br><span class="line">    mapSlice[<span class="number">0</span>][<span class="string">&quot;address&quot;</span>] = <span class="string">&quot;沙河&quot;</span></span><br><span class="line">    <span class="keyword">for</span> index, value := <span class="keyword">range</span> mapSlice &#123;</span><br><span class="line">        fmt.Printf(<span class="string">&quot;index:%d value:%v\n&quot;</span>, index, value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="1-8-值为切片类型的-map"><a href="#1-8-值为切片类型的-map" class="headerlink" title="1.8 值为切片类型的 map"></a>1.8 值为切片类型的 map</h3><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> sliceMap = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>][]<span class="type">int</span>, <span class="number">8</span>) <span class="comment">//只完成了map的初始化</span></span><br><span class="line">	v, ok := sliceMap[<span class="string">&quot;中国&quot;</span>]</span><br><span class="line">    <span class="keyword">if</span> ok &#123;</span><br><span class="line">        fmt.Println(v)</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>] = <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">8</span>) <span class="comment">// 完成了对切片的初始化</span></span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>][<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>][<span class="number">1</span>] = <span class="number">200</span></span><br><span class="line">        sliceMap[<span class="string">&quot;中国&quot;</span>][<span class="number">2</span>] = <span class="number">300</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 遍历 sliceMap</span></span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> sliceMap &#123;</span><br><span class="line">        fmt.Println(k, v)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="第六章-CM3异常和STM32中断"><a href="#第六章-CM3异常和STM32中断" class="headerlink" title="第六章 CM3异常和STM32中断"></a>第六章 CM3异常和STM32中断</h2><h3 id="6-1-Cortex-M3-的异常"><a href="#6-1-Cortex-M3-的异常" class="headerlink" title="6.1 Cortex-M3 的异常"></a>6.1 Cortex-M3 的异常</h3><h5 id="2-异常优先级"><a href="#2-异常优先级" class="headerlink" title="2.异常优先级"></a>2.异常优先级</h5><p>优先级的数值越小，优先级越高</p>
-<p>组优先级（Group Priority）和子优先级(Sub-Priority)。组优先级被称为抢占优先级。</p>
-<p>组优先级确定是否可以打断正在执行的中断，实现嵌套。子优先级只用于在相同组优先级时多个子优先级同时出现的情况，高优先级别（优先级数值小）的异常首先被处理。</p>
-<h5 id="3-嵌套向量中断控制器NVIC"><a href="#3-嵌套向量中断控制器NVIC" class="headerlink" title="3. 嵌套向量中断控制器NVIC"></a>3. 嵌套向量中断控制器NVIC</h5><p>NVIC 集成在 ARM Cortex-M3 内核中</p>
-<h3 id="6-2-STM32的中断应用"><a href="#6-2-STM32的中断应用" class="headerlink" title="6.2 STM32的中断应用"></a>6.2 STM32的中断应用</h3><h4 id="6-2-1-NVIC-初始化配置"><a href="#6-2-1-NVIC-初始化配置" class="headerlink" title="6.2.1 NVIC 初始化配置"></a>6.2.1 NVIC 初始化配置</h4><h5 id="1-配置组优先级"><a href="#1-配置组优先级" class="headerlink" title="1. 配置组优先级"></a>1. 配置组优先级</h5><img src = "./8.png">
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><h3 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h3><p>写一个程序，统计一个字符串中每个单词出现的次数。比如：”how do you do”中how&#x3D;1 do&#x3D;2 you&#x3D;1。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 定义一个 map[string]int</span></span><br><span class="line">	<span class="keyword">var</span> s = <span class="string">&quot;how do you do&quot;</span></span><br><span class="line">	<span class="keyword">var</span> wordCount = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">10</span>)</span><br><span class="line">	<span class="comment">// 字符串中有哪些单词</span></span><br><span class="line">	words := strings.Split(s, <span class="string">&quot; &quot;</span>)</span><br><span class="line">	<span class="comment">// 遍历单词做统计</span></span><br><span class="line">	<span class="keyword">for</span> _, word := <span class="keyword">range</span> words &#123;</span><br><span class="line">		v, ok := wordCount[word]</span><br><span class="line">		<span class="keyword">if</span> ok &#123;</span><br><span class="line">			<span class="comment">// map中有这个单词的统计记录</span></span><br><span class="line">			wordCount[word] = v + <span class="number">1</span></span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// map 中没有这个单词的记录</span></span><br><span class="line">			wordCount[word] = <span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> k, v := <span class="keyword">range</span> wordCount &#123;</span><br><span class="line">		fmt.Println(k, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="6-2-2-外部中断EXTI"><a href="#6-2-2-外部中断EXTI" class="headerlink" title="6.2.2 外部中断EXTI"></a>6.2.2 外部中断EXTI</h4><p>STM32 芯片外设的中断请求直接连接到 NVIC，来自芯片之外的外设中断请求需要通过EXTI（外部中断&#x2F;事件控制器）连接到NVIC。</p>
-<h5 id="2-EXTI-寄存器"><a href="#2-EXTI-寄存器" class="headerlink" title="2. EXTI 寄存器"></a>2. EXTI 寄存器</h5><img src = "./9.png">
+<h3 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h3><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">type</span> Map <span class="keyword">map</span>[<span class="type">string</span>][]<span class="type">int</span></span><br><span class="line">	m := <span class="built_in">make</span>(Map)</span><br><span class="line">	s := []<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">	s = <span class="built_in">append</span>(s, <span class="number">3</span>)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%+v\n&quot;</span>, s)</span><br><span class="line">	m[<span class="string">&quot;q1mi&quot;</span>] = s</span><br><span class="line">	s = <span class="built_in">append</span>(s[:<span class="number">1</span>], s[<span class="number">2</span>:]...)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%+v\n&quot;</span>, s)</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%+v\n&quot;</span>, m[<span class="string">&quot;q1mi&quot;</span>])</span><br><span class="line">&#125;</span><br><span class="line">查看上述代码的输出结果</span><br></pre></td></tr></table></figure>
 
-<img src = "./10.png">
-
-<h2 id="第七章-STM32-的串行通信接口"><a href="#第七章-STM32-的串行通信接口" class="headerlink" title="第七章 STM32 的串行通信接口"></a>第七章 STM32 的串行通信接口</h2><h3 id="7-1-串行异步通信"><a href="#7-1-串行异步通信" class="headerlink" title="7.1 串行异步通信"></a>7.1 串行异步通信</h3><p>串行通信有两类：<strong>一类</strong>是速度较快的同步串行通信，以数据块为基本传输单位，主要应用于网络连接；<strong>另一类</strong>是速度较慢的异步通信，以字符为单位传输，主要应用于近距离通信。通常所说的串行通信一般是指<strong>串行同步通信</strong></p>
-<h4 id="7-1-1-串行异步通信字符格式"><a href="#7-1-1-串行异步通信字符格式" class="headerlink" title="7.1.1 串行异步通信字符格式"></a>7.1.1 串行异步通信字符格式</h4><img src = "./11.png">
-
-<ul>
-<li><p>起始位(Start Bit): 采取逻辑 0 电平</p>
-</li>
-<li><p>数据位(Data Bit): 一般是8位</p>
-</li>
-<li><p>校验位(Parity Bit): 可有可无，一般是奇偶校验位</p>
-</li>
-<li><p>停止位(Stop Bit): 字符最后必须有停止位，采取逻辑1电平</p>
-</li>
-</ul>
-<p>通信传输速率要相同，如9600bps表示一秒传输9600位</p>
-<h4 id="7-1-2-串行异步通信接口"><a href="#7-1-2-串行异步通信接口" class="headerlink" title="7.1.2 串行异步通信接口"></a>7.1.2 串行异步通信接口</h4><h5 id="1-RS-232标准的引脚定义"><a href="#1-RS-232标准的引脚定义" class="headerlink" title="1. RS-232标准的引脚定义"></a>1. RS-232标准的引脚定义</h5><ul>
-<li>TxD(Transmitted Data,发送数据)</li>
-<li>RxD(Received Data, 接收数据)</li>
-<li>RTS(Request To Send，请求发送)</li>
-<li>CTS(Clear To Send，清除发送)</li>
-<li>DTR(Data Terminal Ready，数据终端准备好)</li>
-<li>DSR(Data Set Ready，数据装置准备好)</li>
-<li>GND(Ground，信号地)</li>
-<li>CD(Carrier Detected，载波检测)</li>
-<li>RI(RIng Indicator，振铃指示)</li>
-</ul>
-<h5 id="2-RS-232接口的连接"><a href="#2-RS-232接口的连接" class="headerlink" title="2. RS-232接口的连接"></a>2. RS-232接口的连接</h5><p>三线相连</p>
-<img src = "./12.png">
-
-<h3 id="7-2-通用同步-x2F-异步接收-x2F-发送器"><a href="#7-2-通用同步-x2F-异步接收-x2F-发送器" class="headerlink" title="7.2 通用同步&#x2F;异步接收&#x2F;发送器"></a>7.2 通用同步&#x2F;异步接收&#x2F;发送器</h3><p>通用同步&#x2F;异步接收&#x2F;发送器（USART）和通用异步接收&#x2F;发送器(UART)</p>
-]]></content>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span> <span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span> <span class="number">3</span> <span class="number">3</span>]</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>嵌入式</category>
+        <category>Go语言</category>
       </categories>
       <tags>
-        <tag>嵌入式复习</tag>
+        <tag>golang</tag>
+        <tag>map</tag>
       </tags>
   </entry>
   <entry>
-    <title>text1</title>
-    <url>/2023/06/13/text1/</url>
-    <content><![CDATA[<h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><ol start="5">
-<li>. 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。</li>
-<li>202.96.128.128</li>
-<li>D 节省</li>
-<li>银行</li>
-<li>对<br>10 无缓冲是同步的<br>11。 132<br>12 func f(a,b int) (value int, error)</li>
-</ol>
-<p>13 int 和体系架构</p>
-<p>14 其他三个</p>
-<p>15 主键是唯一、不为空</p>
-<p>16 direct </p>
-<p>17 直接插入</p>
-<p>18 堆</p>
-<p>19 在100000</p>
-<p>20 不选进程是动态的过程</p>
-<p>21 不选 HTTP返回码 302</p>
-<p>22 选 协程和线程都可以 以及 通过 channel</p>
-<p>23 不选接口赋值</p>
-<p>24 不选 数据库索引的存在</p>
-<p>25 不选 POST比get安全 </p>
-<p>26 不选域名解析</p>
-<p>27 只选快速 12</p>
-<p>28</p>
+    <title>Golang学习_函数</title>
+    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="GO语言基础之函数"><a href="#GO语言基础之函数" class="headerlink" title="GO语言基础之函数"></a>GO语言基础之函数</h1><h2 id="一、-函数"><a href="#一、-函数" class="headerlink" title="一、 函数"></a>一、 函数</h2><h3 id="1-1-函数定义"><a href="#1-1-函数定义" class="headerlink" title="1.1 函数定义"></a>1.1 函数定义</h3><p>Go语言中定义函数使用 <code>func</code> 关键字。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> 函数<span class="params">(参数)</span></span>(返回值)&#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数名：由字母、数字、下划线组成。但函数名的第一个字母不能是数字。在同一个包内，函数名称不能同名。</span></span><br><span class="line"><span class="comment">// 参数：参数由参数变量和参数变量的类型组成，多个参数之间用，分隔。</span></span><br><span class="line"><span class="comment">// 返回值：返回值由返回值变量和其变量类型组成，也可以只写返回值的类型，多个返回值必须用（）包裹，并用，分隔。</span></span><br><span class="line"><span class="comment">// 函数体：实现指定功能的代码块。</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>求两个数之和的函数:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">intSum</span><span class="params">(x <span class="type">int</span>, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数的参数和返回值都是可选的，所以我们可以实现一个不需要参数也没有返回值的函数：</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHello</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello world&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-函数的调用"><a href="#1-2-函数的调用" class="headerlink" title="1.2 函数的调用"></a>1.2 函数的调用</h3><p>定义了函数之后，通过<code>函数名()</code>方法来进行调用函数。比如:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    sayHello()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-参数"><a href="#1-3-参数" class="headerlink" title="1.3 参数"></a>1.3 参数</h3><h4 id="1-类型简写"><a href="#1-类型简写" class="headerlink" title="1) 类型简写"></a>1) 类型简写</h4><p>函数的参数中如果相邻变量的类型相同，则可以省略类型:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">intSum</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-可变参数"><a href="#2-可变参数" class="headerlink" title="2) 可变参数"></a>2) 可变参数</h4><p>可变参数是指函数的参数数量不固定。Go语言中的可变参数通过在参数名后加 <code>...</code> 来标识。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">intSum2</span><span class="params">(x ...<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    fmt.Println(x) <span class="comment">//x是一个切片</span></span><br><span class="line">    sum := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> x &#123;</span><br><span class="line">        sum = sum + v</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>固定参数搭配可变参数的时候，可变参数要放在固定参数的后面。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">intSum3</span><span class="params">(x <span class="type">int</span>, y ...<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    fmt.Println(x, y)</span><br><span class="line">    sum := x</span><br><span class="line">    <span class="keyword">for</span> _, v := <span class="keyword">range</span> y &#123;</span><br><span class="line">        sum = sum + v</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-返回值"><a href="#1-3-返回值" class="headerlink" title="1.3 返回值"></a>1.3 返回值</h3><p>函数采取 <code>return</code> 关键字向外输出返回值。</p>
+<h4 id="1-多返回值"><a href="#1-多返回值" class="headerlink" title="1) 多返回值"></a>1) 多返回值</h4><p>如果采取多个返回值的时候，必须使用 <code>()</code> 将返回值包裹起来。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calc</span><span class="params">(x, y <span class="type">int</span>)</span></span> (<span class="type">int</span>, <span class="type">int</span>) &#123;</span><br><span class="line">    sum := x + y</span><br><span class="line">    sub := x - y</span><br><span class="line">    <span class="keyword">return</span> sum, sub</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-返回值命名"><a href="#2-返回值命名" class="headerlink" title="2) 返回值命名"></a>2) 返回值命名</h4><p>函数定义时可以给返回值命名，并在函数体中直接使用这些变量。最后通过 <code>return</code> 关键字返回。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calc</span><span class="params">(x, y <span class="type">int</span>)</span></span> (sum, sub <span class="type">int</span>)&#123;</span><br><span class="line">    sum := x + y</span><br><span class="line">    sub := x - y</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-返回值补充"><a href="#3-返回值补充" class="headerlink" title="3) 返回值补充"></a>3) 返回值补充</h4><p>当我们的一个函数返回值类型为slice时，nil可以看做是一个有效的slice，没必要显示返回一个长度为0的切片。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">(x <span class="type">string</span>)</span></span> []<span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> x == <span class="string">&quot;&quot;</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span> <span class="comment">// 没必要返回[]int&#123;&#125;</span></span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、函数进阶"><a href="#二、函数进阶" class="headerlink" title="二、函数进阶"></a>二、函数进阶</h2><h3 id="2-1-变量作用域"><a href="#2-1-变量作用域" class="headerlink" title="2.1 变量作用域"></a>2.1 变量作用域</h3><h4 id="1-全局变量"><a href="#1-全局变量" class="headerlink" title="1) 全局变量"></a>1) 全局变量</h4><p>全局变量是定义在函数外部的变量，它在程序整个运行周期内都有效。在函数中可以访问到全局变量。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sag <span class="type">int64</span> = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testGlobalVar</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;num=%d\n&quot;</span>, sag);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    testGlobalVar()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-局部变量"><a href="#2-局部变量" class="headerlink" title="2) 局部变量"></a>2) 局部变量</h4><p>函数内定义的变量无法在函数外进行访问。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testLocalVar</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> x <span class="type">int64</span> = <span class="number">100</span></span><br><span class="line">    fmt.Println(x)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// 访问不到在 testLocalVar() 函数中定义的代码 x</span></span><br><span class="line">    fmt.Println(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果局部变量和全局变量重名，优先访问局部变量。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num <span class="type">int64</span> = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testNum</span><span class="params">()</span></span> &#123;</span><br><span class="line">    num := <span class="number">100</span></span><br><span class="line">    fmt.Println(num) <span class="comment">//优先使用局部变量 num的值为100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通常在if条件循环、for循环、switch语句上使用这种定义变量的方式。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testLocalVar2</span><span class="params">(x, y <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    fmt.Println(x, y) <span class="comment">// 函数的参数只会在本函数内生效</span></span><br><span class="line">    <span class="keyword">if</span> x &gt; <span class="number">0</span> &#123;</span><br><span class="line">        z := <span class="number">100</span> <span class="comment">//变量z只在if语句块中生效</span></span><br><span class="line">        fmt.Println(z)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">testLocalVar3</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">		fmt.Println(i) <span class="comment">//变量i只在当前for语句块中生效</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//fmt.Println(i) //此处无法使用变量i</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-函数类型与变量"><a href="#2-2-函数类型与变量" class="headerlink" title="2.2 函数类型与变量"></a>2.2 函数类型与变量</h3><h4 id="1-定义函数类型"><a href="#1-定义函数类型" class="headerlink" title="1) 定义函数类型"></a>1) 定义函数类型</h4><p>我们可以使用 <code>type</code> 关键字来定义一个函数类型。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> calculation <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span> <span class="type">int</span></span><br></pre></td></tr></table></figure>
+<p>上面语句定义了一个 <code>calculation</code> 类型，他是一种函数类型，这种函数接收两个int类型的参数并且返回一个int类型的返回值。</p>
+<p>简单来说，凡是满足这个条件的函数都是 calculation 类型的函数</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x - y</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>add和sub都可以赋值给calculation类型的变量</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c calculation</span><br><span class="line">c = add</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-函数类型变量"><a href="#2-函数类型变量" class="headerlink" title="2) 函数类型变量"></a>2) 函数类型变量</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> c calculation               <span class="comment">// 声明一个calculation类型的变量c</span></span><br><span class="line">	c = add                         <span class="comment">// 把add赋值给c</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;type of c:%T\n&quot;</span>, c) <span class="comment">// type of c:main.calculation</span></span><br><span class="line">	fmt.Println(c(<span class="number">1</span>, <span class="number">2</span>))            <span class="comment">// 像调用add一样调用c</span></span><br><span class="line"></span><br><span class="line">	f := add                        <span class="comment">// 将函数add赋值给变量f</span></span><br><span class="line">	fmt.Printf(<span class="string">&quot;type of f:%T\n&quot;</span>, f) <span class="comment">// type of f:func(int, int) int</span></span><br><span class="line">	fmt.Println(f(<span class="number">10</span>, <span class="number">20</span>))          <span class="comment">// 像调用add一样调用f</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-高阶函数"><a href="#2-3-高阶函数" class="headerlink" title="2.3 高阶函数"></a>2.3 高阶函数</h3><h4 id="1-函数作为参数"><a href="#1-函数作为参数" class="headerlink" title="1)函数作为参数"></a>1)函数作为参数</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">calc</span><span class="params">(x, y <span class="type">int</span>, op <span class="keyword">func</span>(<span class="type">int</span>, <span class="type">int</span>)</span></span> <span class="type">int</span>) <span class="type">int</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> op(x, y)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ret2 := calc(<span class="number">10</span>, <span class="number">20</span>, add)</span><br><span class="line">	fmt.Println(ret2) <span class="comment">//30</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-函数作为返回值"><a href="#2-函数作为返回值" class="headerlink" title="2)函数作为返回值"></a>2)函数作为返回值</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">do</span><span class="params">(s <span class="type">string</span>)</span></span> (<span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span> <span class="type">int</span>, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="keyword">switch</span> s &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;+&quot;</span>:</span><br><span class="line">		<span class="keyword">return</span> add, <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">case</span> <span class="string">&quot;-&quot;</span>:</span><br><span class="line">		<span class="keyword">return</span> sub, <span class="literal">nil</span></span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		err := errors.New(<span class="string">&quot;无法识别的操作符&quot;</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-匿名函数和闭包"><a href="#2-4-匿名函数和闭包" class="headerlink" title="2.4 匿名函数和闭包"></a>2.4 匿名函数和闭包</h3><h4 id="1-匿名函数"><a href="#1-匿名函数" class="headerlink" title="1) 匿名函数"></a>1) 匿名函数</h4><p>函数可以作为返回值。但是在Go语言中函数内部不能像之前那样定义函数了，只能定义匿名函数。匿名函数就是没有函数名的函数。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(参数)</span></span>(返回值)&#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>匿名函数因为没有函数名，所以没办法像普通函数那样调用，所以匿名函数需要保存到某个变量或者作为立即执行函数</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//将匿名函数保存到变量</span></span><br><span class="line">    add := <span class="function"><span class="keyword">func</span><span class="params">(x, y <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">        fmt.Println(x + y)</span><br><span class="line">    &#125;</span><br><span class="line">    add(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自执行函数: 匿名函数定义完成后加()直接执行</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span><span class="params">(x, y <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">        fmt.Println(x + y)</span><br><span class="line">    &#125;(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-闭包"><a href="#2-闭包" class="headerlink" title="2)闭包"></a>2)闭包</h4><p><code>闭包=函数+引用环境</code></p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">adder</span><span class="params">()</span></span> <span class="function"><span class="keyword">func</span><span class="params">(<span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> x <span class="type">int</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">        x += y</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> f = adder()</span><br><span class="line">    fmt.Println(f(<span class="number">10</span>)) <span class="comment">//10</span></span><br><span class="line">    fmt.Println(f(<span class="number">20</span>)) <span class="comment">//30</span></span><br><span class="line"></span><br><span class="line">    f1 := adder()</span><br><span class="line">    fmt.Println(f1(<span class="number">40</span>)) <span class="comment">//40</span></span><br><span class="line">    fmt.Println(f1(<span class="number">40</span>)) <span class="comment">//50</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变量<code>f</code>是一个函数并且它引用了其外部作用域中的<code>x</code>变量，此时<code>f</code>就是一个闭包。 在<code>f</code>的生命周期内，变量<code>x</code>也一直有效。 </p>
+<h3 id="2-5-defer语句"><a href="#2-5-defer语句" class="headerlink" title="2.5 defer语句"></a>2.5 defer语句</h3><p>Go 语言中的 <code>defer</code> 语句会将其后面跟随的语句进行延时处理。先被 <code>defer</code>的语句最后被执行，最后被<code>defer</code>的语句，最先被执行。</p>
+<p>由于<code>defer</code>语句延迟调用的特性，所以<code>defer</code>语句能非常方便的处理资源释放问题。比如：资源清理、文件关闭、解锁及记录时间等。</p>
+<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><table>
+<thead>
+<tr>
+<th>内置函数</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>close</td>
+<td>主要用来关闭channel</td>
+</tr>
+<tr>
+<td>len</td>
+<td>用来求长度，比如string、array、slice、map、channel</td>
+</tr>
+<tr>
+<td>new</td>
+<td>用来分配内存，主要用来分配类型，比如int、struct。返回的是指针</td>
+</tr>
+<tr>
+<td>make</td>
+<td>用来分配内存，主要用来分配引用类型,比如chan、map、slice</td>
+</tr>
+<tr>
+<td>append</td>
+<td>用来追加元素到数组、slice中</td>
+</tr>
+<tr>
+<td>panic和recover</td>
+<td>用来做错误处理</td>
+</tr>
+</tbody></table>
+<h3 id="3-1-panic-x2F-recover"><a href="#3-1-panic-x2F-recover" class="headerlink" title="3.1 panic&#x2F;recover"></a>3.1 panic&#x2F;recover</h3><p>Go语言中目前（Go1.12）是没有异常机制，但是使用<code>panic/recover</code>模式来处理错误。 <code>panic</code>可以在任何地方引发，但<code>recover</code>只有在<code>defer</code>调用的函数中有效。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>reover()必须搭配<span class="keyword">defer</span>使用</span><br><span class="line"><span class="number">2.</span><span class="keyword">defer</span>一定要在可能引发<span class="built_in">panic</span>的语句之前定义。</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Go语言</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+        <tag>函数</tag>
+        <tag>func</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang学习_包</title>
+    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%8C%85/</url>
+    <content><![CDATA[<h1 id="Go语言基础之包"><a href="#Go语言基础之包" class="headerlink" title="Go语言基础之包"></a>Go语言基础之包</h1><h2 id="一、包与依赖管理"><a href="#一、包与依赖管理" class="headerlink" title="一、包与依赖管理"></a>一、包与依赖管理</h2><h3 id="1-1-包-package"><a href="#1-1-包-package" class="headerlink" title="1.1 包(package)"></a>1.1 包(package)</h3><h4 id="1）包介绍"><a href="#1）包介绍" class="headerlink" title="1）包介绍"></a>1）包介绍</h4><p>Go语言中支持模块化的开发理念，在Go语言中 <code>包 package</code>来支持代码模块化和代码复用。Go语言为我们提供了很多内置包，如<code>fmt</code>、<code>os</code>、<code>io</code>等。</p>
+<span id="more"></span>
+
+<h4 id="2）定义包"><a href="#2）定义包" class="headerlink" title="2）定义包"></a>2）定义包</h4><p>我们可以根据自己的需要创建定义包。一个包可以简单理解成一个存放<code>.go</code>文件的文件夹。该文件夹下的所有文件都需要在非注释的第一行进行声明，声明该文件所属的包</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> packagename</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>package: 声明包的关键字</p>
+</li>
+<li><p>pakagename: 包名，可以不与文件夹的名称一致，不能包含<code>-</code>符号，最好与其实现的功能相互对应</p>
+</li>
+</ul>
+<p>一个文件夹下面直接包含的文件只能归属一个包，同一个包的文件不能在多个文件夹下。</p>
+<h4 id="3）标识符可见性"><a href="#3）标识符可见性" class="headerlink" title="3）标识符可见性"></a>3）标识符可见性</h4><p>在同一个包内部声明的标识符都位于同一个命名空间下，在不同的包内部声明的标识符就属于不同的命名空间。想要在包的外部使用包内部的标识符就需要添加包名前缀，例如<code>fmt.Println(&quot;Hello world!&quot;)</code>，就是指调用<code>fmt</code>包中的<code>Println</code>函数。</p>
+<p>Go语言中通过标识符的首字母大&#x2F;小写来控制标识符的对外可见(public)&#x2F;不可见(private)的。在一个包内部只有首字母大写的标识符才是对外可见的。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> demo</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// num定义一个全局整型变量</span></span><br><span class="line"><span class="comment">// 首字母小写，对外不可见</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Mode 定义一个常量</span></span><br><span class="line"><span class="comment">// 首字母大写，对外可见</span></span><br><span class="line"><span class="keyword">const</span> Mode = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// person定义一个代表人的结构体</span></span><br><span class="line"><span class="comment">// 首字母小写，对外不可见</span></span><br><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="type">string</span></span><br><span class="line">    Age <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Add 返回两个整数和的函数</span></span><br><span class="line"><span class="comment">// 首字母大写，对外可见</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Add</span><span class="params">(x, y <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// sayHi 打招呼的函数</span></span><br><span class="line"><span class="comment">// 首字母小写，对外不可见</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sayHi</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> myName = <span class="string">&quot;七米&quot;</span></span><br><span class="line">    fmt.Println(myName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结构体中可导出字段的字段名称必须首字母大写</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="type">string</span> <span class="comment">//可在包外访问</span></span><br><span class="line">    class <span class="type">string</span> <span class="comment">//仅在包内访问</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4）包的引入"><a href="#4）包的引入" class="headerlink" title="4）包的引入"></a>4）包的引入</h4><p>要在当前包中使用另外一个包的内容就需要使用import关键字引入这个包，并且import语句通常放在文件的开头，package声明语句的下方。完整的引入声明语句格式如下:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> importname <span class="string">&quot;path/to/package&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>importname: 引入的包名，通常都省略。默认值为引入包的包名。</p>
+</li>
+<li><p>path&#x2F;to&#x2F;package: 引入包的路径名称，必须使用双引号包裹起来。</p>
+</li>
+<li><p>Go语言中禁止循环导入包</p>
+</li>
+</ul>
+<p>一个Go源码文件可以同时引入多个包</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;net/http&quot;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;os&quot;</span></span><br></pre></td></tr></table></figure>
+<p>当然也可以采用批量引入的方式</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">    <span class="string">&quot;os&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>当引入的多个包中存在相同的包名或者想自行为某个引入的包设置一个新包名时，都需要通过importname指定一个在当前文件中使用的新包名。例如，在引入fmt包时为其指定一个新包名f。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> f <span class="string">&quot;fmt&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果引入一个包的时候为其设置了一个特殊_作为包名，那么这个包的引入方式就称为匿名引入。一个包被匿名引入的目的主要是为了加载这个包，从而使得这个包中的资源得以初始化。 被匿名引入的包中的init函数将被执行并且仅执行一遍。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> _ <span class="string">&quot;github.com/go-sql-driver/mysql&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="5）init初始化函数"><a href="#5）init初始化函数" class="headerlink" title="5）init初始化函数"></a>5）init初始化函数</h4><p>在每一个Go源文件中，都可以定义任意个如下格式的特殊函数:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种特殊的函数不接收任何参数也没有任何返回值，我们也不能在代码中主动调用它。当程序启动的时候，init函数会按照它们声明的顺序自动执行。</p>
+<p>一个包的初始化过程是按照代码中引入的顺序来进行的，所有在该包中声明的init函数都将被串行调用并且仅调用执行一次。每一个包初始化的时候都是先执行依赖的包中声明的init函数再执行当前包中声明的init函数。</p>
+<h3 id="1-2-go-module"><a href="#1-2-go-module" class="headerlink" title="1.2 go module"></a>1.2 go module</h3><h4 id="1）go-module介绍"><a href="#1）go-module介绍" class="headerlink" title="1）go module介绍"></a>1）go module介绍</h4><p>go module相关指令</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>go mod init</td>
+<td>初始化项目依赖，生成go.mod文件</td>
+</tr>
+<tr>
+<td>go mod download</td>
+<td>根据go.mod文件下载依赖</td>
+</tr>
+<tr>
+<td>go mod tidy</td>
+<td>对比项目文件中引入的依赖与go.mod进行对比</td>
+</tr>
+<tr>
+<td>go mod graph</td>
+<td>输出依赖关系图</td>
+</tr>
+<tr>
+<td>go mod edit</td>
+<td>编辑go.mod文件</td>
+</tr>
+<tr>
+<td>go mod vendor</td>
+<td>将项目的所有依赖导出至vendor目录</td>
+</tr>
+<tr>
+<td>go mod verify</td>
+<td>检验一个依赖包是否被篡改过</td>
+</tr>
+<tr>
+<td>go mod why</td>
+<td>解释为什么需要这个依赖</td>
+</tr>
+</tbody></table>
+<h6 id="GOPROXY"><a href="#GOPROXY" class="headerlink" title="GOPROXY"></a>GOPROXY</h6><p>这个环境变量主要是用于设置Go模块代理(Go module proxy)，其作用是用于使Go在后续拉取模块版本时能够脱离传统的VCS方式，直接通过镜像站点来快速拉取。</p>
+<p>设置GOPROXY的命令如下：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">go env -v GOPROXY=https://goproxy.cn,dirct</span><br></pre></td></tr></table></figure>
+
+<h6 id="GOPRIVATE"><a href="#GOPRIVATE" class="headerlink" title="GOPRIVATE"></a>GOPRIVATE</h6><p>设置了GOPROXY 之后，go 命令就会从配置的代理地址拉取和校验依赖包。当我们在项目中引入了非公开的包（公司内部git仓库或 github 私有仓库等），此时便无法正常从代理拉取到这些非公开的依赖包，这个时候就需要配置 GOPRIVATE 环境变量。GOPRIVATE用来告诉 go 命令哪些仓库属于私有仓库，不必通过代理服务器拉取和校验。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">go env -w GOPRIVATE=&quot;git.mycompany.com&quot;</span><br></pre></td></tr></table></figure>
+<p>这样在拉取以git.mycompany.com为路径前缀的依赖包时就能正常拉取了。</p>
+<p>此外，如果公司内部自建了 GOPROXY 服务，那么我们可以通过设置 GONOPROXY&#x3D;none，允许通内部代理拉取私有仓库的包。</p>
+<h4 id="2）使用go-module引入包"><a href="#2）使用go-module引入包" class="headerlink" title="2）使用go module引入包"></a>2）使用go module引入包</h4><p>初始化项目：我们在本地新建一个名为 <code>holiday</code> 项目，按如下方式创建一个名为 <code>holiday</code> 的文件夹并切换到该目录下;</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> holiday</span><br><span class="line">$ <span class="built_in">cd</span> holiday</span><br></pre></td></tr></table></figure>
+
+<p>接下来初始化项目</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">go</span> <span class="built_in">mod</span> init holiday</span><br><span class="line"><span class="built_in">go</span>: creating <span class="built_in">new</span> <span class="built_in">go</span>.<span class="built_in">mod</span>: module holiday</span><br></pre></td></tr></table></figure>
+<p>该命令会自动在项目目录下创建一个 <code>go.mod</code> 文件，其内容如下:</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">module</span> holiday</span><br><span class="line"></span><br><span class="line"><span class="attribute">go</span> <span class="number">1</span>.<span class="number">16</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>module holiday: 定义当前项目的导入路径</p>
+</li>
+<li><p>go 1.16: 标识当前项目使用的Go版本</p>
+</li>
+</ul>
+<p>下载依赖包的两种方法<br>一: 在项目目录下执行 <code>go get</code> 命令手动下载依赖的包，默认下载最新的发布版本。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="built_in">get</span> -<span class="keyword">u</span> github.<span class="keyword">com</span>/q1mi/hello</span><br><span class="line"><span class="keyword">go</span> <span class="built_in">get</span>: added github.<span class="keyword">com</span>/q1mi/hello v0.<span class="number">1.1</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以指定想要下载指定的版本号。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">go</span> get -u github.com/q1mi/hello@v0.<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">go</span>: downloading github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">go</span> get: downgraded github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">1</span> =&gt; v0.<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想指定下载某个 commit 对应的代码，可以直接指定commit hash，一般写出前7位即可。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">go</span> get github.com/q1mi/hello@<span class="number">2</span>ccfadd</span><br><span class="line"><span class="attribute">go</span>: downloading github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">2</span>-<span class="number">0</span>.<span class="number">20210219092711</span>-<span class="number">2</span>ccfaddad6a3</span><br><span class="line"><span class="attribute">go</span> get: added github.com/q1mi/hello v0.<span class="number">1</span>.<span class="number">2</span>-<span class="number">0</span>.<span class="number">20210219092711</span>-<span class="number">2</span>ccfaddad6a3</span><br></pre></td></tr></table></figure>
+
+<p>二: 直接编辑<code>go.mod</code>文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">module holiday</span><br><span class="line"></span><br><span class="line">go 1.16</span><br><span class="line"></span><br><span class="line">require github.com/q1mi/hello latest</span><br></pre></td></tr></table></figure>
+
+<p>表示当前项目需要使用 <code>github.com/q1mi/hello</code> 库的最新版本，然后在项目目录下执行 <code>go mod download</code> 下载依赖包</p>
+<p>可以在 <code>go.mod</code> 文件中指定需要的版本进行下载，只用指定<code>commit hash</code>的前7位就好了。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">require github.com<span class="regexp">/q1mi/</span>hello <span class="number">2</span>ccfadda</span><br></pre></td></tr></table></figure>
+
+<p>Go语言支持在一个项目（project）下定义多个包（package）。</p>
+<p>例如，我们在<code>holiday</code>项目内部创建一个新的package-<code>summer</code>，此时新的项目目录结构如下:</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">holidy</span><br><span class="line">├── <span class="built_in">go</span>.<span class="built_in">mod</span></span><br><span class="line">├── <span class="built_in">go</span>.<span class="built_in">sum</span></span><br><span class="line">├── main.<span class="built_in">go</span></span><br><span class="line">└── summer</span><br><span class="line">    └── summer.<span class="built_in">go</span></span><br></pre></td></tr></table></figure>
+<p>其中 <code>holiday/summer/summer.go</code> 文件内容如下:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> summer</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Diving潜水</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Diving</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;夏天去诗巴丹潜水...&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当我们需要调用的时候</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;holiday/summer&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    summer.Diving()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以在holidy&#x2F;go.mod文件中正常引入liwenzhou.com&#x2F;overtime包，然后像下面的示例那样使用replace语句将这个依赖替换为使用相对路径表示的本地包。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">module holiday</span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> <span class="number">1.16</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">require github.com/q1mi/hello v0<span class="number">.1</span><span class="number">.1</span></span><br><span class="line"></span><br><span class="line">replace liwenzhou.com/overtime =&gt; ../overtime</span><br></pre></td></tr></table></figure>
+
+<p><strong>go.mod文件</strong></p>
+<p><code>go.mod</code>文件中记录了当前项目中所有依赖包的相关信息，声明依赖的格式如下:</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="built_in">require</span> <span class="built_in">module</span>/<span class="built_in">path</span> v1<span class="number">.2</span><span class="number">.3</span></span><br></pre></td></tr></table></figure>
+
+<p>其中:</p>
+<ul>
+<li><p>require: 声明依赖的关键字</p>
+</li>
+<li><p>module&#x2F;path: 依赖包的引入路径</p>
+</li>
+<li><p>v1.2.3: 依赖包的版本号。支持以下几种格式:</p>
+<ul>
+<li>latest: 最新版本</li>
+<li>v1.0.0: 详细版本号</li>
+<li>commit hash: 指定某次commit hash</li>
+</ul>
+</li>
+</ul>
+<p><strong>go.sum文件</strong></p>
+<p><code>go.sum</code>这个文件中详细记录了当前项目中引入的依赖包的信息及其hash 值。文件内容通常是以类似下面的格式出现。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="symbol">&lt;module&gt;</span><span class="symbol">&lt;version&gt;</span>/<span class="keyword">go</span>.<span class="keyword">mod</span> <span class="symbol">&lt;hash&gt;</span></span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="symbol">&lt;module&gt;</span> <span class="symbol">&lt;version&gt;</span> <span class="symbol">&lt;hash&gt;</span></span><br><span class="line"><span class="symbol">&lt;module&gt;</span> <span class="symbol">&lt;version&gt;</span>/<span class="keyword">go</span>.<span class="keyword">mod</span> <span class="symbol">&lt;hash&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>依赖保存位置</strong></p>
+<p>Go module 会把下载到本地的依赖包会以类似下面的形式保存在 <code>$GOPATH/pkg/mod</code> 目录下，每个依赖包都会带有版本号进行区分，这样就允许在本地存在同一个包的多个不同版本。</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">mod</span><br><span class="line">├── <span class="keyword">cache</span></span><br><span class="line"><span class="keyword"></span>├── <span class="keyword">cloud.google.com</span></span><br><span class="line"><span class="keyword"></span>├── github.com</span><br><span class="line">    	└──q1mi</span><br><span class="line">          ├── hello@<span class="built_in">v0</span>.<span class="number">0</span>.<span class="number">0</span><span class="number">-20210218074646</span><span class="number">-139</span>b<span class="symbol">0b</span>cd549d</span><br><span class="line">          ├── hello@<span class="built_in">v0</span>.<span class="number">1</span>.<span class="number">1</span></span><br><span class="line">          └── hello@<span class="built_in">v0</span>.<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>如果想清除所有本地已缓存的依赖包数据，可以执行<code>go clean -modcache</code>命令。</p>
+<h4 id="3）使用go-module发布包"><a href="#3）使用go-module发布包" class="headerlink" title="3）使用go module发布包"></a>3）使用go module发布包</h4><p>我们首先在自己的 github 账号下新建一个项目，并把它下载到本地。我这里就以创建和发布一个名为hello的项目为例进行演示。这个hello包将对外提供一个名为SayHi的函数，它的作用非常简单就是向调用者发去问候。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/q1mi/hello</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> hello</span></span><br></pre></td></tr></table></figure>
+
+<p>我们当前位于<code>hello</code>项目目录下，执行下面的命令初始化项目，创建<code>go.mod</code>文件。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">go</span> <span class="keyword">mod</span> init github.<span class="keyword">com</span>/q1mi/hello</span><br><span class="line"><span class="keyword">go</span>: creating <span class="keyword">new</span> <span class="keyword">go</span>.<span class="keyword">mod</span>: module github.<span class="keyword">com</span>/q1mi/hello</span><br></pre></td></tr></table></figure>
+
+<p>接下来在该项目根目录下创建<code>hello.go</code>文件，添加下面的内容:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SayHi</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;你好，我是七米。很高兴认识你。&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将该项目的代码push到仓库的远端分支，这样就对外发布了一个Go包。</p>
+<p>一个设计完善的包应该包含开源许可证及文档等内容，并且我们还应该尽心维护并适时发布适当的版本。github 上发布版本号使用git tag为代码包打上标签即可。</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">$ git <span class="keyword">tag</span> <span class="title">-a</span> v0.<span class="number">1.0</span> -m <span class="string">&quot;release version v0.1.0&quot;</span></span><br><span class="line">$ git push origin v0.<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">v1</span>.<span class="number">2</span>.<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主版本号：发布了不兼容的版本迭代时递增(brakinng changes)。</li>
+<li>次版本号：发布了功能性更新时递增。</li>
+<li>修订号: 发布了bug修复类更新时递增。</li>
+</ul>
+<p><strong>发布新的主版本</strong></p>
+<p>现在我们的<code>hello</code>项目要进行与之前版本不兼容的更新，我们计划让<code>SayHi</code>函数支持向指定人发出问候。更新后的<code>SayHi</code>函数内容以下:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> hello</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// SayHi 向指定人打招呼的函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">SayHi</span><span class="params">(name <span class="type">string</span>)</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;你好%s，我是七米。我很高兴认识你。\n&quot;</span>,name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于这次改动巨大（修改了函数之前的调用规则），对之前使用该包作为依赖的用户影响巨大。因此我们需要发布一个主版本号递增的v2版本。在这种情况下，我们通常会修改当前包的引入路径，像下面的示例一样为引入路径添加版本后缀。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">module</span> github.com/q1mi/hello/v2</span><br><span class="line"></span><br><span class="line"><span class="attribute">go</span> <span class="number">1</span>.<span class="number">16</span></span><br></pre></td></tr></table></figure>
+
+<p>把修改后的代码提交:</p>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>git add .</span><br><span class="line"><span class="variable">$ </span>git commit -m <span class="string">&quot;feat: sayHi现在支持给指定人打招呼&quot;</span></span><br><span class="line"><span class="variable">$ </span>git push</span><br></pre></td></tr></table></figure>
+
+<p>打好tag推送到远程仓库。</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line">$ git tag -a <span class="built_in">v2</span>.<span class="number">0</span>.<span class="number">0</span> -m <span class="string">&quot;release version v2.0.0&quot;</span></span><br><span class="line">$ git <span class="keyword">push</span> origin <span class="built_in">v2</span>.<span class="number">0</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>这样在不影响使用旧版本的用户的前提下，我们新的版本也发布出去了。想要使用v2版本的代码包的用户只需按修改后的引入路径下载即可。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">go</span> get github.com/q1mi/hello/v2@<span class="number">2</span>.<span class="number">0</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>在代码中使用的过程与之前类似，只是需要注意引入路径要添加 v2 版本后缀。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line">	<span class="string">&quot;github.com/q1mi/hello/v2&quot;</span> <span class="comment">// 引入v2版本</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">&quot;现在是假期时间...&quot;</span>)</span><br><span class="line"></span><br><span class="line">	hello.SayHi(<span class="string">&quot;张三&quot;</span>) <span class="comment">// v2版本的SayHi函数需要传入字符串参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><font color=#FF000>废弃已发布的版本</font></strong></p>
+<p>如果某个发布的版本存在致命缺陷不再想让用户使用时，我们可以使用retract声明废弃的版本。例如我们在hello&#x2F;go.mod文件中按如下方式声明即可对外废弃v0.1.2版本。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">module</span> github.com/q1mi/hello</span><br><span class="line"></span><br><span class="line"><span class="attribute">go</span> <span class="number">1</span>.<span class="number">16</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">retract</span> v0.<span class="number">1</span>.<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>用户使用go get下载 <code>v0.1.2</code> 版本时就会收到提示，催促其升级到其他版本。</p>
 ]]></content>
+      <categories>
+        <category>Go语言</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+        <tag>包</tag>
+        <tag>package</tag>
+      </tags>
   </entry>
   <entry>
     <title>Golang学习_基础语法</title>
@@ -738,6 +856,438 @@
       <tags>
         <tag>golang</tag>
         <tag>基础语法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang学习_指针</title>
+    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h1 id="Go语言基础之指针"><a href="#Go语言基础之指针" class="headerlink" title="Go语言基础之指针"></a>Go语言基础之指针</h1><h2 id="一、Go语言中的指针"><a href="#一、Go语言中的指针" class="headerlink" title="一、Go语言中的指针"></a>一、Go语言中的指针</h2><p>任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。</p>
+<p>Go语言中的指针不能进行偏移和运算，因此Go语言中的指针操作非常简单，我们只需要记住两个符号：<code>&amp;（取地址）</code>和<code>*（根据地址取值）</code>。</p>
+<span id="more"></span>
+
+<h3 id="1-1-指针地址和指针类型"><a href="#1-1-指针地址和指针类型" class="headerlink" title="1.1 指针地址和指针类型"></a>1.1 指针地址和指针类型</h3><p>个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用&amp;字符放在变量前面对变量进行“取地址”操作。 Go语言中的值类型（int、float、bool、string、array、struct）都有对应的指针类型，如:<code>*int</code>、<code>*int64</code>、<code>*string</code>等。</p>
+<p>取变量指针的语法如下：</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">ptr := &amp;v</span><br></pre></td></tr></table></figure>
+<p>其中:</p>
+<ul>
+<li>v: 代表被取地址的变量，类型为 T</li>
+<li>ptr: 用于接收地址的变量，ptr的类型为 <code>*T</code>，称作T的指针类型。*表示指针。</li>
+</ul>
+<h3 id="1-2-指针取值"><a href="#1-2-指针取值" class="headerlink" title="1.2 指针取值"></a>1.2 指针取值</h3><p>在对普通变量使用&amp;操作符取地址后会获得这个变量的指针，然后可以对指针使用*操作，也就是指针取值，代码如下。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">10</span></span><br><span class="line">    b := &amp;a <span class="comment">//取变量a的地址，将指针保存在b中</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of b:%T\n&quot;</span>, b)</span><br><span class="line">    c := *b <span class="comment">//指针取值</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of c:%T\n&quot;</span>, c)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;value of c:%v\n&quot;</span>,c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结： 取地址操作符&amp;和取值操作符<em>是一对互补操作符，&amp;取出地址，</em>根据地址取出地址指向的值。</p>
+<p>变量、指针地址、指针变量、取地址、取值的相互关系和特性如下：</p>
+<ul>
+<li>对变量进行取地址（&amp;）操作，可以获得这个变量的指针变量。</li>
+<li>指针变量的值是指针地址。</li>
+<li>对指针变量进行取值(*)操作，可以获得指针变量指向的原变量的值。</li>
+</ul>
+<h3 id="1-3-new和make"><a href="#1-3-new和make" class="headerlink" title="1.3 new和make"></a>1.3 new和make</h3><h4 id="1-new"><a href="#1-new" class="headerlink" title="1) new"></a>1) new</h4><p>new是一个内置的函数，它的函数签名如下:</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">new</span><span class="params">(Type)</span></span> *Type</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Type表示类型，new函数只接受一个参数，这个参数是一个类型</li>
+<li>*Type表示类型指针，new函数返回一个指向该类型内存地址的指针。</li>
+</ul>
+<p>指针作为引用类型需要初始化后才会拥有内存空间，才可以给它复制。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a *<span class="type">int</span></span><br><span class="line">    a = <span class="built_in">new</span>(<span class="type">int</span>)</span><br><span class="line">    *a = <span class="number">10</span></span><br><span class="line">    fmt.Println(*a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-make"><a href="#2-make" class="headerlink" title="2) make"></a>2) make</h4><p>make也是用于内存分配的，区别于new，它只用于slice、map以及channel的内存创建，而且它返回的类型就是这三个类型本身，而不是他们的指针类型，因为这三种类型就是引用类型，所以就没有必要返回他们的指针了。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">make</span><span class="params">(t Type,size ...IntegerType)</span></span> Type</span><br></pre></td></tr></table></figure>
+<p>make函数是无可替代的，我们在使用slice、map以及channel的时候，都需要使用make进行初始化，然后才可以对它们进行操作。</p>
+<h4 id="3-new与make的区别"><a href="#3-new与make的区别" class="headerlink" title="3) new与make的区别"></a>3) new与make的区别</h4><p>1.二者都是用来做内存分配的。<br>2.make只用于slice、map以及channel的初始化，返回的还是这三个引用类型本身;<br>3.而new用于类型的内存分配，并且内存对应的值为类型零值，返回的是指向类型的指针。</p>
+]]></content>
+      <categories>
+        <category>Go语言</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+        <tag>指针</tag>
+        <tag>point</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Golang学习_结构体</title>
+    <url>/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E7%BB%93%E6%9E%84%E4%BD%93/</url>
+    <content><![CDATA[<h1 id="Go语言基础之结构体"><a href="#Go语言基础之结构体" class="headerlink" title="Go语言基础之结构体"></a>Go语言基础之结构体</h1><h2 id="一、类型别名和自定义类型"><a href="#一、类型别名和自定义类型" class="headerlink" title="一、类型别名和自定义类型"></a>一、类型别名和自定义类型</h2><h3 id="1-1-自定义类型"><a href="#1-1-自定义类型" class="headerlink" title="1.1 自定义类型"></a>1.1 自定义类型</h3><p>在Go语言中有一些基本的数据类型，如<code>string</code>、<code>整型</code>、<code>浮点型</code>、<code>布尔</code>等数据类型， Go语言中可以使用<code>type</code>关键字来定义自定义类型。</p>
+<span id="more"></span>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将MyInt定义为int类型</span></span><br><span class="line"><span class="keyword">type</span> MyInt <span class="type">int</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>type</code>关键字，<code>MyInt</code>就是一种新的类型，它具有 <code>int</code> 的特性。</p>
+<h3 id="1-2-类型别名"><a href="#1-2-类型别名" class="headerlink" title="1.2 类型别名"></a>1.2 类型别名</h3><p>类型别名规定：TypeAlias只是Type的别名，本质上TypeAlias与Type是同一个类型。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> TypeAlias = Type</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-类型定义和类型别名的区别"><a href="#1-3-类型定义和类型别名的区别" class="headerlink" title="1.3 类型定义和类型别名的区别"></a>1.3 类型定义和类型别名的区别</h3><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 类型定义</span></span><br><span class="line"><span class="keyword">type</span> NewInt <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 类型别名</span></span><br><span class="line"><span class="keyword">type</span> MyInt = <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a NewInt</span><br><span class="line">    <span class="keyword">var</span> b MyInt</span><br><span class="line"></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of a:%T\n&quot;</span>, a) <span class="comment">//type of a: main.NewInt</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of b:%T\n&quot;</span>, b) <span class="comment">//type of b: int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、结构体"><a href="#二、结构体" class="headerlink" title="二、结构体"></a>二、结构体</h2><p>Go语言中通过<code>struct</code>来实现面向对象。</p>
+<h3 id="2-1-结构体的定义"><a href="#2-1-结构体的定义" class="headerlink" title="2.1 结构体的定义"></a>2.1 结构体的定义</h3><p>使用<code>type</code>和<code>struct</code>关键字来定义结构体</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> 类型名 <span class="keyword">struct</span> &#123;</span><br><span class="line">    字段名 字段类型</span><br><span class="line">    字段名 字段类型</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类型名：标识自定义结构体的名称，在同一个包内不能重复。</li>
+<li>字段名：表示结构体字段名。结构体中的字段名必须唯一。</li>
+<li>字段类型：表示结构体字段的具体类型。</li>
+</ul>
+<h3 id="2-2-结构体实例化"><a href="#2-2-结构体实例化" class="headerlink" title="2.2 结构体实例化"></a>2.2 结构体实例化</h3><p>结构体本身也是一种类型，我们可以像声明内置类型一样使用<code>var</code>关键字声明结构体类型。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> 结构体实例 结构体类型</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-基本实例化"><a href="#1-基本实例化" class="headerlink" title="1) 基本实例化"></a>1) 基本实例化</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="type">string</span></span><br><span class="line">    city <span class="type">string</span></span><br><span class="line">    age <span class="type">int8</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> p1 person</span><br><span class="line">    p1.name = <span class="string">&quot;结构体&quot;</span></span><br><span class="line">    p1.age = <span class="number">23</span></span><br><span class="line">    p1.city = <span class="string">&quot;网络&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以通过<code>.</code>来访问结构体的字段（成员变量），例如 <code>p1.name</code>和<code>p1.age</code>等。</p>
+<h4 id="2-匿名结构体"><a href="#2-匿名结构体" class="headerlink" title="2) 匿名结构体"></a>2) 匿名结构体</h4><p>在定义一些临时数据结构等场景下还可以使用匿名结构体。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> usr <span class="keyword">struct</span>&#123;Name <span class="type">string</span>; Age <span class="type">int</span>&#125;</span><br><span class="line">    usr.Name = <span class="string">&quot;小王子&quot;</span></span><br><span class="line">    usr.Age = <span class="number">18</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;%#v\n&quot;</span>, usr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-创建指针类型结构体"><a href="#3-创建指针类型结构体" class="headerlink" title="3) 创建指针类型结构体"></a>3) 创建指针类型结构体</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p2 = <span class="built_in">new</span>(person)</span><br><span class="line">p2.name = <span class="string">&quot;小王子&quot;</span></span><br><span class="line">p2.age = <span class="number">18</span></span><br><span class="line">p2.city = <span class="string">&quot;上海&quot;</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;%#v\n&quot;</span>, p2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-取结构体的地址实例化"><a href="#4-取结构体的地址实例化" class="headerlink" title="4) 取结构体的地址实例化"></a>4) 取结构体的地址实例化</h4><p>使用 <code>&amp;</code> 对结构体进行取地址操作相当于对该结构体类型进行了一次 <code>new</code> 实例化操作。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">p3 := &amp;person&#123;&#125;</span><br><span class="line">fmt.Printf(<span class="string">&quot;%T\n&quot;</span>, p3) <span class="comment">// *main.person</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;p3=%#v\n&quot;</span>, p3) <span class="comment">// p3=&amp;main.person&#123;name:&quot;&quot;,city:&quot;&quot;,age:0&#125;</span></span><br><span class="line">p3.name = <span class="string">&quot;demo&quot;</span></span><br><span class="line">p3.city = <span class="string">&quot;awa&quot;</span></span><br><span class="line">p3.age = <span class="number">10</span></span><br><span class="line">fmt.Printf(<span class="string">&quot;p3=%#v\n&quot;</span>, p3) <span class="comment">// p3=&amp;main.person&#123;name:&quot;demo&quot;,city:&quot;awa&quot;,age:10&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-结构体初始化"><a href="#2-3-结构体初始化" class="headerlink" title="2.3 结构体初始化"></a>2.3 结构体初始化</h3><h4 id="1-使用键值对初始化"><a href="#1-使用键值对初始化" class="headerlink" title="1) 使用键值对初始化"></a>1) 使用键值对初始化</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">p3 := person&#123;</span><br><span class="line">    name: <span class="string">&quot;小王子&quot;</span>,</span><br><span class="line">    city: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以对结构体指针进行键值对初始化</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">p6 := &amp;person&#123;</span><br><span class="line">    name: <span class="string">&quot;小王子&quot;</span>,</span><br><span class="line">    city: <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>当某些字段没有初始值的时候，该字段可以不写。此时，没有指定初始值的字段的值就是该字段类型的零值。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">p7 := &amp;person&#123;</span><br><span class="line">    city: <span class="string">&quot;北京&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-使用值的列表初始化"><a href="#2-使用值的列表初始化" class="headerlink" title="2) 使用值的列表初始化"></a>2) 使用值的列表初始化</h4><p>初始化结构体的时候可以简写，也就是初始化的时候不写键，直接写值：</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line">p8 := &amp;person&#123;</span><br><span class="line">    <span class="string">&quot;沙河娜扎&quot;</span>,</span><br><span class="line">    <span class="string">&quot;北京&quot;</span>,</span><br><span class="line">    <span class="number">28</span></span><br><span class="line">&#125;</span><br><span class="line">使用这种格式初始化时，需要注意：</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 必须初始化结构体的所有字段。</span><br><span class="line"><span class="number">2.</span> 初始值的填充顺序必须与字段在结构体中的声明顺序一致。</span><br><span class="line"><span class="number">3.</span> 该方式不能和键值初始化方式混用。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-结构体内存布局"><a href="#2-4-结构体内存布局" class="headerlink" title="2.4 结构体内存布局"></a>2.4 结构体内存布局</h3><p>结构体占用一块连续的内存</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> test <span class="keyword">struct</span> &#123;</span><br><span class="line">    a <span class="type">int8</span></span><br><span class="line">    b <span class="type">int8</span></span><br><span class="line">    c <span class="type">int8</span></span><br><span class="line">    d <span class="type">int8</span></span><br><span class="line">&#125;</span><br><span class="line">n := test&#123;</span><br><span class="line">    <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span></span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">&quot;n.a %p\n&quot;</span>, &amp;n.a)</span><br><span class="line"></span><br><span class="line">fmt.Printf(<span class="string">&quot;n.b %p\n&quot;</span>, &amp;n.b)</span><br><span class="line"></span><br><span class="line">fmt.Printf(<span class="string">&quot;n.c %p\n&quot;</span>, &amp;n.c)</span><br><span class="line"></span><br><span class="line">fmt.Printf(<span class="string">&quot;n.d %p\n&quot;</span>, &amp;n.d)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">n</span>.a <span class="number">0</span>x0000a0060</span><br><span class="line"><span class="attribute">n</span>.b <span class="number">0</span>x0000a0061</span><br><span class="line"><span class="attribute">n</span>.c <span class="number">0</span>x0000a0062</span><br><span class="line"><span class="attribute">n</span>.d <span class="number">0</span>x0000a0063</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-空结构体"><a href="#1-空结构体" class="headerlink" title="1) 空结构体"></a>1) 空结构体</h4><p>空结构体不占用空间。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> v <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line">fmt.Println(unsafe.Sizeof(v)) <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-构造函数"><a href="#2-5-构造函数" class="headerlink" title="2.5 构造函数"></a>2.5 构造函数</h3><p>Go语言的结构体没有构造函数，我们可以自己实现。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">newPerson</span><span class="params">(name, city <span class="type">string</span>, age <span class="type">int8</span>)</span></span> *person &#123;</span><br><span class="line">    <span class="keyword">return</span> &amp;person&#123;</span><br><span class="line">        name: name,</span><br><span class="line">        city: city,</span><br><span class="line">        age: age</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用构造函数</span></span><br><span class="line">p9 := newPerson(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;沙河&quot;</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-方法和接收者"><a href="#2-6-方法和接收者" class="headerlink" title="2.6 方法和接收者"></a>2.6 方法和接收者</h3><p>Go语言中的<code>方法(Method)</code>是一种作用于特定类型变量的函数。这种特定类型变量叫做<code>接收者(Receiver)</code>。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(接收者变量 接收者类型)</span></span> 方法名(参数列表) (返回参数) &#123;</span><br><span class="line">    函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接收者变量：接收者中的参数变量在命名时，官方建议使用接收者类型名称首字母小写，而不是self、this之类的命名。</li>
+<li>接收者类型：接收者类型和参数类似，可以是指针类型和非指针类型。</li>
+<li>方法名、参数列表、返回参数：具体格式与函数定义相同。</li>
+</ul>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//结构体</span></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span>&#123;</span><br><span class="line">    name <span class="type">string</span></span><br><span class="line">    age <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// NewPerson 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">NewPerson</span><span class="params">(name stirng, age <span class="type">int8</span>)</span></span> *Person &#123;</span><br><span class="line">    <span class="keyword">return</span> &amp;Person&#123;</span><br><span class="line">        name: name,</span><br><span class="line">        age: age</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Dream Person 做梦的方法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(p Person)</span></span> Dream() &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;%s的梦想是学好Go语言\n&quot;</span>,&amp;p.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p1 := NewPerson(<span class="string">&quot;小王子&quot;</span>, <span class="number">20</span>)</span><br><span class="line">    p1.Dream()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法与函数不同的是，函数不属于任何类型，方法属于特定的类型。</p>
+<h4 id="1）指针类型的接收者"><a href="#1）指针类型的接收者" class="headerlink" title="1）指针类型的接收者"></a>1）指针类型的接收者</h4><p>指针类型的接收者由一个结构体的指针组成，由于指针的特性，调用方法时修改接收者指针的任意成员变量，在方法结束后，修改都是有效的。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//SetAge 设置p的年龄</span></span><br><span class="line"><span class="comment">// 使用指针接收者</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Person)</span></span> SetAge(newAge <span class="type">int8</span>) &#123;</span><br><span class="line">    p.age = newAge</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用该方法</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p1 := NewPerson(<span class="string">&quot;小王子&quot;</span>, <span class="number">25</span>)</span><br><span class="line">    fmt.Println(p1.age) <span class="comment">// 25</span></span><br><span class="line">    p1.SetAge(<span class="number">20</span>)</span><br><span class="line">    fmt.Pritnln(p1.age) <span class="comment">// 20</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2）值类型的接收者"><a href="#2）值类型的接收者" class="headerlink" title="2）值类型的接收者"></a>2）值类型的接收者</h4><p>当方法作用于值类型接收者时，Go语言会在代码运行时将接收者的值复制一份。在值类型接收者的方法中可以获取接收者的成员值，但修改操作只是针对副本，无法修改接收者变量本身。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// SetAge2 设置p的年龄</span></span><br><span class="line"><span class="comment">// 使用值接收者</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p Person)</span></span> SetAge2(newAge <span class="type">int8</span>) &#123;</span><br><span class="line">    p.age = newAge</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p1 := NewPerson(<span class="string">&quot;小王子&quot;</span>, <span class="number">25</span>)</span><br><span class="line">    p1.Dream()</span><br><span class="line">    fmt.Println(p1.age) <span class="comment">// 25</span></span><br><span class="line">    p1.SetAge2(<span class="number">20</span>) <span class="comment">// (*p1).SetAge2(20)</span></span><br><span class="line">    fmt.Println(p1.age) <span class="comment">// 25</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3）什么时候需要使用指针类型接收者"><a href="#3）什么时候需要使用指针类型接收者" class="headerlink" title="3）什么时候需要使用指针类型接收者"></a>3）什么时候需要使用指针类型接收者</h4><ol>
+<li><p>需要修改接收者中的值</p>
+</li>
+<li><p>接收者是拷贝代价较大的大对象</p>
+</li>
+<li><p>保证一致性，如果有某个方法使用了指针接收者，那么其他方法夜应该使用指针接收者。</p>
+</li>
+</ol>
+<h3 id="2-7-任意类型添加方法"><a href="#2-7-任意类型添加方法" class="headerlink" title="2.7 任意类型添加方法"></a>2.7 任意类型添加方法</h3><p>在Go语言中，接收者的类型可以是任何类型，不仅仅是结构体，任何类型都可以拥有方法。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//MyInt 将int定义为自定义MyInt类型</span></span><br><span class="line"><span class="keyword">type</span> MyInt <span class="type">int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//SayHello 为MyInt添加一个SayHello的方法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m MyInt)</span></span> SayHello() &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello, 我是一个int&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> m1 MyInt</span><br><span class="line">    m1.SayHello()</span><br><span class="line">    m1 = <span class="number">100</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;%v %T\n&quot;</span>, m1, m1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-8-结构体的匿名字段"><a href="#2-8-结构体的匿名字段" class="headerlink" title="2.8 结构体的匿名字段"></a>2.8 结构体的匿名字段</h3><p>结构体允许其成员字段在声明时没有字段名而只有类型，这种没有名字的字段被称为匿名字段。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Person 结构体Person类型</span></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    <span class="type">string</span></span><br><span class="line">    <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p1 := Person&#123;</span><br><span class="line">        <span class="string">&quot;小王&quot;</span>,</span><br><span class="line">        <span class="number">20</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(p1.<span class="type">string</span>, p1.<span class="type">int</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于结构体要求字段名称必须唯一，因此一个结构体中同类型的匿名字段只能有一个。</p>
+<h3 id="2-9-嵌套结构体"><a href="#2-9-嵌套结构体" class="headerlink" title="2.9 嵌套结构体"></a>2.9 嵌套结构体</h3><p>一个结构体中可以嵌套包含另一个结构体或结构体指针</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Address 地址结构体</span></span><br><span class="line"><span class="keyword">type</span> Address <span class="keyword">struct</span> &#123;</span><br><span class="line">    Province <span class="type">string</span></span><br><span class="line">    City     <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// User 用户结构体</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="type">string</span></span><br><span class="line">    Gender <span class="type">string</span></span><br><span class="line">    Address Address</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    user1 := User&#123;</span><br><span class="line">        Name: <span class="string">&quot;小王子&quot;</span>,</span><br><span class="line">        Gender: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">        Address: Address&#123;</span><br><span class="line">            Province: <span class="string">&quot;山东&quot;</span>,</span><br><span class="line">            City: <span class="string">&quot;威海&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;user1=%#v\n&quot;</span>, user1)</span><br><span class="line"><span class="comment">//user1=main.User&#123;Name:&quot;小王子&quot;, Gender:&quot;男&quot;, Address:main.Address&#123;Province:&quot;山东&quot;, City:&quot;威海&quot;&#125;&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1）嵌套匿名字段"><a href="#1）嵌套匿名字段" class="headerlink" title="1）嵌套匿名字段"></a>1）嵌套匿名字段</h4><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Address 地址结构体</span></span><br><span class="line"><span class="keyword">type</span> Address <span class="keyword">struct</span> &#123;</span><br><span class="line">    Province <span class="type">string</span></span><br><span class="line">    City <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// User 用户结构体</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="type">string</span></span><br><span class="line">    Gender <span class="type">string</span></span><br><span class="line">    Address <span class="comment">//匿名字段</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> user2 User</span><br><span class="line">    user2.Name = <span class="string">&quot;张三&quot;</span></span><br><span class="line">    user2.Gender = <span class="string">&quot;男&quot;</span></span><br><span class="line">    user2.Address.Province = <span class="string">&quot;山东&quot;</span> <span class="comment">/// 匿名字段默认使用类型名作为字段名</span></span><br><span class="line">    user2.City = <span class="string">&quot;威海&quot;</span>  <span class="comment">// 匿名字段可以省略</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;user2=%v\n&quot;</span>, user2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2）-嵌套结构体的字段名冲突"><a href="#2）-嵌套结构体的字段名冲突" class="headerlink" title="2） 嵌套结构体的字段名冲突"></a>2） 嵌套结构体的字段名冲突</h4><p>嵌套结构体内部可能存在相同的字段名。在这种情况下为了避免歧义需要通过指定具体的内嵌结构体字段名。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Address 地址结构体</span></span><br><span class="line"><span class="keyword">type</span> Address <span class="keyword">struct</span> &#123;</span><br><span class="line">    Province <span class="type">string</span></span><br><span class="line">    City <span class="type">string</span></span><br><span class="line">    CreateTime <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Email 邮箱结构体</span></span><br><span class="line"><span class="keyword">type</span> Email <span class="keyword">struct</span> &#123;</span><br><span class="line">    Account <span class="type">string</span></span><br><span class="line">    CreateTime <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// User 用户结构体</span></span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="type">string</span></span><br><span class="line">    Gender <span class="type">string</span></span><br><span class="line">    Address</span><br><span class="line">    Email</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> user3 User</span><br><span class="line">    user3.Name = <span class="string">&quot;李四&quot;</span></span><br><span class="line">    user3.Gender = <span class="string">&quot;男&quot;</span></span><br><span class="line">    user3.Address.CreateTime = <span class="string">&quot;2000&quot;</span> <span class="comment">// 指定Address结构体中的CreateTIme</span></span><br><span class="line">    user3.Email.CreateTime = <span class="string">&quot;2010&quot;</span> <span class="comment">// 指定Email结构体中的CreateTime</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-10-结构体的”继承”"><a href="#2-10-结构体的”继承”" class="headerlink" title="2.10 结构体的”继承”"></a>2.10 结构体的”继承”</h3><p>Go语言中使用结构体也可以实现其他编程语言中面向对象的继承。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Animal 动物</span></span><br><span class="line"><span class="keyword">type</span> Animal <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(a *Animal)</span></span> move() &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;%s会动 \n&quot;</span>, a.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Dog 狗</span></span><br><span class="line"><span class="keyword">type</span> Dog <span class="keyword">struct</span> &#123;</span><br><span class="line">    Feet <span class="type">int8</span></span><br><span class="line">    *Animal <span class="comment">//通过嵌套匿名结构体实现继承</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(d *Dog)</span></span> wang() &#123;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;%s会汪汪汪~\n&quot;</span>, d.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    d1 := &amp;Dog&#123;</span><br><span class="line">        Feet: <span class="number">4</span>,</span><br><span class="line">        Animal: &amp;Animal&#123; <span class="comment">//注意嵌套的是结构体指针</span></span><br><span class="line">            name: <span class="string">&quot;乐乐&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    d1.wang()</span><br><span class="line">    d1.move()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-11-结构体字段的可见性"><a href="#2-11-结构体字段的可见性" class="headerlink" title="2.11 结构体字段的可见性"></a>2.11 结构体字段的可见性</h3><p>结构体中字段大写开头表示可公开访问，小写表示私有(仅在定义当前结构体的包中可以访问)</p>
+<h3 id="2-12-结构体与JSON序列化"><a href="#2-12-结构体与JSON序列化" class="headerlink" title="2.12 结构体与JSON序列化"></a>2.12 结构体与JSON序列化</h3><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。JSON键值对是用来保存JS对象的一种方式，键&#x2F;值对组合中的键名写在前面并用双引号””包裹，使用冒号:分隔，然后紧接着值；多个键值之间使用英文,分隔。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Student 学生</span></span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    ID <span class="type">int</span></span><br><span class="line">    Gender <span class="type">string</span></span><br><span class="line">    Name <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Class 班级</span></span><br><span class="line"><span class="keyword">type</span> Class <span class="keyword">struct</span> &#123;</span><br><span class="line">    Title <span class="type">string</span></span><br><span class="line">    Students []*Student</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    c := &amp;Class&#123;</span><br><span class="line">        Title: <span class="string">&quot;101&quot;</span>,</span><br><span class="line">        Students: <span class="built_in">make</span>([]*Student, <span class="number">0</span>, <span class="number">200</span>),</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">        stu := &amp;Student&#123;</span><br><span class="line">            Name: fmt.Sprintf(<span class="string">&quot;stu%02d&quot;</span>, i),</span><br><span class="line">            Gender: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">            ID: i,</span><br><span class="line">        &#125;</span><br><span class="line">        c.Students = <span class="built_in">append</span>(c.Students, stu)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// JSON序列化: 结构体--&gt;JSON格式的字符串</span></span><br><span class="line">    data, err := json.Marshal(c)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;json marshal failed&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;json:%s\n&quot;</span>, data)</span><br><span class="line">    <span class="comment">// JSON反序列化: JSON格式的字符串 --&gt; 结构体</span></span><br><span class="line">    str := <span class="string">`&quot;Title&quot;:&quot;101&quot;,&quot;Students&quot;:[&#123;&quot;ID&quot;:0,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu00&quot;&#125;,&#123;&quot;ID&quot;:1,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu01&quot;&#125;,&#123;&quot;ID&quot;:2,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu02&quot;&#125;,&#123;&quot;ID&quot;:3,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu03&quot;&#125;,&#123;&quot;ID&quot;:4,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu04&quot;&#125;,&#123;&quot;ID&quot;:5,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu05&quot;&#125;,&#123;&quot;ID&quot;:6,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu06&quot;&#125;,&#123;&quot;ID&quot;:7,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu07&quot;&#125;,&#123;&quot;ID&quot;:8,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu08&quot;&#125;,&#123;&quot;ID&quot;:9,&quot;Gender&quot;:&quot;男&quot;,&quot;Name&quot;:&quot;stu09&quot;&#125;]&#125;`</span></span><br><span class="line">    c1 := &amp;Class&#123;&#125;</span><br><span class="line">	err = json.Unmarshal([]<span class="type">byte</span>(str), c1)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;json unmarshal failed!&quot;</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;%#v\n&quot;</span>, c1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-13-结构体标签-Tag"><a href="#2-13-结构体标签-Tag" class="headerlink" title="2.13 结构体标签(Tag)"></a>2.13 结构体标签(Tag)</h3><p><code>Tag</code>是结构体的元信息，可以在运行的时候通过反射的机制读取出来。 <code>Tag</code>在结构体字段的后方定义，由一对反引号包裹起来，具体的格式如下：</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="string">`key1:&quot;value1&quot; key2:&quot;value2&quot;`</span></span><br></pre></td></tr></table></figure>
+<p>结构体tag由一个或多个键值对组成。键与值使用冒号分隔，值用双引号括起来。同一个结构体字段可以设置多个键值对tag，不同的键值对之间使用空格分隔。</p>
+<p>注意事项: 为结构体编写<code>Tag</code>时，必须严格遵循键值对的规则。结构体标签的解析代码的容错能力很差，一旦格式写错，编译和运行时都不会提示任何错误，通过反射也无法正确取值。例如不要在key和value之间添加空格。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Student 学生</span></span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">	ID     <span class="type">int</span>    <span class="string">`json:&quot;id&quot;`</span> <span class="comment">//通过指定tag实现json序列化该字段时的key</span></span><br><span class="line">	Gender <span class="type">string</span> <span class="comment">//json序列化是默认使用字段名作为key</span></span><br><span class="line">	name   <span class="type">string</span> <span class="comment">//私有不能被json包访问</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s1 := Student&#123;</span><br><span class="line">		ID:     <span class="number">1</span>,</span><br><span class="line">		Gender: <span class="string">&quot;男&quot;</span>,</span><br><span class="line">		name:   <span class="string">&quot;沙河娜扎&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	data, err := json.Marshal(s1)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">&quot;json marshal failed!&quot;</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Printf(<span class="string">&quot;json str:%s\n&quot;</span>, data) <span class="comment">//json str:&#123;&quot;id&quot;:1,&quot;Gender&quot;:&quot;男&quot;&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结构体和方法补充知识点"><a href="#结构体和方法补充知识点" class="headerlink" title="结构体和方法补充知识点"></a>结构体和方法补充知识点</h3><p>因为slice和map这两种数据类型都包含了指向底层数据的指针，因此我们在需要复制它们时要特别注意。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="type">string</span></span><br><span class="line">    age <span class="type">int8</span></span><br><span class="line">    dreams []<span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Person)</span></span> SetDreams(dreams []<span class="type">string</span>) &#123;</span><br><span class="line">    p.dreams = dreams</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    p1 := Person&#123;name: <span class="string">&quot;小王子&quot;</span>, age: <span class="number">18</span>&#125;</span><br><span class="line">    data := []<span class="type">string</span>&#123;<span class="string">&quot;吃饭&quot;</span>, <span class="string">&quot;睡觉&quot;</span>, <span class="string">&quot;打豆豆&quot;</span>&#125;</span><br><span class="line">    p1.SetDreams(data)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 你真的想要修改 p1.dreams吗</span></span><br><span class="line">    data[<span class="number">1</span>] = <span class="string">&quot;不睡觉&quot;</span></span><br><span class="line">    fmt.Println(p1.dreams) <span class="comment">// ?</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>正确的做法是在方法中使用传入的slice的拷贝进行结构体赋值。</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Person)</span></span> SetDreams(dreams []<span class="type">string</span>) &#123;</span><br><span class="line">    p.dreams = <span class="built_in">make</span>([] <span class="type">string</span>, <span class="built_in">len</span>(dreams))</span><br><span class="line">    <span class="built_in">copy</span>(p.dreams, dreams)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Go语言</category>
+      </categories>
+      <tags>
+        <tag>golang</tag>
+        <tag>结构体</tag>
+        <tag>struct</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/06/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>text1</title>
+    <url>/2023/06/13/text1/</url>
+    <content><![CDATA[<h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><ol start="5">
+<li>. 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。</li>
+<li>202.96.128.128</li>
+<li>D 节省</li>
+<li>银行</li>
+<li>对<br>10 无缓冲是同步的<br>11。 132<br>12 func f(a,b int) (value int, error)</li>
+</ol>
+<p>13 int 和体系架构</p>
+<p>14 其他三个</p>
+<p>15 主键是唯一、不为空</p>
+<p>16 direct </p>
+<p>17 直接插入</p>
+<p>18 堆</p>
+<p>19 在100000</p>
+<p>20 不选进程是动态的过程</p>
+<p>21 不选 HTTP返回码 302</p>
+<p>22 选 协程和线程都可以 以及 通过 channel</p>
+<p>23 不选接口赋值</p>
+<p>24 不选 数据库索引的存在</p>
+<p>25 不选 POST比get安全 </p>
+<p>26 不选域名解析</p>
+<p>27 只选快速 12</p>
+<p>28</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>嵌入式笔记</title>
+    <url>/2023/06/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1.1 嵌入式系统概述"></a>1.1 嵌入式系统概述</h3><h4 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h4><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
+<span id="more"></span>
+<h4 id="1-1-2-嵌入式系统的技术特点"><a href="#1-1-2-嵌入式系统的技术特点" class="headerlink" title="1.1.2 嵌入式系统的技术特点"></a>1.1.2 嵌入式系统的技术特点</h4><p>四大特性：专用性、低成本、可裁剪性、可靠性</p>
+<h4 id="1-1-3-嵌入式系统的组成"><a href="#1-1-3-嵌入式系统的组成" class="headerlink" title="1.1.3 嵌入式系统的组成"></a>1.1.3 嵌入式系统的组成</h4><p>分为硬件设备和软件设备，嵌入式处理器-&gt;硬件核心。</p>
+<img src = "./1.png">
+
+<h5 id="1）嵌入式处理器类型"><a href="#1）嵌入式处理器类型" class="headerlink" title="1）嵌入式处理器类型"></a>1）嵌入式处理器类型</h5><p>微控制器(MCU)；嵌入式微处理器(MPU)；数字信号处理器(DSP)；片上系统(Soc)</p>
+<h5 id="2）嵌入式操作系统"><a href="#2）嵌入式操作系统" class="headerlink" title="2）嵌入式操作系统"></a>2）嵌入式操作系统</h5><p>谷歌的Android系统和苹果的iOS系统。实时操作系统常用免费的uC&#x2F;OS-II或者商业化的VxWorks等。</p>
+<h3 id="1-2-嵌入式系统的开发"><a href="#1-2-嵌入式系统的开发" class="headerlink" title="1.2 嵌入式系统的开发"></a>1.2 嵌入式系统的开发</h3><h4 id="1-2-1-嵌入式系统的开发模式"><a href="#1-2-1-嵌入式系统的开发模式" class="headerlink" title="1.2.1 嵌入式系统的开发模式"></a>1.2.1 嵌入式系统的开发模式</h4><p>宿主机-目标机(开发模式)</p>
+<h2 id="第二章-ARM-Cortex-M3-处理器"><a href="#第二章-ARM-Cortex-M3-处理器" class="headerlink" title="第二章 ARM Cortex-M3 处理器"></a>第二章 ARM Cortex-M3 处理器</h2><h3 id="2-2-Cortex-M3-处理器"><a href="#2-2-Cortex-M3-处理器" class="headerlink" title="2.2 Cortex-M3 处理器"></a>2.2 Cortex-M3 处理器</h3><ul>
+<li>CM3的功能模块<br>高性能32位RISC处理器；大量寄存器，都可用于多种用途；采用Thumb指令集结构；3级流水线（取指-译码-执行）；采用哈佛存储结构；高级微控制器总线结构</li>
+</ul>
+<p>CM3的两个状态两个级别两种模式</p>
+<img src = "./2.png">
+
+<ul>
+<li>两个状态：Thumb状态、调试状态 </li>
+<li>两个级别：特权级、非特权级</li>
+<li>两种模式：异常处理模式、线程模式</li>
+</ul>
+<h3 id="2-3-寄存器"><a href="#2-3-寄存器" class="headerlink" title="2.3 寄存器"></a>2.3 寄存器</h3><h4 id="1-通用寄存器"><a href="#1-通用寄存器" class="headerlink" title="1.通用寄存器"></a>1.通用寄存器</h4><img src = "./3.png">
+
+<p>CM3设计有16个32位通用寄存器，R0~R12是真正意义上的通用寄存器。</p>
+<h4 id="2-专用寄存器"><a href="#2-专用寄存器" class="headerlink" title="2.专用寄存器"></a>2.专用寄存器</h4><img src = "./4.png">
+
+<p>专用寄存器不通过存储器地址访问，而是使用专用寄存器访问指令</p>
+<ul>
+<li><p>程序状态寄存器(Program Status Register,PSR)</p>
+</li>
+<li><p>异常屏蔽位寄存器(Exception Mask Register)</p>
+</li>
+</ul>
+<h3 id="2-4-存储器组织"><a href="#2-4-存储器组织" class="headerlink" title="2.4 存储器组织"></a>2.4 存储器组织</h3><h5 id="1-位带区"><a href="#1-位带区" class="headerlink" title="1.位带区"></a>1.位带区</h5><img src = "./5.png">
+
+<p>别名地址&#x3D;位带基地址+字节偏移量×32+位号×4</p>
+<ul>
+<li><p>位带基地址通常情况下为:0x22000以及0x42000</p>
+</li>
+<li><p>字节偏移量根据要访问的位带地址距离基地址0x2000和0x4000的偏移值</p>
+</li>
+<li><p>位号：题目会给</p>
+</li>
+</ul>
+<h5 id="2-字节存储顺序"><a href="#2-字节存储顺序" class="headerlink" title="2.字节存储顺序"></a>2.字节存储顺序</h5><img src = "./6.png">
+
+<p>低位低，高位高（小端存储）；高位低，低位高（大端存储）</p>
+<h2 id="第四章-STM32-微控制器"><a href="#第四章-STM32-微控制器" class="headerlink" title="第四章 STM32 微控制器"></a>第四章 STM32 微控制器</h2><h3 id="4-1-STM32微控制器结构"><a href="#4-1-STM32微控制器结构" class="headerlink" title="4.1 STM32微控制器结构"></a>4.1 STM32微控制器结构</h3><h4 id="4-1-2-STM32系统结构"><a href="#4-1-2-STM32系统结构" class="headerlink" title="4.1.2 STM32系统结构"></a>4.1.2 STM32系统结构</h4><img src = "./7.png">
+
+<ul>
+<li>通用输入&#x2F;输出端口(GPIO)以及复用功能的输入&#x2F;输出端口(AFIO)</li>
+<li>通用同步&#x2F;异步接收发送器(USART)；通用异步接收发送器(UART)</li>
+<li>串行外设接口(SPI)</li>
+<li>内部集成电路I2C接口(I2C)</li>
+<li>看门狗(Watch Dog)，独立看门狗(IWDG)和窗口看门狗(WWDG)</li>
+<li>实时时钟(RTC)</li>
+<li>通用定时器(TIMx)</li>
+<li>模拟&#x2F;数字转换器ADC</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>缩写</th>
+<th>外设名称</th>
+<th>缩写</th>
+<th>外设名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adc</td>
+<td>A&#x2F;D转换器</td>
+<td>bkp</td>
+<td>备份寄存器</td>
+</tr>
+<tr>
+<td>can</td>
+<td>CAN控制器局域网</td>
+<td>cec</td>
+<td>消费电子单元</td>
+</tr>
+<tr>
+<td>crc</td>
+<td>CRC计算单元</td>
+<td>dac</td>
+<td>D&#x2F;A转换器</td>
+</tr>
+<tr>
+<td>dbgmc</td>
+<td>MCU调试模块</td>
+<td>dma</td>
+<td>DMA控制器</td>
+</tr>
+<tr>
+<td>exti</td>
+<td>外部中断寄存器</td>
+<td>flash</td>
+<td>闪存</td>
+</tr>
+<tr>
+<td>fsmc</td>
+<td>灵活的静态存储器控制器</td>
+<td>gpio</td>
+<td>通用I&#x2F;O接口</td>
+</tr>
+<tr>
+<td>i2c</td>
+<td>I²C总线接口</td>
+<td>iwdg</td>
+<td>独立看门狗</td>
+</tr>
+<tr>
+<td>pwr</td>
+<td>电源控制</td>
+<td>rcc</td>
+<td>复位和时钟控制器</td>
+</tr>
+<tr>
+<td>rtc</td>
+<td>实时时钟</td>
+<td>sdio</td>
+<td>SD存储卡接口</td>
+</tr>
+<tr>
+<td>spi</td>
+<td>SPI串行外设接口</td>
+<td>tim</td>
+<td>定时器</td>
+</tr>
+<tr>
+<td>usart</td>
+<td>通用同步异步收发器</td>
+<td>wwdg</td>
+<td>窗口看门狗</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-STM32微控制器开发"><a href="#4-2-STM32微控制器开发" class="headerlink" title="4.2 STM32微控制器开发"></a>4.2 STM32微控制器开发</h3><h4 id="4-2-3-C语言应用"><a href="#4-2-3-C语言应用" class="headerlink" title="4.2.3 C语言应用"></a>4.2.3 C语言应用</h4><h5 id="2-C语言的位操作"><a href="#2-C语言的位操作" class="headerlink" title="2. C语言的位操作"></a>2. C语言的位操作</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">a &amp;= ~(<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">//位与实现复位:将整形变量a的D6位清零，其他位不变。</span></span><br><span class="line">a |= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位或实现置位:将整形变量a的D6位置位，其他位不变。</span></span><br><span class="line">a ^= (<span class="number">1</span>&lt;&lt;<span class="number">6</span>) <span class="comment">// 位异或实现求反：将整形变量a的D6位取反，其他位不变</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-复位与时钟控制-RCC"><a href="#4-3-复位与时钟控制-RCC" class="headerlink" title="4.3 复位与时钟控制(RCC)"></a>4.3 复位与时钟控制(RCC)</h3><h5 id="1-电源控制"><a href="#1-电源控制" class="headerlink" title="1. 电源控制"></a>1. 电源控制</h5><p>3种低功耗模式</p>
+<ul>
+<li><p>睡眠模式(Sleep Mode)</p>
+</li>
+<li><p>停止模式(Stop Mode)</p>
+</li>
+<li><p>备用模式(Standby Mode)</p>
+</li>
+</ul>
+<h5 id="2-复位"><a href="#2-复位" class="headerlink" title="2. 复位"></a>2. 复位</h5><p>三种复位：系统复位、电源复位和备份复位</p>
+<h5 id="3-时钟树"><a href="#3-时钟树" class="headerlink" title="3. 时钟树"></a>3. 时钟树</h5><p>系统时钟 SYSCLK</p>
+<p>内部高速时钟HIS、高速外部时钟HSE和锁相环PLL</p>
+<h2 id="第五章-STM32的通用I-x2F-O端口"><a href="#第五章-STM32的通用I-x2F-O端口" class="headerlink" title="第五章 STM32的通用I&#x2F;O端口"></a>第五章 STM32的通用I&#x2F;O端口</h2><h3 id="5-1-GPIO的结构和功能"><a href="#5-1-GPIO的结构和功能" class="headerlink" title="5.1 GPIO的结构和功能"></a>5.1 GPIO的结构和功能</h3><p>GPIO一共112个引脚，用GPIOx(x是A、B、C、D、E、F、G)表示，即GPIOA GPIOB … GPIOG。每组端口有16个外设引脚，分别用Px0,Px1,…Px15(x是A~G)表示。</p>
+<h5 id="1-输入模式"><a href="#1-输入模式" class="headerlink" title="1.输入模式"></a>1.输入模式</h5><p>4种输入模式：</p>
+<ul>
+<li>模拟输入模式(Analog): 不上拉也不下拉</li>
+<li>浮空输入模式(Input Floating): 不上拉也不下拉 </li>
+<li>上拉输入模式(Input Pull-up): 接上拉电阻</li>
+<li>下拉输入模式(Input Pull-down): 接下拉电阻</li>
+</ul>
+<h5 id="2-输出模式"><a href="#2-输出模式" class="headerlink" title="2. 输出模式"></a>2. 输出模式</h5><p>4中输出模式，但是常用以下两种输出模式:</p>
+<ul>
+<li><p>推挽输出(Output Push-Pull)</p>
+</li>
+<li><p>开漏输出(Output Open-Drain)</p>
+</li>
+</ul>
+<h3 id="5-3-GPIO-案例"><a href="#5-3-GPIO-案例" class="headerlink" title="5.3 GPIO 案例"></a>5.3 GPIO 案例</h3><h4 id="5-3-2-应用程序分析"><a href="#5-3-2-应用程序分析" class="headerlink" title="5.3.2 应用程序分析"></a>5.3.2 应用程序分析</h4><h5 id="1-开启外设时钟"><a href="#1-开启外设时钟" class="headerlink" title="1. 开启外设时钟"></a>1. 开启外设时钟</h5><h5 id="2-初始化外设"><a href="#2-初始化外设" class="headerlink" title="2. 初始化外设"></a>2. 初始化外设</h5><h5 id="3-控制外设工作"><a href="#3-控制外设工作" class="headerlink" title="3. 控制外设工作"></a>3. 控制外设工作</h5><h4 id="5-3-3-实例代码"><a href="#5-3-3-实例代码" class="headerlink" title="5.3.3 实例代码"></a>5.3.3 实例代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">HAL_GPIO_WritePin(GPIOB，GPIO_PIN_5，GPIO_PIN_RESET)；</span><br><span class="line"><span class="comment">// PB5引脚输出低电平，LED0灯亮</span></span><br><span class="line">HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5,GPIO_PIN_SET);</span><br><span class="line"><span class="comment">// PE5 引脚输出高电平，LED1灯灭</span></span><br><span class="line">HAL_Delay(<span class="number">1000</span>) <span class="comment">//持续1秒</span></span><br><span class="line"></span><br><span class="line">HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_5);</span><br><span class="line"><span class="comment">// 读取PC5引脚的电平状态</span></span><br><span class="line"></span><br><span class="line">HAL_GPIO_TogglePin(GPIOE,GPIO_PIN_3);</span><br><span class="line"><span class="comment">// 反转 PE3 引脚的电平状态</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="第六章-CM3异常和STM32中断"><a href="#第六章-CM3异常和STM32中断" class="headerlink" title="第六章 CM3异常和STM32中断"></a>第六章 CM3异常和STM32中断</h2><h3 id="6-1-Cortex-M3-的异常"><a href="#6-1-Cortex-M3-的异常" class="headerlink" title="6.1 Cortex-M3 的异常"></a>6.1 Cortex-M3 的异常</h3><h5 id="2-异常优先级"><a href="#2-异常优先级" class="headerlink" title="2.异常优先级"></a>2.异常优先级</h5><p>优先级的数值越小，优先级越高</p>
+<p>组优先级（Group Priority）和子优先级(Sub-Priority)。组优先级被称为抢占优先级。</p>
+<p>组优先级确定是否可以打断正在执行的中断，实现嵌套。子优先级只用于在相同组优先级时多个子优先级同时出现的情况，高优先级别（优先级数值小）的异常首先被处理。</p>
+<h5 id="3-嵌套向量中断控制器NVIC"><a href="#3-嵌套向量中断控制器NVIC" class="headerlink" title="3. 嵌套向量中断控制器NVIC"></a>3. 嵌套向量中断控制器NVIC</h5><p>NVIC 集成在 ARM Cortex-M3 内核中</p>
+<h3 id="6-2-STM32的中断应用"><a href="#6-2-STM32的中断应用" class="headerlink" title="6.2 STM32的中断应用"></a>6.2 STM32的中断应用</h3><h4 id="6-2-1-NVIC-初始化配置"><a href="#6-2-1-NVIC-初始化配置" class="headerlink" title="6.2.1 NVIC 初始化配置"></a>6.2.1 NVIC 初始化配置</h4><h5 id="1-配置组优先级"><a href="#1-配置组优先级" class="headerlink" title="1. 配置组优先级"></a>1. 配置组优先级</h5><img src = "./8.png">
+
+<h4 id="6-2-2-外部中断EXTI"><a href="#6-2-2-外部中断EXTI" class="headerlink" title="6.2.2 外部中断EXTI"></a>6.2.2 外部中断EXTI</h4><p>STM32 芯片外设的中断请求直接连接到 NVIC，来自芯片之外的外设中断请求需要通过EXTI（外部中断&#x2F;事件控制器）连接到NVIC。</p>
+<h5 id="2-EXTI-寄存器"><a href="#2-EXTI-寄存器" class="headerlink" title="2. EXTI 寄存器"></a>2. EXTI 寄存器</h5><img src = "./9.png">
+
+<img src = "./10.png">
+
+<h2 id="第七章-STM32-的串行通信接口"><a href="#第七章-STM32-的串行通信接口" class="headerlink" title="第七章 STM32 的串行通信接口"></a>第七章 STM32 的串行通信接口</h2><h3 id="7-1-串行异步通信"><a href="#7-1-串行异步通信" class="headerlink" title="7.1 串行异步通信"></a>7.1 串行异步通信</h3><p>串行通信有两类：<strong>一类</strong>是速度较快的同步串行通信，以数据块为基本传输单位，主要应用于网络连接；<strong>另一类</strong>是速度较慢的异步通信，以字符为单位传输，主要应用于近距离通信。通常所说的串行通信一般是指<strong>串行同步通信</strong></p>
+<h4 id="7-1-1-串行异步通信字符格式"><a href="#7-1-1-串行异步通信字符格式" class="headerlink" title="7.1.1 串行异步通信字符格式"></a>7.1.1 串行异步通信字符格式</h4><img src = "./11.png">
+
+<ul>
+<li><p>起始位(Start Bit): 采取逻辑 0 电平</p>
+</li>
+<li><p>数据位(Data Bit): 一般是8位</p>
+</li>
+<li><p>校验位(Parity Bit): 可有可无，一般是奇偶校验位</p>
+</li>
+<li><p>停止位(Stop Bit): 字符最后必须有停止位，采取逻辑1电平</p>
+</li>
+</ul>
+<p>通信传输速率要相同，如9600bps表示一秒传输9600位</p>
+<h4 id="7-1-2-串行异步通信接口"><a href="#7-1-2-串行异步通信接口" class="headerlink" title="7.1.2 串行异步通信接口"></a>7.1.2 串行异步通信接口</h4><h5 id="1-RS-232标准的引脚定义"><a href="#1-RS-232标准的引脚定义" class="headerlink" title="1. RS-232标准的引脚定义"></a>1. RS-232标准的引脚定义</h5><ul>
+<li>TxD(Transmitted Data,发送数据)</li>
+<li>RxD(Received Data, 接收数据)</li>
+<li>RTS(Request To Send，请求发送)</li>
+<li>CTS(Clear To Send，清除发送)</li>
+<li>DTR(Data Terminal Ready，数据终端准备好)</li>
+<li>DSR(Data Set Ready，数据装置准备好)</li>
+<li>GND(Ground，信号地)</li>
+<li>CD(Carrier Detected，载波检测)</li>
+<li>RI(RIng Indicator，振铃指示)</li>
+</ul>
+<h5 id="2-RS-232接口的连接"><a href="#2-RS-232接口的连接" class="headerlink" title="2. RS-232接口的连接"></a>2. RS-232接口的连接</h5><p>三线相连</p>
+<img src = "./12.png">
+
+<h3 id="7-2-通用同步-x2F-异步接收-x2F-发送器"><a href="#7-2-通用同步-x2F-异步接收-x2F-发送器" class="headerlink" title="7.2 通用同步&#x2F;异步接收&#x2F;发送器"></a>7.2 通用同步&#x2F;异步接收&#x2F;发送器</h3><p>通用同步&#x2F;异步接收&#x2F;发送器（USART）和通用异步接收&#x2F;发送器(UART)</p>
+]]></content>
+      <categories>
+        <category>嵌入式</category>
+      </categories>
+      <tags>
+        <tag>嵌入式复习</tag>
       </tags>
   </entry>
   <entry>
