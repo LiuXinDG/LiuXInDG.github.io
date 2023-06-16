@@ -1028,52 +1028,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/06/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>text1</title>
-    <url>/2023/06/13/text1/</url>
-    <content><![CDATA[<h2 id="111"><a href="#111" class="headerlink" title="111"></a>111</h2><ol start="5">
-<li>. 低字节位数据存放在内存低地址处，高字节位数据存放在内存高地址处，这就是小端字节序。</li>
-<li>202.96.128.128</li>
-<li>D 节省</li>
-<li>银行</li>
-<li>对<br>10 无缓冲是同步的<br>11。 132<br>12 func f(a,b int) (value int, error)</li>
-</ol>
-<p>13 int 和体系架构</p>
-<p>14 其他三个</p>
-<p>15 主键是唯一、不为空</p>
-<p>16 direct </p>
-<p>17 直接插入</p>
-<p>18 堆</p>
-<p>19 在100000</p>
-<p>20 不选进程是动态的过程</p>
-<p>21 不选 HTTP返回码 302</p>
-<p>22 选 协程和线程都可以 以及 通过 channel</p>
-<p>23 不选接口赋值</p>
-<p>24 不选 数据库索引的存在</p>
-<p>25 不选 POST比get安全 </p>
-<p>26 不选域名解析</p>
-<p>27 只选快速 12</p>
-<p>28</p>
-]]></content>
-  </entry>
-  <entry>
     <title>嵌入式笔记</title>
     <url>/2023/06/13/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="嵌入式笔记整理"><a href="#嵌入式笔记整理" class="headerlink" title="嵌入式笔记整理"></a>嵌入式笔记整理</h1><h2 id="第一章-嵌入式系统设计基础"><a href="#第一章-嵌入式系统设计基础" class="headerlink" title="第一章 嵌入式系统设计基础"></a>第一章 嵌入式系统设计基础</h2><h3 id="1-1-嵌入式系统概述"><a href="#1-1-嵌入式系统概述" class="headerlink" title="1.1 嵌入式系统概述"></a>1.1 嵌入式系统概述</h3><h4 id="1-1-1-什么是嵌入式系统"><a href="#1-1-1-什么是嵌入式系统" class="headerlink" title="1.1.1 什么是嵌入式系统"></a>1.1.1 什么是嵌入式系统</h4><p>嵌入式系统是<strong>以应用为中心</strong>，<strong>以计算机技术</strong>为基础，软件、硬件<strong>可剪裁</strong>，以适用于应用系统对功能、可靠性、成本、体积、功耗等要求严格的<strong>专用计算机系统</strong>。</p>
