@@ -1387,10 +1387,10 @@
   <entry>
     <title>计算机系统结构</title>
     <url>/2023/06/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h1><p><a href="#cache%E5%86%99%E7%AD%96%E7%95%A5">Cache 写策略</a></p>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目:"></a>题目:</h1><p><a href="#Cache%E5%86%99%E7%AD%96%E7%95%A5">Cache写策略</a></p>
 <p><a href="#%E6%B5%81%E6%B0%B4%E7%9A%84%E5%88%86%E7%B1%BB">流水的分类</a></p>
-<p><a href="#32-%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F">中断系统</a></p>
-<p><a href="#233-%E6%8C%87%E4%BB%A4%E6%93%8D%E4%BD%9C%E7%A0%81%E7%9A%84%E4%BC%98%E5%8C%96">理论最短码、操作编码</a></p>
+<p><a href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F">中断系统</a></p>
+<p><a href="#%E6%8C%87%E4%BB%A4%E6%93%8D%E4%BD%9C%E7%A0%81%E7%9A%84%E4%BC%98%E5%8C%96">指令操作码的优化</a><br>{理论最短码}</p>
 <p>14条操作指令:</p>
 <ul>
 <li><p>传送指令<br>MOV-传送(操作码0000)、</p>
@@ -1401,7 +1401,7 @@
 </li>
 </ul>
 <p>[流水处理机一道题]<br><img src =  "./2.png"></p>
-<p>&lt;– more –&gt;</p>
+<span id="more"></span>
 <h1 id="第一章-计算机系统结构基础及并发性的开发"><a href="#第一章-计算机系统结构基础及并发性的开发" class="headerlink" title="第一章 计算机系统结构基础及并发性的开发"></a>第一章 计算机系统结构基础及并发性的开发</h1><h2 id="1-1-计算机系统的层次结构"><a href="#1-1-计算机系统的层次结构" class="headerlink" title="1.1 计算机系统的层次结构"></a>1.1 计算机系统的层次结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">应用语言机器级M5,具有L5机器语言-应用语言 --&gt; 高级语言机器级M4,具有L4机器语言-高级语言 --&gt; 汇编语言机器级M3,具有L3机器语言-汇编语言 --&gt; 操作系统机器级M2,具有L2机器语言-作业控制语言等 --&gt; 传统机器语言机器级M1,具有L1机器语言-机器指令系统 --&gt; 微程序机器级M0,具有L0机器语言-微指令系统</span><br></pre></td></tr></table></figure>
 
 <p>其中，0级和1级为硬件，2-5为软件</p>
@@ -1458,15 +1458,14 @@
 <h4 id="浮点数尾数的下溢处理方法"><a href="#浮点数尾数的下溢处理方法" class="headerlink" title="浮点数尾数的下溢处理方法"></a>浮点数尾数的下溢处理方法</h4><p>截断法、舍入法、恒置”1”法、查表舍入法</p>
 <h2 id="2-2-寻址方式"><a href="#2-2-寻址方式" class="headerlink" title="2.2 寻址方式"></a>2.2 寻址方式</h2><p>寻址方式的三种面向</p>
 <p>寄存器-寄存器(RR)、寄存器-存储器(RM)、存储器-存储器(MM)</p>
-<h2 id="2-3-指令系统的设计和优化"><a href="#2-3-指令系统的设计和优化" class="headerlink" title="2.3 指令系统的设计和优化"></a>2.3 指令系统的设计和优化</h2><h3 id="2-3-3-指令操作码的优化"><a href="#2-3-3-指令操作码的优化" class="headerlink" title="2.3.3 指令操作码的优化"></a>2.3.3 指令操作码的优化</h3><p>指令是由操作码和地址码两部分组成的。</p>
+<h2 id="2-3-指令系统的设计和优化"><a href="#2-3-指令系统的设计和优化" class="headerlink" title="2.3 指令系统的设计和优化"></a>2.3 指令系统的设计和优化</h2><h3 id="指令操作码的优化"><a href="#指令操作码的优化" class="headerlink" title="指令操作码的优化"></a>指令操作码的优化</h3><p>指令是由操作码和地址码两部分组成的。</p>
 <p>$$<br>信息冗余度 &#x3D; \frac{实际平均码长-H}{实际平均码长}<br>$$</p>
 <p>理论最短码<br>$$<br>H &#x3D; ∑P_ilog_2Pi<br>$$</p>
 <img src = "./1.png">
 
 <h1 id="第三章-存储、中断、总线与输入-x2F-输出系统"><a href="#第三章-存储、中断、总线与输入-x2F-输出系统" class="headerlink" title="第三章 存储、中断、总线与输入&#x2F;输出系统"></a>第三章 存储、中断、总线与输入&#x2F;输出系统</h1><h2 id="3-1-存储系统的基本要求和并行主存系统"><a href="#3-1-存储系统的基本要求和并行主存系统" class="headerlink" title="3.1 存储系统的基本要求和并行主存系统"></a>3.1 存储系统的基本要求和并行主存系统</h2><p>Cache-主存(速度)、主存-辅存(容量)</p>
 <h3 id="3-1-2-并行主存系统"><a href="#3-1-2-并行主存系统" class="headerlink" title="3.1.2 并行主存系统"></a>3.1.2 并行主存系统</h3><p>分布式交叉存储</p>
-<p><a id="中断系统"></a></p>
-<h2 id="3-2-中断系统"><a href="#3-2-中断系统" class="headerlink" title="3.2 中断系统"></a>3.2 中断系统</h2><p>中断可分为内部中断、外部中断和软件中断三类。</p>
+<h2 id="中断系统"><a href="#中断系统" class="headerlink" title="中断系统"></a>中断系统</h2><p>中断可分为内部中断、外部中断和软件中断三类。</p>
 <p>内部中断(自陷、故障、终止)</p>
 <p>外部中断（时钟中断和I&#x2F;O中断）</p>
 <p>内中断优于外中断</p>
