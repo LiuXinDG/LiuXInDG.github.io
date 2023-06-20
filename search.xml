@@ -1402,7 +1402,7 @@
 </ul>
 <p>[流水处理机一道题]<br><img src =  "./2.png"></p>
 <span id="more"></span>
-<h1 id="第一章-计算机系统结构基础及并发性的开发"><a href="#第一章-计算机系统结构基础及并发性的开发" class="headerlink" title="第一章 计算机系统结构基础及并发性的开发"></a>第一章 计算机系统结构基础及并发性的开发</h1><h2 id="1-1-计算机系统的层次结构"><a href="#1-1-计算机系统的层次结构" class="headerlink" title="1.1 计算机系统的层次结构"></a>1.1 计算机系统的层次结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">应用语言机器级M5,具有L5机器语言-应用语言 --&gt; 高级语言机器级M4,具有L4机器语言-高级语言 --&gt; 汇编语言机器级M3,具有L3机器语言-汇编语言 --&gt; 操作系统机器级M2,具有L2机器语言-作业控制语言等 --&gt; 传统机器语言机器级M1,具有L1机器语言-机器指令系统 --&gt; 微程序机器级M0,具有L0机器语言-微指令系统</span><br></pre></td></tr></table></figure>
+<h1 id="第一章-计算机系统结构基础及并发性的开发"><a href="#第一章-计算机系统结构基础及并发性的开发" class="headerlink" title="第一章 计算机系统结构基础及并发性的开发"></a>第一章 计算机系统结构基础及并发性的开发</h1><h2 id="1-1-计算机系统的层次结构"><a href="#1-1-计算机系统的层次结构" class="headerlink" title="1.1 计算机系统的层次结构"></a>1.1 计算机系统的层次结构</h2><img src = "./3.png">
 
 <p>其中，0级和1级为硬件，2-5为软件</p>
 <p>上层对下层进行解释和翻译，具有透明性。</p>
@@ -1477,7 +1477,7 @@
 <p>命中率 H&#x3D;R1&#x2F;(R1+R2)</p>
 <p>等效访问时间$T_A &#x3D; HT_A1+(1-H)T_A2$</p>
 <p>设CPU对存储层次相邻二级的访问时间比 $r&#x3D;T_A2&#x2F;T_A1$</p>
-<h2 id="4-2-虚拟存储器"><a href="#4-2-虚拟存储器" class="headerlink" title="4.2 虚拟存储器"></a>4.2 虚拟存储器</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line"></span><br><span class="line">CPU &lt;--&gt; cache &lt;--&gt; DRAM &lt;--&gt; 辅存</span><br><span class="line">cache --&gt; SRAM</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-虚拟存储器"><a href="#4-2-虚拟存储器" class="headerlink" title="4.2 虚拟存储器"></a>4.2 虚拟存储器</h2><img src = "./4.png">
 
 <h3 id="4-2-1-虚拟存储器的管理方式"><a href="#4-2-1-虚拟存储器的管理方式" class="headerlink" title="4.2.1 虚拟存储器的管理方式"></a>4.2.1 虚拟存储器的管理方式</h3><h3 id="1-段式管理"><a href="#1-段式管理" class="headerlink" title="1.段式管理"></a>1.段式管理</h3><p>功能：用户给出一个地址(虚地址或逻辑地址)虚拟地址存储要给出该地址对应的数址。</p>
 <p>实现：由辅助硬件将虚地址映射到主存中的某个单元，主存地址称为实地址</p>
