@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="golang,指针,point," />
+  <meta name="keywords" content="笔记,计算机网络安全," />
 
 
 
@@ -79,19 +79,18 @@
 
 
 
-<meta name="description" content="Go语言基础之指针一、Go语言中的指针任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。 Go语言中的指针不能进行偏移和运算，因此Go语言中的指针操作非常简单，我们只需要记住两个符号：&amp;（取地址）和*（根据地址取值）。">
+<meta name="description" content="第一章网络安全基本概念网络安全从其本质上来讲就是网络上的信息安全。从广义来说，凡是涉及网络上信息的保密性、完整性、可用性、真实性和可控性的相关技术与原理，都是网络安全所要研究的领域。 网络安全是指网络系统的硬件、软件及其系统中的数据的安全，它体现于网络信息的存储、传出和使用过程。 网络安全的特征（填空题）保密性、完整性、可用性、可控性、可审查性、可保护性 网络安全的目标截获、伪造、篡改、中断、重发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Golang学习_指针">
-<meta property="og:url" content="https://liuxindg.gitbub.io/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/index.html">
+<meta property="og:title" content="网络安全">
+<meta property="og:url" content="https://liuxindg.gitbub.io/2023/06/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/index.html">
 <meta property="og:site_name" content="琉心的博客">
-<meta property="og:description" content="Go语言基础之指针一、Go语言中的指针任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。 Go语言中的指针不能进行偏移和运算，因此Go语言中的指针操作非常简单，我们只需要记住两个符号：&amp;（取地址）和*（根据地址取值）。">
+<meta property="og:description" content="第一章网络安全基本概念网络安全从其本质上来讲就是网络上的信息安全。从广义来说，凡是涉及网络上信息的保密性、完整性、可用性、真实性和可控性的相关技术与原理，都是网络安全所要研究的领域。 网络安全是指网络系统的硬件、软件及其系统中的数据的安全，它体现于网络信息的存储、传出和使用过程。 网络安全的特征（填空题）保密性、完整性、可用性、可控性、可审查性、可保护性 网络安全的目标截获、伪造、篡改、中断、重发">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-06-15T05:07:04.000Z">
-<meta property="article:modified_time" content="2023-06-15T05:09:07.966Z">
+<meta property="article:published_time" content="2023-06-23T03:38:11.000Z">
+<meta property="article:modified_time" content="2023-06-23T05:18:19.667Z">
 <meta property="article:author" content="琉心">
-<meta property="article:tag" content="golang">
-<meta property="article:tag" content="指针">
-<meta property="article:tag" content="point">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="计算机网络安全">
 <meta name="twitter:card" content="summary">
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://LiuXinDG.gitbub.io/2023/06/15/Golang学习-指针/"/>
+  <link rel="canonical" href="https://LiuXinDG.gitbub.io/2023/06/23/网络安全/"/>
 
 
 
 
 
-  <title>Golang学习_指针 | 琉心的博客</title>
+  <title>网络安全 | 琉心的博客</title>
   
 
 
@@ -299,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://LiuXinDG.gitbub.io/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/">
+    <link itemprop="mainEntityOfPage" href="https://LiuXinDG.gitbub.io/2023/06/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -316,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Golang学习_指针</h1>
+          <h1 class="post-title" itemprop="name headline">网络安全</h1>
         
 
         <div class="post-meta">
@@ -328,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-06-15T13:07:04+08:00">
-                2023-06-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-06-23T11:38:11+08:00">
+                2023-06-23
               </time>
             
 
@@ -351,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Go%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index">
-                    <span itemprop="name">Go语言</span>
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络安全</span>
                   </a>
                 </span>
 
@@ -369,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E6%8C%87%E9%92%88/" itemprop="commentCount"></span>
+                <a href="/2023/06/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2023/06/23/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -392,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  844
+                  3.4k
                 </span>
               
 
@@ -408,7 +407,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  11
                 </span>
               
             </div>
@@ -429,43 +428,90 @@
       
 
       
-        <h1 id="Go语言基础之指针"><a href="#Go语言基础之指针" class="headerlink" title="Go语言基础之指针"></a>Go语言基础之指针</h1><h2 id="一、Go语言中的指针"><a href="#一、Go语言中的指针" class="headerlink" title="一、Go语言中的指针"></a>一、Go语言中的指针</h2><p>任何程序数据载入内存后，在内存都有他们的地址，这就是指针。而为了保存一个数据在内存中的地址，我们就需要指针变量。</p>
-<p>Go语言中的指针不能进行偏移和运算，因此Go语言中的指针操作非常简单，我们只需要记住两个符号：<code>&amp;（取地址）</code>和<code>*（根据地址取值）</code>。</p>
-<span id="more"></span>
-
-<h3 id="1-1-指针地址和指针类型"><a href="#1-1-指针地址和指针类型" class="headerlink" title="1.1 指针地址和指针类型"></a>1.1 指针地址和指针类型</h3><p>个变量在运行时都拥有一个地址，这个地址代表变量在内存中的位置。Go语言中使用&amp;字符放在变量前面对变量进行“取地址”操作。 Go语言中的值类型（int、float、bool、string、array、struct）都有对应的指针类型，如:<code>*int</code>、<code>*int64</code>、<code>*string</code>等。</p>
-<p>取变量指针的语法如下：</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ptr := &amp;v</span><br></pre></td></tr></table></figure>
-<p>其中:</p>
-<ul>
-<li>v: 代表被取地址的变量，类型为 T</li>
-<li>ptr: 用于接收地址的变量，ptr的类型为 <code>*T</code>，称作T的指针类型。*表示指针。</li>
+        <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="网络安全基本概念"><a href="#网络安全基本概念" class="headerlink" title="网络安全基本概念"></a>网络安全基本概念</h2><p>网络安全从其本质上来讲就是网络上的信息安全。从广义来说，凡是涉及网络上信息的保密性、完整性、可用性、真实性和可控性的相关技术与原理，都是网络安全所要研究的领域。</p>
+<p>网络安全是指网络系统的硬件、软件及其系统中的数据的安全，它体现于网络信息的存储、传出和使用过程。</p>
+<h1 id="网络安全的特征（填空题）"><a href="#网络安全的特征（填空题）" class="headerlink" title="网络安全的特征（填空题）"></a>网络安全的特征（填空题）</h1><p>保密性、完整性、可用性、可控性、可审查性、可保护性</p>
+<h2 id="网络安全的目标"><a href="#网络安全的目标" class="headerlink" title="网络安全的目标"></a>网络安全的目标</h2><p>截获、伪造、篡改、中断、重发</p>
+<h2 id="各种威胁对网络安全特征的影响"><a href="#各种威胁对网络安全特征的影响" class="headerlink" title="各种威胁对网络安全特征的影响"></a>各种威胁对网络安全特征的影响</h2><p>非授权访问，信息泄露或丢失、破坏数据完整性、拒绝服务攻击、利用网络传播病毒。</p>
+<h2 id="网络安全的防护体系"><a href="#网络安全的防护体系" class="headerlink" title="网络安全的防护体系"></a>网络安全的防护体系</h2><p>物理安全策略；访问控制策略；防火墙控制；信息加密策略；区块链技术策略；云计算的安全策略；网络安全管理策略；</p>
+<p>网络安全技术体系：物理安全、网络安全和信息安全。</p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="密码技术的发展历史"><a href="#密码技术的发展历史" class="headerlink" title="密码技术的发展历史"></a>密码技术的发展历史</h2><p>密码技术的发展历史可以追溯到古代时期。最早的密码技术可以追溯到埃及法老时代，他们使用了一种称为凯撒密码的简单替换密码来保护重要信息。在古希腊和罗马时期，也出现了一些类似的替换密码。</p>
+<p>然而，真正的密码学发展始于现代时期。在第二次世界大战期间，密码学在军事和情报领域发挥了重要作用。其中最著名的是英国的恩尼格玛机器，它使用了机械转子来加密和解密信息。</p>
+<p>随着计算机技术的发展，密码学也得到了极大的推动。在20世纪70年代，公钥密码学的概念被提出，这种密码学方法使用了两个密钥，一个用于加密，另一个用于解密。这种方法极大地改变了密码学的发展方向，并为现代的网络通信提供了安全保障。</p>
+<p>现如今，密码技术在各个领域都得到了广泛应用，包括互联网通信、电子支付、电子商务等。为了应对不断发展的计算机技术和网络威胁，密码技术也在不断创新和改进，以提供更强大的安全保护。</p>
+<p>总的来说，密码技术的发展历史是一个不断演进和创新的过程，它在保护信息安全和隐私方面起到了至关重要的作用。</p>
+<h2 id="密码系统的构成"><a href="#密码系统的构成" class="headerlink" title="密码系统的构成"></a>密码系统的构成</h2><p>明文、密文、加密、解密、加密算法、解密算法、密钥管理（加密密钥和解密密钥）</p>
+<h2 id="密码技术的分类"><a href="#密码技术的分类" class="headerlink" title="密码技术的分类"></a>密码技术的分类</h2><p>单钥体制（加密密钥和解密密钥相同）、双钥体质（加密密钥和解密密钥不同）</p>
+<h2 id="古典密码体制中代换密码与置换密码-含义，原理，经典案例"><a href="#古典密码体制中代换密码与置换密码-含义，原理，经典案例" class="headerlink" title="古典密码体制中代换密码与置换密码 含义，原理，经典案例"></a>古典密码体制中代换密码与置换密码 含义，原理，经典案例</h2><h3 id="代换密码"><a href="#代换密码" class="headerlink" title="代换密码"></a>代换密码</h3><p>代换密码的主要思想是通过符号的简单替换而达到掩盖明文信息的目的，也就是将明文中的字母由其他字母、数字或者符号取代的一种方法，其中的替代方案就称为密钥。</p>
+<p>最简单的著名代换密码称为移位密码</p>
+<h3 id="置换密码"><a href="#置换密码" class="headerlink" title="置换密码"></a>置换密码</h3><p>通过重新排列消息中元素的位置而不改变元素本身来变换一个消息的密码方案称为置换密码（也称为换位密码）。置换密码是古典密码中除代换密码外的重要一类，它的原理应用于现代分组密码的构成。</p>
+<p>我国古代的藏头诗就属于这种加密方式</p>
+<h2 id="对称密码体质含义，分类（流密码、分组密码）"><a href="#对称密码体质含义，分类（流密码、分组密码）" class="headerlink" title="对称密码体质含义，分类（流密码、分组密码）"></a>对称密码体质含义，分类（流密码、分组密码）</h2><p>对称密码又分为流密码和分组密码。流密码的中心思想是以尽可能简单的方式来生成一个伪随机性尽可能好的周期序列。流密码体质以简洁、快速的特点，成为新一代移动通信的主流加密算法；分组密码是将明文序列划分成等长的数组，对每一组用同一加密算法和同一密钥进行加密。分组密码体制夜具有简捷、快速的特点，并且容易实现标准化，使其成为软硬件加密的主流。</p>
+<h2 id="分组密码含义"><a href="#分组密码含义" class="headerlink" title="分组密码含义"></a>分组密码含义</h2><p>分组密码是现代密码学的重要分支之一，其主要任务是提供数据保密性。分组密码算法是将一些固定的置换作用于明文数据分组的加密算法。</p>
+<h2 id="分组密码设计思想"><a href="#分组密码设计思想" class="headerlink" title="分组密码设计思想"></a>分组密码设计思想</h2><p>分组密码的实质是设计一种算法，在密钥控制下，把n比特明文简捷讯速地置换成唯一的n比特密文，并且这种变换是可逆的，即所得到的密文是可解密的。</p>
+<h2 id="以及经典算法DES与AES含义，算法思想，DES与AES的S盒异同；"><a href="#以及经典算法DES与AES含义，算法思想，DES与AES的S盒异同；" class="headerlink" title="以及经典算法DES与AES含义，算法思想，DES与AES的S盒异同；"></a>以及经典算法DES与AES含义，算法思想，DES与AES的S盒异同；</h2><h3 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h3><p>DES算法是1977年由美国国家标准局公布的第一个分组密码算法。</p>
+<ol>
+<li>提供高质量的数据保护，防止数据未经授权的泄露和未被察觉的修改。</li>
+<li>具有一定程度的复杂性，使得破译的开销超过可能获得的利益，同时又要便于掌握和计算机软硬件的实现。</li>
+<li>密码体制的安全性不依赖于算法的保密，仅依赖于密钥的保密和算法自身的强度。</li>
+<li>实现经济、运行有效，并且适用于多种不同的应用场合</li>
+</ol>
+<h4 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h4><p>初始置换（Initial Permutation）：将明文按照预定义的顺序进行置换，以增加密码算法的随机性和复杂性。</p>
+<p>轮函数（Round Function）：DES算法使用了16轮迭代加密过程。在每一轮中，明文经过扩展置换、与子密钥进行异或运算、S盒替换和P盒置换等操作，以增加密码算法的混淆和扩散效果。</p>
+<p>子密钥生成（Key Schedule）：DES算法使用了一个56位的初始密钥，通过经过置换和循环移位等操作生成16个48位的子密钥，用于每一轮的加密操作。</p>
+<p>S盒替换（S-Box Substitution）：DES算法中使用了8个不同的S盒，每个S盒将6位输入映射为4位输出。S盒替换增加了密码算法的非线性性，提高了加密的安全性。</p>
+<p>P盒置换（P-Box Permutation）：在每一轮的迭代中，经过S盒替换后的结果再经过P盒置换，以增加密码算法的扩散效果。</p>
+<p>逆初始置换（Final Permutation）：在最后一轮迭代完成后，将经过16轮迭代加密后的结果按照逆初始置换进行置换，得到最终的密文。</p>
+<p>DES算法的核心思想是通过多轮迭代和复杂的置换、替换运算，将明文转换为密文。</p>
+<h3 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h3><p>AES是一种对称加密算法，也被称为Rijndael算法。它是目前广泛应用的加密标准，被用于保护敏感信息的安全性。</p>
+<p>AES算法的含义可以解释如下：</p>
+<p>高级（Advanced）：AES算法采用了先进的加密技术和复杂的运算过程，以提供更强大的安全性和防御能力。</p>
+<p>加密（Encryption）：AES算法使用对称密钥加密，即使用相同的密钥进行加密和解密操作。它可以将明文转换为密文，以保护数据的机密性。</p>
+<p>标准（Standard）：AES算法是由美国国家标准与技术研究院（NIST）于2001年发布的标准加密算法。它在全球范围内被广泛接受和应用。</p>
+<h4 id="算法思想-1"><a href="#算法思想-1" class="headerlink" title="算法思想"></a>算法思想</h4><p>AES（Advanced Encryption Standard）的算法思想可以简要概括如下：</p>
+<p>AES算法的核心思想是通过多轮迭代和复杂的置换、替换、混淆运算，将明文转换为密文。</p>
+<h3 id="S盒异同"><a href="#S盒异同" class="headerlink" title="S盒异同"></a>S盒异同</h3><ul>
+<li><p>异同之处：</p>
+<p>  数量和大小：DES使用了8个S盒，每个S盒都是4x16的二维表格，每个元素为4位；而AES使用了4个S盒，每个S盒都是16x16的二维表格，每个元素为8位。</p>
+<p>  输入输出位数：DES的S盒输入为6位，输出为4位；而AES的S盒输入为8位，输出也为8位。</p>
+<p>  构造方式：DES的S盒是通过代换构造的，即通过预定义的置换表将输入的6位映射到输出的4位；而AES的S盒是通过有限域上的运算（如乘法和逆变换）构造的。</p>
+<p>  作用和位置：DES的S盒用于替换轮函数中的一部分输入，增加密码算法的非线性性；而AES的S盒用于字节替换操作，增加密码算法的非线性性。</p>
+</li>
+<li><p>相似之处：</p>
+<p>  都用于增加密码算法的非线性性：无论是DES还是AES，S盒都是用来增加密码算法的非线性性，以提高密码算法的安全性。</p>
+<p>  都是固定的置换表：DES和AES的S盒都是预定义的固定置换表，不会随着密钥或明文的变化而改变。</p>
+</li>
 </ul>
-<h3 id="1-2-指针取值"><a href="#1-2-指针取值" class="headerlink" title="1.2 指针取值"></a>1.2 指针取值</h3><p>在对普通变量使用&amp;操作符取地址后会获得这个变量的指针，然后可以对指针使用*操作，也就是指针取值，代码如下。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">10</span></span><br><span class="line">    b := &amp;a <span class="comment">//取变量a的地址，将指针保存在b中</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of b:%T\n&quot;</span>, b)</span><br><span class="line">    c := *b <span class="comment">//指针取值</span></span><br><span class="line">    fmt.Printf(<span class="string">&quot;type of c:%T\n&quot;</span>, c)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;value of c:%v\n&quot;</span>,c)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="流密码含义，设计思想"><a href="#流密码含义，设计思想" class="headerlink" title="流密码含义，设计思想"></a>流密码含义，设计思想</h2><h3 id="流密码含义"><a href="#流密码含义" class="headerlink" title="流密码含义"></a>流密码含义</h3><p>流密码（Stream Cipher）是一种对称加密算法，它以比特流（bitstream）为单位进行加密和解密操作。与分组密码算法（如AES）不同，流密码对输入数据进行逐比特的处理，输出与输入数据流长度相同的密钥流（keystream），再将密钥流与明文（或密文）逐比特进行异或运算，以实现加密或解密的目的。</p>
+<h3 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h3><p>流密码的设计思想主要包括伪随机性、混合运算、周期性、密钥保密性、生成速度和抗攻击性。</p>
+<h2 id="非对称密码体制出现的原因"><a href="#非对称密码体制出现的原因" class="headerlink" title="非对称密码体制出现的原因"></a>非对称密码体制出现的原因</h2><p>为了解决对称密码体制的密钥管理困难问题</p>
+<p>为了解决对称密码体制的密钥分配困难问题</p>
+<p>为了满足对数字签名的需求</p>
+<h2 id="非对称密码体制的含义"><a href="#非对称密码体制的含义" class="headerlink" title="非对称密码体制的含义"></a>非对称密码体制的含义</h2><p>将公开密钥公开，私有密钥保密</p>
+<h2 id="非对称密码体制的原理"><a href="#非对称密码体制的原理" class="headerlink" title="非对称密码体制的原理"></a>非对称密码体制的原理</h2><p>非对称密码体制的原理是基于公钥和私钥的概念，利用公钥加密和私钥解密的算法实现加密和解密操作。同时，非对称密码体制还可以用于数字签名和密钥交换。它的安全性依赖于数学难题的困难性，提供了更高的安全性和灵活性。</p>
+<h2 id="RSA算法含义"><a href="#RSA算法含义" class="headerlink" title="RSA算法含义"></a>RSA算法含义</h2><p>rsa一般指rsa加密算法。RSA加密算法是一种非对称加密算法。在公开密钥加密和电子商业中RSA被广泛使用。1</p>
+<h2 id="RSA算法设计思想"><a href="#RSA算法设计思想" class="headerlink" title="RSA算法设计思想"></a>RSA算法设计思想</h2><p>根据数论，寻求两个大素数比较简单，而将它们的乘积进行因式分解却极其困难，因此可以将乘积公开作为加密密钥。</p>
+<h2 id="RSA算法经典案例"><a href="#RSA算法经典案例" class="headerlink" title="RSA算法经典案例"></a>RSA算法经典案例</h2><img src = "./1.png">
 
-<p>总结： 取地址操作符&amp;和取值操作符<em>是一对互补操作符，&amp;取出地址，</em>根据地址取出地址指向的值。</p>
-<p>变量、指针地址、指针变量、取地址、取值的相互关系和特性如下：</p>
-<ul>
-<li>对变量进行取地址（&amp;）操作，可以获得这个变量的指针变量。</li>
-<li>指针变量的值是指针地址。</li>
-<li>对指针变量进行取值(*)操作，可以获得指针变量指向的原变量的值。</li>
-</ul>
-<h3 id="1-3-new和make"><a href="#1-3-new和make" class="headerlink" title="1.3 new和make"></a>1.3 new和make</h3><h4 id="1-new"><a href="#1-new" class="headerlink" title="1) new"></a>1) new</h4><p>new是一个内置的函数，它的函数签名如下:</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">new</span><span class="params">(Type)</span></span> *Type</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Type表示类型，new函数只接受一个参数，这个参数是一个类型</li>
-<li>*Type表示类型指针，new函数返回一个指向该类型内存地址的指针。</li>
-</ul>
-<p>指针作为引用类型需要初始化后才会拥有内存空间，才可以给它复制。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a *<span class="type">int</span></span><br><span class="line">    a = <span class="built_in">new</span>(<span class="type">int</span>)</span><br><span class="line">    *a = <span class="number">10</span></span><br><span class="line">    fmt.Println(*a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-make"><a href="#2-make" class="headerlink" title="2) make"></a>2) make</h4><p>make也是用于内存分配的，区别于new，它只用于slice、map以及channel的内存创建，而且它返回的类型就是这三个类型本身，而不是他们的指针类型，因为这三种类型就是引用类型，所以就没有必要返回他们的指针了。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">make</span><span class="params">(t Type,size ...IntegerType)</span></span> Type</span><br></pre></td></tr></table></figure>
-<p>make函数是无可替代的，我们在使用slice、map以及channel的时候，都需要使用make进行初始化，然后才可以对它们进行操作。</p>
-<h4 id="3-new与make的区别"><a href="#3-new与make的区别" class="headerlink" title="3) new与make的区别"></a>3) new与make的区别</h4><p>1.二者都是用来做内存分配的。<br>2.make只用于slice、map以及channel的初始化，返回的还是这三个引用类型本身;<br>3.而new用于类型的内存分配，并且内存对应的值为类型零值，返回的是指向类型的指针。</p>
-
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="密钥管理含义"><a href="#密钥管理含义" class="headerlink" title="密钥管理含义"></a>密钥管理含义</h2><p>密钥管理就是管理密钥从产生到销毁的过程，包括密钥的产生、存储、分配、保护、更新、吊销和销毁等。</p>
+<h2 id="密钥分类"><a href="#密钥分类" class="headerlink" title="密钥分类"></a>密钥分类</h2><p>对称密钥和非对称密钥（公钥和私钥）</p>
+<p>作用上：会话密钥、密钥加密密钥、主密钥</p>
+<h2 id="密钥分发与协商技术含义，设计思想，存在的问题"><a href="#密钥分发与协商技术含义，设计思想，存在的问题" class="headerlink" title="密钥分发与协商技术含义，设计思想，存在的问题"></a>密钥分发与协商技术含义，设计思想，存在的问题</h2><p>密钥分配是这样一种机制，保密通信中的一方利用此机制生成并选择秘密密钥，然后将其安全传送给通信的另一方或通信的其他多方。典型协议：Kerboros密钥分配协议。</p>
+<p>通常是一种协议，利用该协议，通信双方可以在一个公开的信道上通过相互传送一些消息来共同建立一个安全的共享秘密密钥。在密钥协商中，双方共同建立的秘密密钥通常是双方输入消息的一个函数。典型协议：Diffie-Hellman密钥交换协议</p>
+<p>密钥分配与密钥协商过程都是用以在保密通信双方之间建立通信所使用的密钥的协议(或机制)。在这种协议(或机制)运行结束时，参与协议运行的双方都将得到相同的密钥，同时，所得到的密钥对于其他任何方(除可能的可信管理机构外)都是不可知的。</p>
+<h2 id="密钥分发中心含义，作用，CA"><a href="#密钥分发中心含义，作用，CA" class="headerlink" title="密钥分发中心含义，作用，CA"></a>密钥分发中心含义，作用，CA</h2><p>通信各方建立一个大家都信赖的密钥分发中心（Key Distribution Center , KDC）， 解决对称密钥安全可靠的分发。</p>
+<p>通信发起方生成会话密钥；</p>
+<p>KDC为Alice、 Bob生成通信的会话秘钥；</p>
+<p>要使公钥密码有效， 需要证实你拥有的公钥， 实际上就是要与你通信的实体的公钥。</p>
+<p>将公钥与特定的实体绑定， 通常由认证中心（ Certification Authority，CA） 完成。</p>
+<p>认证中心（ Certification Authority，CA） 的作用：</p>
+<ol>
+<li><p>CA可以证实一个实体的真实身份；</p>
+</li>
+<li><p>一旦CA验证了某个实体的身份， CA会生成一个把其身份和实体的公钥绑定起来的证书， 其中包含该实体的公钥及其全局唯一的身份识别信息等， 并由CA对证书进行数字签名；</p>
+</li>
+</ol>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1>
       
     </div>
     
@@ -482,11 +528,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/golang/" rel="tag"># golang</a>
+            <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
           
-            <a href="/tags/%E6%8C%87%E9%92%88/" rel="tag"># 指针</a>
-          
-            <a href="/tags/point/" rel="tag"># point</a>
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" rel="tag"># 计算机网络安全</a>
           
         </div>
       
@@ -514,8 +558,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E5%87%BD%E6%95%B0/" rel="next" title="Golang学习_函数">
-                <i class="fa fa-chevron-left"></i> Golang学习_函数
+              <a href="/2023/06/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" rel="next" title="计算机系统结构">
+                <i class="fa fa-chevron-left"></i> 计算机系统结构
               </a>
             
           </div>
@@ -523,10 +567,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2023/06/15/Golang%E5%AD%A6%E4%B9%A0-%E7%BB%93%E6%9E%84%E4%BD%93/" rel="prev" title="Golang学习_结构体">
-                Golang学习_结构体 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -698,7 +738,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Go%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E4%B9%8B%E6%8C%87%E9%92%88"><span class="nav-number">1.</span> <span class="nav-text">Go语言基础之指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Go%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">1.1.</span> <span class="nav-text">一、Go语言中的指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%8C%87%E9%92%88%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 指针地址和指针类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E6%8C%87%E9%92%88%E5%8F%96%E5%80%BC"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 指针取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-new%E5%92%8Cmake"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 new和make</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-new"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">1) new</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-make"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">2) make</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-new%E4%B8%8Emake%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">3) new与make的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">网络安全基本概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9A%84%E7%89%B9%E5%BE%81%EF%BC%88%E5%A1%AB%E7%A9%BA%E9%A2%98%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">网络安全的特征（填空题）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="nav-number">2.1.</span> <span class="nav-text">网络安全的目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E5%A8%81%E8%83%81%E5%AF%B9%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%89%B9%E5%BE%81%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="nav-number">2.2.</span> <span class="nav-text">各种威胁对网络安全特征的影响</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9A%84%E9%98%B2%E6%8A%A4%E4%BD%93%E7%B3%BB"><span class="nav-number">2.3.</span> <span class="nav-text">网络安全的防护体系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="nav-number">3.</span> <span class="nav-text">第二章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="nav-number">3.1.</span> <span class="nav-text">密码技术的发展历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">3.2.</span> <span class="nav-text">密码系统的构成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E6%8A%80%E6%9C%AF%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.3.</span> <span class="nav-text">密码技术的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E4%B8%AD%E4%BB%A3%E6%8D%A2%E5%AF%86%E7%A0%81%E4%B8%8E%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81-%E5%90%AB%E4%B9%89%EF%BC%8C%E5%8E%9F%E7%90%86%EF%BC%8C%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B"><span class="nav-number">3.4.</span> <span class="nav-text">古典密码体制中代换密码与置换密码 含义，原理，经典案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="nav-number">3.4.1.</span> <span class="nav-text">代换密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%AE%E6%8D%A2%E5%AF%86%E7%A0%81"><span class="nav-number">3.4.2.</span> <span class="nav-text">置换密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%BD%93%E8%B4%A8%E5%90%AB%E4%B9%89%EF%BC%8C%E5%88%86%E7%B1%BB%EF%BC%88%E6%B5%81%E5%AF%86%E7%A0%81%E3%80%81%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">对称密码体质含义，分类（流密码、分组密码）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E5%90%AB%E4%B9%89"><span class="nav-number">3.6.</span> <span class="nav-text">分组密码含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="nav-number">3.7.</span> <span class="nav-text">分组密码设计思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%8F%8A%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95DES%E4%B8%8EAES%E5%90%AB%E4%B9%89%EF%BC%8C%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3%EF%BC%8CDES%E4%B8%8EAES%E7%9A%84S%E7%9B%92%E5%BC%82%E5%90%8C%EF%BC%9B"><span class="nav-number">3.8.</span> <span class="nav-text">以及经典算法DES与AES含义，算法思想，DES与AES的S盒异同；</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DES"><span class="nav-number">3.8.1.</span> <span class="nav-text">DES</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="nav-number">3.8.1.1.</span> <span class="nav-text">算法思想</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AES"><span class="nav-number">3.8.2.</span> <span class="nav-text">AES</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3-1"><span class="nav-number">3.8.2.1.</span> <span class="nav-text">算法思想</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S%E7%9B%92%E5%BC%82%E5%90%8C"><span class="nav-number">3.8.3.</span> <span class="nav-text">S盒异同</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E5%AF%86%E7%A0%81%E5%90%AB%E4%B9%89%EF%BC%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="nav-number">3.9.</span> <span class="nav-text">流密码含义，设计思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%AF%86%E7%A0%81%E5%90%AB%E4%B9%89"><span class="nav-number">3.9.1.</span> <span class="nav-text">流密码含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="nav-number">3.9.2.</span> <span class="nav-text">设计思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">3.10.</span> <span class="nav-text">非对称密码体制出现的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">3.11.</span> <span class="nav-text">非对称密码体制的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">3.12.</span> <span class="nav-text">非对称密码体制的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA%E7%AE%97%E6%B3%95%E5%90%AB%E4%B9%89"><span class="nav-number">3.13.</span> <span class="nav-text">RSA算法含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3"><span class="nav-number">3.14.</span> <span class="nav-text">RSA算法设计思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA%E7%AE%97%E6%B3%95%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B"><span class="nav-number">3.15.</span> <span class="nav-text">RSA算法经典案例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-number">4.</span> <span class="nav-text">第三章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86%E5%90%AB%E4%B9%89"><span class="nav-number">4.1.</span> <span class="nav-text">密钥管理含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E5%88%86%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">密钥分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E5%88%86%E5%8F%91%E4%B8%8E%E5%8D%8F%E5%95%86%E6%8A%80%E6%9C%AF%E5%90%AB%E4%B9%89%EF%BC%8C%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%EF%BC%8C%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.</span> <span class="nav-text">密钥分发与协商技术含义，设计思想，存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%86%E9%92%A5%E5%88%86%E5%8F%91%E4%B8%AD%E5%BF%83%E5%90%AB%E4%B9%89%EF%BC%8C%E4%BD%9C%E7%94%A8%EF%BC%8CCA"><span class="nav-number">4.4.</span> <span class="nav-text">密钥分发中心含义，作用，CA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="nav-number">5.</span> <span class="nav-text">第四章</span></a></li></ol></div>
             
 
           </div>
