@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/1.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="考试专用,微机原理," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="微机原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微机原理">
+<meta property="og:url" content="https://liuxindg.gitbub.io/2023/12/22/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="琉心的博客">
+<meta property="og:description" content="微机原理">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-12-22T15:04:07.000Z">
+<meta property="article:modified_time" content="2023-12-22T15:36:06.836Z">
+<meta property="article:author" content="琉心">
+<meta property="article:tag" content="考试专用">
+<meta property="article:tag" content="微机原理">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://LiuXinDG.gitbub.io/2023/12/22/微机原理/"/>
+
+
+
+
+
+  <title>微机原理 | 琉心的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">琉心的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学以致用，方能翱翔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://LiuXinDG.gitbub.io/2023/12/22/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/20230613-193018.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="琉心的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微机原理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-12-22T23:04:07+08:00">
+                2023-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">微机原理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2023/12/22/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2023/12/22/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="微机原理"><a href="#微机原理" class="headerlink" title="微机原理"></a>微机原理</h1><span id="more"></span>
+
+<ol>
+<li><p>世界上第一台通用计算机ENIAC采用_哈佛_结构。程序和数据空间_独立_的体系结构。（ P1 ）</p>
+</li>
+<li><p>计算机的基础是__硬件__，用户使用__应用__软件，通过__系统__软件访问底层硬件。（ P7 ）</p>
+</li>
+<li><p>CPU访问存储器，地址总线上送出的是_物理_地址。编写程序时，采用_逻辑_地址。（ P30 ） </p>
+</li>
+<li><p>_SP堆栈指针_为堆栈顶在堆栈段的偏移量，_BP基地址指针_为堆栈段的一个数据区“基址”的偏移量。（ P32 ）</p>
+</li>
+<li><p>在状态标志寄存器中，零标志的英文缩写是_ZF__。（ P33 ）</p>
+</li>
+<li><p>8086第28引脚&#x3D;1时，表示访问_存储器_; 而8088第28引脚的逻辑定义正好_相反_。（ P61 ）</p>
+</li>
+<li><p>EXE文件产生在__连接______之后。</p>
+</li>
+<li><p>将REPE&#x2F;REPZ加在CMPS或SCAS指令之前时，若_CX&#x3D;0或ZF&#x3D;0_，则停止重复过程。（ P103 ）</p>
+</li>
+<li><p>8086标志寄存器中控制标志为__DF、IF、TF_____。</p>
+</li>
+<li><p>汇编语言源程序在计算机执行之前需要先翻译成目标程序，称为___汇编___。（ P128  ）</p>
+</li>
+<li><p>某个变量所表示的是数组，其数据类型属性为变量的单个元素所分配的。__字节数_。（ P135 ）</p>
+</li>
+<li><p>简化的段定义伪指令表示一个段的，同时说明前一个段的__结束____。（ P148 ）</p>
+</li>
+<li><p>多个模块可共同使用的符号为___全局符合___符号。用__PUBLIC和EXTERN__语句说明。（ P168 ）</p>
+</li>
+<li><p>地址对齐指16位数据存放地址为__2__的倍数, 32位数据存放地址为_4__的倍数。（ P214 ）</p>
+</li>
+<li><p>由2K×1bit的芯片组成4K×8bit的存储器需要____16___个存储芯片。</p>
+</li>
+<li><p>输入设备必须经过__缓冲隔离____，通过数据总线向CPU传送数据。（ P224 ）</p>
+</li>
+<li><p>CPU与外设之间信息交换的输入&#x2F;输出方式一般分为三种，包括_程序控制方式，中断驱动方式直接存储器访问（DMA）方式______（ P255 ）</p>
+</li>
+<li><p>一般IntelPC&#x2F;AT机里使用的可编程中断控制器是__Intel 8259__系列产品。（ P242）</p>
+</li>
+<li><p>中断结束采用普通EOl命令，全嵌套方式，必须对OCW2写入_偶地址端口_（ P250）。</p>
+</li>
+<li><p>选择8253计数器2,工作方式1,二进制编码格式，应写入控制字_10110010B__（ P268 ）。</p>
+</li>
+<li><p>_方式一__可重复触发。计数到0后不需送计数初值，新的触发脉冲即可产生一同样宽度单稳脉冲。（ P269 ）</p>
+</li>
+<li><p>查询方式是__通过特定的条件或者指令来获取所需的信息或者执行特定的操作____。（  ）</p>
+</li>
+<li><p>CPU在执行OUT DX, AL指令时，___DX___寄存器的内容送到地址总线上。</p>
+</li>
+<li><p>8253工作在__方式2、4、5___时，可输入1个时钟周期宽度的负脉冲。（ P271 ）</p>
+</li>
+<li><p>CPU可以对8253计算器执行读操作，其读到的是__计数执行部件CE的当前值___。</p>
+</li>
+<li><p>8253在工作方式0时，在计数器工作过程中，门控信号GATE变为低电平后__暂时停止计数___..（P269  ）</p>
+</li>
+<li><p>8253可编程定时&#x2F;计数器，在初始化是写入的最大计划初值是__0000H___。（ P268 ）</p>
+</li>
+<li><p>DMA方式可以实现_存取批量高速__的数据传送。（ P68 ）</p>
+</li>
+<li><p>设8255A的方式选择控制字为9BH，其含义是_A、B、C口全工<br>作在方式0的输入状态___。</p>
+</li>
+<li><p>8255A的地址线A1、A分别接8086的A2、A1，8086芯片的A0参与8255A的片选译码，接到74LS138的GA,初始化指令为OUT 8EH，AL，则8255A的PA口地址为__88H__。（ P288 ）</p>
+</li>
+<li><p>微处理器的__精简____指令集，CPU指令种类___少____，采用超标量和超流水线结构。（ P1 ）</p>
+</li>
+<li><p>汇编语言计算机不能识别，必须翻译成机器语言的__目标程序（二进制代码）___，这个过程称为__汇编__。（  ）</p>
+</li>
+<li><p>不特别指明某个段，指针寄存器中存放的偏移量在现行_ ____，变址寄存器中的偏移量是在现行_____。（  ）</p>
+</li>
+<li><p>串操作SI和DI__不能__互换。源操作数应位于当前_DS___中。</p>
+</li>
+<li><p>PC&#x2F;AT的微型计算机，是___80286__CPU（ P333 ）</p>
+</li>
+<li><p>80386的BE3~BE0，存储体使能信号，由CPU内部根据地址线_A1和A0__产生。（ P61 ）</p>
+</li>
+<li><p>用BP作基址变址寻址时，操作数所在的段是当前___堆栈段___。（ P85 ）</p>
+</li>
+<li><p>定义双字变量的定义符是__DWORD（DD）____。（ P137）</p>
+</li>
+<li><p>将REPNE&#x2F;REPNZ加在CMPS或SCAS指令之前，若__CX&#x3D;0或ZF&#x3D;1_，则停止重复过程。（P102  ）</p>
+</li>
+<li><p>汇编程序产生的目标模块必须经LINK程序形成可执行文件。___对___（ P139 ）</p>
+</li>
+<li><p>全局符号要在定义和使用它的模块中要分别用__PUBLIC__和_EXTERN___语句说明，（ P168 ）</p>
+</li>
+<li><p>80386不能处理的数据长度有__64___位。</p>
+</li>
+<li><p>设存储体中有4096个存储单元，采用双译码方式，共需要__64___条选择线（ P191 ）</p>
+</li>
+<li><p>高速缓存由_SRAM__构成。</p>
+</li>
+<li><p>堆栈操作时，段基址由_SS（堆栈段）_寄存器指出，段内偏移量由_SP_（堆栈指针）_寄存器指出。（ P37 ）</p>
+</li>
+<li><p>CPU传送数据，必须利用_数据总线_，让外设有足够的处理时间，使CPU和总线做其他工作。</p>
+</li>
+<li><p>___8253____可编程定时&#x2F;计数器是专为Intel CPU系统设计的接口芯片。（ P267 ）</p>
+</li>
+<li><p>设置ICW1为边沿触发，单片8259A，需要IC W4，应执行MOV AL, __00010011B _（ P253 ）</p>
+</li>
+<li><p>__屏蔽中断源_可设置特殊屏蔽方式、查询方式，以及读取8259A中IRR, ISR, IMR的当前状态。（ P246 ）</p>
+</li>
+<li><p>选择8253计数器0,工作方式0,BCD编码格式，应写入控制字_00110001B__（ P271 ）。</p>
+</li>
+<li><p>若当前 DS的内容为 2000H，偏移量为 1000H，单元的地址可表示为__21000H___ </p>
+</li>
+<li><p>__方式2___不用重复置数。计数器连续工作，输出OUT是输入CLK的n(初值)分频。（ P270 ）</p>
+</li>
+<li><p>8086CPU的I&#x2F;O地址空间为___64KB___字节。（ P29 ）</p>
+</li>
+<li><p>数据的输入输出指的是__CPU与外设_进行数据交换。（ P220 ）</p>
+</li>
+<li><p>在8253的6种工作方式种，能够自动重复工作的两种方式是__方式2,3___。（ P271 ）</p>
+</li>
+<li><p>在下列8253的4种工作方式，即使GATE保持为高电平，处于_方式1（硬件可重单稳态）_的8253在写入初值以后也不开始定时或计数。（P271  ）</p>
+</li>
+<li><p>可编程定时器&#x2F;计数器8253的6种工作方式中，只可用硬件启动的是__方式1、5___。（P251  ）</p>
+</li>
+<li><p>在微机系统中采用DMA方式传送数据时，数据传送是__由DMAC发出的控制信号控制下完成的_（  ）</p>
+</li>
+<li><p>8255A既可作数据输入、输出，又可提供控制信息、状态信息的端口是__C__。（ P275 ）</p>
+</li>
+<li><p>8255A的PA口工作于方式2时，PB口不能工作于__方式2__。（ P281 ）</p>
+</li>
+<li><p>80386 CPU的6个处理单元，分别是执行、分段、分页、总线、__指令预取__和_译码__单元。（P35）</p>
+</li>
+<li><p>80x86 CPU共有4种工作模式: _实地址_模式 、_保护__模式、虚拟8086模式和系统管理模式。（P77）</p>
+</li>
+<li><p>THIS操作符与___EQU___配合使用，具有___LABEL___操作符同样的作用。（P138）</p>
+</li>
+<li><p>CPU寻址外设端口一般有两种方式。I&#x2F;O端口___统一___编址、I&#x2F;O端口与存储器__独立____编址。（P222）</p>
+</li>
+<li><p>完整的中断处理基本过程包括:中断请求、中断判优、中断_响应_、中断_处理_和中断返回。（P230）</p>
+</li>
+<li><p>80386的7大类寄存器，分别是:通用寄存器、段寄存器、指令指针和标志寄存器、控制寄存器、系统地址寄存器、__调试_寄存器和 __测试___寄存器。（P44）</p>
+</li>
+<li><p>80x86 CPU共有4种工作模式，8086&#x2F;8088 CPU只能工作于_实地址_模式， Pentium及其以上的CPU可以工作在_实地址、保护，系统管理和虚拟8086_模式下。（P77）</p>
+</li>
+<li><p>PTR操作符临时指定或修改存储器操作数的__类型__属性，保持其原有的__段__属性和偏移地址属性。（P137）</p>
+</li>
+<li><p>接口是连接计算机和外设的部件，通常指_接口电路_，广义的接口还包括管理接口电路的_驱动程序_。（P220）</p>
+</li>
+<li><p>完整的中断处理基本过程包括:中断__请求___、中断__判优__、中断响应、中断处理和中断返回。P230</p>
+</li>
+<li><p>简述段定义伪指令SEGMENT&#x2F;ENDS中各种定位类型所表示的段起始地址。（P147）</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在 在 <span class="number">8086</span> 汇编语言中，使用 SEGMENT 和 和 ENDS 伪指令来定义段。段定义伪指令 SEGMENT/ENDS</span><br><span class="line">中的各种定位类型表示的段起始地址如下：</span><br><span class="line"><span class="keyword">PUBLIC</span> ：表示的是公共段，可以被其他模块调用。</span><br><span class="line"><span class="built_in">STACK</span> ：表示的是堆栈段，用于存放函数的局部变量和参数。</span><br><span class="line"><span class="built_in">DATA</span> ：表示的是数据段，用于存放程序中使用的静态数据。</span><br><span class="line">CODE ：表示的是代码段，用于存放程序的指令代码。</span><br><span class="line">这些定位类型所表示的段起始地址在程序执行时会被加载到内存的不同位置，以便程序正确地访问和执行其中的数据和指令。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简述寄存器的位数和段的位数两个概念的关系。P121</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">寄存器的位数和段的位数是两个不同的概念，它们之间的关系如下：</span><br><span class="line">寄存器的位数：指的是 一个寄存器可以存储的在 二进制位数。在 x86 架构中，通用寄存器的位数为<span class="number">16</span> 位或 <span class="number">32</span> 位，表示寄存器能够存储的数据大小。</span><br><span class="line">段的位数：指的是 <span class="meta">CPU</span> 地址总线的位数，决定了 <span class="meta">CPU</span> 可以寻址的内存空间大小。在 x86 架构中，</span><br><span class="line">为 段的位数为 <span class="number">20</span> 位，因此最大可寻址的内存空间为 <span class="number">2</span>^<span class="number">20</span> ，即 1MB 。</span><br><span class="line">这两个概念之间的关系在于，段的位数决定了 <span class="meta">CPU</span> 可以寻址的内存空间大小，而寄存器的位数决定了 <span class="meta">CPU</span> 可以一次处理的数据大小。因此，段的位数限制了 <span class="meta">CPU</span> 可以访问的内存空间大小，而寄存器的位数则限制了 <span class="meta">CPU</span> 可以处理的数据大小。 </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8255A工作在方式1时，哪些引脚是联络线？P278</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在<span class="number">8255</span><span class="variable">A</span> 芯片工作在方式 <span class="number">1</span> 时，<span class="variable">A0</span> 、<span class="variable">A1</span> 、<span class="variable">A2</span> 引脚用作与 <span class="built_in">I</span><span class="operator">/</span><span class="built_in">O</span> 端口 <span class="variable">A</span> 的地址线，<span class="variable">B0</span> 、<span class="variable">B1</span> 、<span class="variable">B2</span> 引脚与用作与 <span class="built_in">I</span><span class="operator">/</span><span class="built_in">O</span> 端口 <span class="variable">B</span> 的地址线，<span class="variable">C0</span> 、<span class="variable">C1</span> 、<span class="variable">C2</span> 引脚用作与 <span class="built_in">I</span><span class="operator">/</span><span class="built_in">O</span> 端口 <span class="built_in">C</span> 的地址线。这些引脚被称为联络线，用于与 <span class="variable">CPU</span> 进行地址线的联络，以实现对 <span class="number">8255</span><span class="variable">A</span> 芯片的寻址和控制。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>异步串行通信和同步串行通信的主要区别是什么?P289</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">异步串行通信和同步串行通信的主要区别在于时钟信号的方式和数据的起始和结束标志，</span><br><span class="line">这些区别决定了它们在实际应用中的特点和适用场景。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简述段定义伪指令SEGMENT&#x2F;ENDS中各种组合类型表示的链接关系。P147</p>
+</li>
+</ol>
+<img src = "./1.png">
+
+<ol start="75">
+<li><p>简述宏与过程的区别。P144</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">宏是在预处理阶段进行文本替换的代码重用机制，适用于简单的代码替换和代码生成；而过程是在运行时被调用执行的代码块，支持局部变量和参数传递，适用于封装一系列操作和提高代码的可维护性。选择使用宏还是过程取决于具体的需求和场景。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8255A工作在方式2时，哪些引脚是联络线？</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当 <span class="number">8255</span>A 工作在方式 <span class="number">2</span> 时，其中的引脚 <span class="built_in">A0</span> 、<span class="built_in">A1</span> 、<span class="built_in">A2</span> 和 CS （片选）是联络线。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>78、 什么叫异步数据通信？P289</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">答：异步数据通信是指通信中收发双方没有共同的时间基准，往往以字符为单位一位一位进行传输、接收。</span><br></pre></td></tr></table></figure>
+
+<ol start="79">
+<li>画出查询式输入的接口电路图，绘制程序流程图，编写查询式输入程序，添加必要的注释</li>
+</ol>
+<img src = "./2.png">
+
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">IN_TEST:</span> <span class="keyword">IN</span> <span class="built_in">AL</span>,STATUS <span class="comment">; 读入状态信息</span></span><br><span class="line">         <span class="keyword">TEST</span> <span class="built_in">AL</span>,<span class="number">80H</span> <span class="comment">; 检查READY是否为1</span></span><br><span class="line">         <span class="keyword">JZ</span> IN_TEST <span class="comment">; 条件不满足，继续查询</span></span><br><span class="line">         <span class="keyword">IN</span> <span class="built_in">AL</span>,DATAS <span class="comment">; 条件满足，读入数据</span></span><br></pre></td></tr></table></figure>
+
+<ol start="80">
+<li>用全译码法将4片6264芯片与系统总线相连构成32K×8b存储区。</li>
+</ol>
+<img src = "./3.png">
+
+
+<ol start="81">
+<li>内存中自TABLE开始的I6个单元连续存放着0~15的平方值(平方表)。任给一数0≤x≤15)在XX单元，编写汇编语言源程序，查表求x的平方值，并将结果存入YY单元P151<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">DATA   <span class="meta">SEGMENT</span></span><br><span class="line">TABLE  <span class="built_in">DB</span> <span class="number">0</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">25</span>,<span class="number">36</span>,<span class="number">49</span>,<span class="number">64</span>,<span class="number">81</span>,<span class="number">100</span>,<span class="number">121</span>,<span class="number">144</span>,<span class="number">169</span>,<span class="number">196</span>,<span class="number">225</span></span><br><span class="line">XX      <span class="built_in">DB</span> ?</span><br><span class="line">YY      <span class="built_in">DB</span> ?</span><br><span class="line">DATA   ENDS </span><br><span class="line">STACK   <span class="meta">SEGMENT</span> PARA STACK <span class="string">&#x27;STACK&#x27;</span></span><br><span class="line"><span class="built_in">DB</span> <span class="number">100</span> DUP(?)</span><br><span class="line">STACK   ENDS</span><br><span class="line">CODE    <span class="meta">SEGMENT</span></span><br><span class="line"><span class="meta">ASSUME</span>  <span class="built_in">CS</span>:CODE, <span class="built_in">DS</span>:DATA </span><br><span class="line">START  PROC  <span class="built_in">FAR</span></span><br><span class="line"><span class="keyword">PUSH</span>  <span class="built_in">DS</span> </span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AX</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">PUSH</span>  <span class="built_in">AX</span></span><br><span class="line"><span class="keyword">MOV</span>   <span class="built_in">AX</span>,DATA </span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">DS</span>,<span class="built_in">AX</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">BX</span>,OFFSET TABLE</span><br><span class="line"><span class="keyword">MOV</span>  <span class="number">AH</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AL</span>,XX</span><br><span class="line"><span class="keyword">ADD</span>  <span class="built_in">BX</span>,<span class="built_in">AX</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AL</span>,[<span class="built_in">BX</span>]</span><br><span class="line"><span class="keyword">MOV</span>  YY,<span class="built_in">AL</span></span><br><span class="line"><span class="keyword">RET</span></span><br><span class="line">START  ENDP</span><br><span class="line">CODE  ENDS</span><br><span class="line">END  START</span><br></pre></td></tr></table></figure></li>
+<li>某8255A端口地址范围为03F8H~03 FBH，A组和B组均工作在方式0，A口作为数据输出端口，C口低4位作为状态信号输入口，其他端口未用，试画出8255A与系统地址线低八位的连接图，并编写初始化程序</li>
+</ol>
+<img src = "./4.png">
+
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">初始化程序：</span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">DX</span>, <span class="number">03FBH</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AL</span>, <span class="number">81H</span></span><br><span class="line"><span class="keyword">OUT</span>   <span class="built_in">DX</span>, <span class="built_in">AL</span></span><br></pre></td></tr></table></figure>
+
+<ol start="83">
+<li>8253的片选信号如下图连接，列出8253内各计数器及控制字寄存器的一组地址，若计数器的CLK都接1MHz时钟信号，欲利用该8253产生1KHz 的方波，简单说明如何实现(说明利用的计数器，工作方式及计数初值)，写出编程的有关内容。</li>
+</ol>
+<p>计数器0的地址为3B0H，计数器1的地址为3B1H，计数器2的地址为3B2H，控制字寄存器的地址为3B3H</p>
+<img src = "./5.png">
+
+<ol start="84">
+<li>画出查询式输出的接口电路图，绘制程序流程图，编写查询式输入程序，添加必要的注释。</li>
+</ol>
+<img src = "./6.png">
+
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">          <span class="keyword">MOV</span> <span class="built_in">BX</span>,OFFSET STORE</span><br><span class="line"><span class="symbol">OUT_TEST:</span> <span class="keyword">IN</span> <span class="built_in">AL</span>,STATUS   <span class="comment">; 读入状态信息</span></span><br><span class="line">          <span class="keyword">AND</span> <span class="built_in">AL</span>,<span class="number">80H</span>    <span class="comment">; 检查BUSY位</span></span><br><span class="line">          <span class="keyword">JNZ</span> OUT_TEST  <span class="comment">; BUSY则等待</span></span><br><span class="line">          <span class="keyword">MOV</span> <span class="built_in">AL</span>,[<span class="built_in">BX</span>]   <span class="comment">; 空闲，则从缓冲区STORE中取数据</span></span><br><span class="line">          <span class="keyword">OUT</span> DATAS,<span class="built_in">AL</span>  <span class="comment">; 输出数据</span></span><br><span class="line">          <span class="keyword">INC</span> <span class="built_in">BX</span></span><br></pre></td></tr></table></figure>
+
+<ol start="85">
+<li>画出CPU中断控制的数据输入&#x2F;输出接口电路图，简述其工作过程。</li>
+</ol>
+<img src = "./7.png">
+
+<p>工作过程:</p>
+<p>当输入装置输入一个数据时，发出选通信号，该信号将数据存入锁存器，同时使D触发器置“1”，发出中断请求。若中断是开放的，则CPU接收中断请求信号并将当前指令执行完后，暂停正在执行的程序，发出中断响应信号INTA。这时外设将一个中断类型码放到数据总线，CPU依据该中断类型码转入相应的中断服务程序。在中断服务程序中通过数据端口读取数据，同时清除中断请求标志。中断处理完毕，CPU返回被中断的程序继续执行。</p>
+<ol start="86">
+<li><p>编写汇编语言源程序，打印输出字符串“THIS TS A SAMPLE PROGRAM. “。P129</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; SAMPLE PROGRAM DISPLAY MESSAGE</span></span><br><span class="line">DATA      <span class="meta">SEGMENT</span></span><br><span class="line">MESSAGE  <span class="built_in">DB</span> <span class="string">&#x27;THIS IS A SAMPLE PROGRAM.&#x27;</span></span><br><span class="line">            <span class="built_in">DB</span> <span class="number">0DH</span>,<span class="number">0AH</span>,<span class="string">&#x27;$&#x27;</span></span><br><span class="line">DATA       ENDS</span><br><span class="line">STACK      <span class="meta">SEGMENT</span> PARA STACK <span class="string">&#x27;STACK&#x27;</span></span><br><span class="line">             <span class="built_in">DB</span> <span class="number">1024</span> DUP(<span class="number">0</span>)</span><br><span class="line">STACK      ENDS</span><br><span class="line">CODE       <span class="meta">SEGMENT</span></span><br><span class="line">             <span class="meta">ASSUME</span>  <span class="built_in">CS</span>:CODE, <span class="built_in">DS</span>:DATA,<span class="built_in">SS</span>:STACK </span><br><span class="line">             MAIN PROC <span class="built_in">FAR</span></span><br><span class="line"><span class="symbol">START:</span>      <span class="keyword">PUSH</span> <span class="built_in">DS</span></span><br><span class="line">                  <span class="keyword">MOV</span>  <span class="built_in">AX</span>,<span class="number">0</span></span><br><span class="line">                  <span class="keyword">PUSH</span>  <span class="built_in">AX</span></span><br><span class="line">                  <span class="keyword">MOV</span>   <span class="built_in">AX</span>,DATA</span><br><span class="line">                  <span class="keyword">MOV</span>   <span class="built_in">DS</span>,<span class="built_in">AX</span></span><br><span class="line">                  <span class="keyword">LEA</span>     <span class="built_in">BX</span>,MESSAGE</span><br><span class="line"><span class="symbol">LOOP1:</span>      <span class="keyword">CMP</span> <span class="built_in">BYTE</span> <span class="built_in">PTR</span> [<span class="built_in">BX</span>],<span class="string">&#x27;$&#x27;</span></span><br><span class="line">                   <span class="keyword">JE</span>      LOOP2</span><br><span class="line">                  <span class="keyword">MOV</span>  <span class="number">AH</span>,<span class="number">2</span></span><br><span class="line">                  <span class="keyword">MOV</span>   <span class="built_in">DL</span>,[<span class="built_in">BX</span>]</span><br><span class="line">                  <span class="keyword">INT</span>      <span class="number">21H</span></span><br><span class="line">                  <span class="keyword">INC</span>      <span class="built_in">BX</span></span><br><span class="line">                  <span class="keyword">JMP</span>     LOOP1</span><br><span class="line"><span class="symbol">LOOP2:</span>     <span class="keyword">RET</span></span><br><span class="line">                  MAIN    ENDP</span><br><span class="line">CODE         ENDS</span><br><span class="line">                   END START</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下图中，AD0~AD7为8086&#x2F;8088CPU低八位地址线，试分析8259A占用了几个端口，地址分别为什么？其中ICW1的地址是什么？8255A占用了几个端口，地址分别为什么？其中控制寄存器的地址是什么？###############</p>
+</li>
+</ol>
+<p>答：8259A占2个端口；地址分别为：20H，22H或24H，26H；<br>ICW1的地址：20H或24H；<br>8255A占4个端口；地址：80H，82H，84H，86H<br>控制寄存器的地址：86H</p>
+<ol start="88">
+<li>设8253的计数器0工作在方式1，计数初值为2050H;计数器1工作在方式2,计数初值为3000H; 数器2工作在方式3, 计数初值为1000H，各命令字的D0均为1。如果三个计数器的GATE都接高电平,三个计数器的CLK都接2MHz时钟信号，画出OUT0，OUT1、OUT2的输出波形. ###############</li>
+</ol>
+<img src = "./8.png">
+      
+    </div>
+    
+    
+    
+<div style="text-align:center;color: #ccc;font-size:14px;">---------------- The End ----------------</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%80%83%E8%AF%95%E4%B8%93%E7%94%A8/" rel="tag"># 考试专用</a>
+          
+            <a href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/" rel="tag"># 微机原理</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="next" title="操作系统">
+                <i class="fa fa-chevron-left"></i> 操作系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/20230613-193018.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+           
+
+          
+
+          
+          
+
+        
+        
+	 <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()",1000);
+BirthDay=new Date("06/12/2023 15:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+
+
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">微机原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+    
+    
+
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">琉心</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">42.5k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'IWy6tSVGzpjqE5k3X9oGaYSu-gzGzoHsz',
+        appKey: 'EENYTfdO0kN9fjOAWsPpK60a',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

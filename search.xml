@@ -1717,7 +1717,7 @@
   <entry>
     <title>操作系统</title>
     <url>/2023/12/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<p><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a><br><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A4%84%E7%90%86%E5%99%A8%E7%AE%A1%E7%90%86">第二章</a><br><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E9%80%9A%E4%BF%A1">第三章</a><br><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86">第四章</a><br><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86">第五章</a></p>
+    <content><![CDATA[<p><a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a><br><a href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A4%84%E7%90%86%E5%99%A8%E7%AE%A1%E7%90%86">第二章-处理器管理</a><br><a href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E9%80%9A%E4%BF%A1">第三章-进程同步与通信</a><br><a href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86">第四章-存储管理</a><br><a href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86">第五章-设备管理</a></p>
 <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><span id="more"></span>
 
 <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="操作系统-1"><a href="#操作系统-1" class="headerlink" title="操作系统"></a>操作系统</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>操作系统是介于计算机硬件和应用软件之间的一个软件系统，即操作系统的下面是硬件平台，而上面则是应用软件。</p>
@@ -1894,6 +1894,240 @@
       <tags>
         <tag>操作系统</tag>
         <tag>考试专用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微机原理</title>
+    <url>/2023/12/22/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="微机原理"><a href="#微机原理" class="headerlink" title="微机原理"></a>微机原理</h1><span id="more"></span>
+
+<ol>
+<li><p>世界上第一台通用计算机ENIAC采用_哈佛_结构。程序和数据空间_独立_的体系结构。（ P1 ）</p>
+</li>
+<li><p>计算机的基础是__硬件__，用户使用__应用__软件，通过__系统__软件访问底层硬件。（ P7 ）</p>
+</li>
+<li><p>CPU访问存储器，地址总线上送出的是_物理_地址。编写程序时，采用_逻辑_地址。（ P30 ） </p>
+</li>
+<li><p>_SP堆栈指针_为堆栈顶在堆栈段的偏移量，_BP基地址指针_为堆栈段的一个数据区“基址”的偏移量。（ P32 ）</p>
+</li>
+<li><p>在状态标志寄存器中，零标志的英文缩写是_ZF__。（ P33 ）</p>
+</li>
+<li><p>8086第28引脚&#x3D;1时，表示访问_存储器_; 而8088第28引脚的逻辑定义正好_相反_。（ P61 ）</p>
+</li>
+<li><p>EXE文件产生在__连接______之后。</p>
+</li>
+<li><p>将REPE&#x2F;REPZ加在CMPS或SCAS指令之前时，若_CX&#x3D;0或ZF&#x3D;0_，则停止重复过程。（ P103 ）</p>
+</li>
+<li><p>8086标志寄存器中控制标志为__DF、IF、TF_____。</p>
+</li>
+<li><p>汇编语言源程序在计算机执行之前需要先翻译成目标程序，称为___汇编___。（ P128  ）</p>
+</li>
+<li><p>某个变量所表示的是数组，其数据类型属性为变量的单个元素所分配的。__字节数_。（ P135 ）</p>
+</li>
+<li><p>简化的段定义伪指令表示一个段的，同时说明前一个段的__结束____。（ P148 ）</p>
+</li>
+<li><p>多个模块可共同使用的符号为___全局符合___符号。用__PUBLIC和EXTERN__语句说明。（ P168 ）</p>
+</li>
+<li><p>地址对齐指16位数据存放地址为__2__的倍数, 32位数据存放地址为_4__的倍数。（ P214 ）</p>
+</li>
+<li><p>由2K×1bit的芯片组成4K×8bit的存储器需要____16___个存储芯片。</p>
+</li>
+<li><p>输入设备必须经过__缓冲隔离____，通过数据总线向CPU传送数据。（ P224 ）</p>
+</li>
+<li><p>CPU与外设之间信息交换的输入&#x2F;输出方式一般分为三种，包括_程序控制方式，中断驱动方式直接存储器访问（DMA）方式______（ P255 ）</p>
+</li>
+<li><p>一般IntelPC&#x2F;AT机里使用的可编程中断控制器是__Intel 8259__系列产品。（ P242）</p>
+</li>
+<li><p>中断结束采用普通EOl命令，全嵌套方式，必须对OCW2写入_偶地址端口_（ P250）。</p>
+</li>
+<li><p>选择8253计数器2,工作方式1,二进制编码格式，应写入控制字_10110010B__（ P268 ）。</p>
+</li>
+<li><p>_方式一__可重复触发。计数到0后不需送计数初值，新的触发脉冲即可产生一同样宽度单稳脉冲。（ P269 ）</p>
+</li>
+<li><p>查询方式是__通过特定的条件或者指令来获取所需的信息或者执行特定的操作____。（  ）</p>
+</li>
+<li><p>CPU在执行OUT DX, AL指令时，___DX___寄存器的内容送到地址总线上。</p>
+</li>
+<li><p>8253工作在__方式2、4、5___时，可输入1个时钟周期宽度的负脉冲。（ P271 ）</p>
+</li>
+<li><p>CPU可以对8253计算器执行读操作，其读到的是__计数执行部件CE的当前值___。</p>
+</li>
+<li><p>8253在工作方式0时，在计数器工作过程中，门控信号GATE变为低电平后__暂时停止计数___..（P269  ）</p>
+</li>
+<li><p>8253可编程定时&#x2F;计数器，在初始化是写入的最大计划初值是__0000H___。（ P268 ）</p>
+</li>
+<li><p>DMA方式可以实现_存取批量高速__的数据传送。（ P68 ）</p>
+</li>
+<li><p>设8255A的方式选择控制字为9BH，其含义是_A、B、C口全工<br>作在方式0的输入状态___。</p>
+</li>
+<li><p>8255A的地址线A1、A分别接8086的A2、A1，8086芯片的A0参与8255A的片选译码，接到74LS138的GA,初始化指令为OUT 8EH，AL，则8255A的PA口地址为__88H__。（ P288 ）</p>
+</li>
+<li><p>微处理器的__精简____指令集，CPU指令种类___少____，采用超标量和超流水线结构。（ P1 ）</p>
+</li>
+<li><p>汇编语言计算机不能识别，必须翻译成机器语言的__目标程序（二进制代码）___，这个过程称为__汇编__。（  ）</p>
+</li>
+<li><p>不特别指明某个段，指针寄存器中存放的偏移量在现行_ ____，变址寄存器中的偏移量是在现行_____。（  ）</p>
+</li>
+<li><p>串操作SI和DI__不能__互换。源操作数应位于当前_DS___中。</p>
+</li>
+<li><p>PC&#x2F;AT的微型计算机，是___80286__CPU（ P333 ）</p>
+</li>
+<li><p>80386的BE3~BE0，存储体使能信号，由CPU内部根据地址线_A1和A0__产生。（ P61 ）</p>
+</li>
+<li><p>用BP作基址变址寻址时，操作数所在的段是当前___堆栈段___。（ P85 ）</p>
+</li>
+<li><p>定义双字变量的定义符是__DWORD（DD）____。（ P137）</p>
+</li>
+<li><p>将REPNE&#x2F;REPNZ加在CMPS或SCAS指令之前，若__CX&#x3D;0或ZF&#x3D;1_，则停止重复过程。（P102  ）</p>
+</li>
+<li><p>汇编程序产生的目标模块必须经LINK程序形成可执行文件。___对___（ P139 ）</p>
+</li>
+<li><p>全局符号要在定义和使用它的模块中要分别用__PUBLIC__和_EXTERN___语句说明，（ P168 ）</p>
+</li>
+<li><p>80386不能处理的数据长度有__64___位。</p>
+</li>
+<li><p>设存储体中有4096个存储单元，采用双译码方式，共需要__64___条选择线（ P191 ）</p>
+</li>
+<li><p>高速缓存由_SRAM__构成。</p>
+</li>
+<li><p>堆栈操作时，段基址由_SS（堆栈段）_寄存器指出，段内偏移量由_SP_（堆栈指针）_寄存器指出。（ P37 ）</p>
+</li>
+<li><p>CPU传送数据，必须利用_数据总线_，让外设有足够的处理时间，使CPU和总线做其他工作。</p>
+</li>
+<li><p>___8253____可编程定时&#x2F;计数器是专为Intel CPU系统设计的接口芯片。（ P267 ）</p>
+</li>
+<li><p>设置ICW1为边沿触发，单片8259A，需要IC W4，应执行MOV AL, __00010011B _（ P253 ）</p>
+</li>
+<li><p>__屏蔽中断源_可设置特殊屏蔽方式、查询方式，以及读取8259A中IRR, ISR, IMR的当前状态。（ P246 ）</p>
+</li>
+<li><p>选择8253计数器0,工作方式0,BCD编码格式，应写入控制字_00110001B__（ P271 ）。</p>
+</li>
+<li><p>若当前 DS的内容为 2000H，偏移量为 1000H，单元的地址可表示为__21000H___ </p>
+</li>
+<li><p>__方式2___不用重复置数。计数器连续工作，输出OUT是输入CLK的n(初值)分频。（ P270 ）</p>
+</li>
+<li><p>8086CPU的I&#x2F;O地址空间为___64KB___字节。（ P29 ）</p>
+</li>
+<li><p>数据的输入输出指的是__CPU与外设_进行数据交换。（ P220 ）</p>
+</li>
+<li><p>在8253的6种工作方式种，能够自动重复工作的两种方式是__方式2,3___。（ P271 ）</p>
+</li>
+<li><p>在下列8253的4种工作方式，即使GATE保持为高电平，处于_方式1（硬件可重单稳态）_的8253在写入初值以后也不开始定时或计数。（P271  ）</p>
+</li>
+<li><p>可编程定时器&#x2F;计数器8253的6种工作方式中，只可用硬件启动的是__方式1、5___。（P251  ）</p>
+</li>
+<li><p>在微机系统中采用DMA方式传送数据时，数据传送是__由DMAC发出的控制信号控制下完成的_（  ）</p>
+</li>
+<li><p>8255A既可作数据输入、输出，又可提供控制信息、状态信息的端口是__C__。（ P275 ）</p>
+</li>
+<li><p>8255A的PA口工作于方式2时，PB口不能工作于__方式2__。（ P281 ）</p>
+</li>
+<li><p>80386 CPU的6个处理单元，分别是执行、分段、分页、总线、__指令预取__和_译码__单元。（P35）</p>
+</li>
+<li><p>80x86 CPU共有4种工作模式: _实地址_模式 、_保护__模式、虚拟8086模式和系统管理模式。（P77）</p>
+</li>
+<li><p>THIS操作符与___EQU___配合使用，具有___LABEL___操作符同样的作用。（P138）</p>
+</li>
+<li><p>CPU寻址外设端口一般有两种方式。I&#x2F;O端口___统一___编址、I&#x2F;O端口与存储器__独立____编址。（P222）</p>
+</li>
+<li><p>完整的中断处理基本过程包括:中断请求、中断判优、中断_响应_、中断_处理_和中断返回。（P230）</p>
+</li>
+<li><p>80386的7大类寄存器，分别是:通用寄存器、段寄存器、指令指针和标志寄存器、控制寄存器、系统地址寄存器、__调试_寄存器和 __测试___寄存器。（P44）</p>
+</li>
+<li><p>80x86 CPU共有4种工作模式，8086&#x2F;8088 CPU只能工作于_实地址_模式， Pentium及其以上的CPU可以工作在_实地址、保护，系统管理和虚拟8086_模式下。（P77）</p>
+</li>
+<li><p>PTR操作符临时指定或修改存储器操作数的__类型__属性，保持其原有的__段__属性和偏移地址属性。（P137）</p>
+</li>
+<li><p>接口是连接计算机和外设的部件，通常指_接口电路_，广义的接口还包括管理接口电路的_驱动程序_。（P220）</p>
+</li>
+<li><p>完整的中断处理基本过程包括:中断__请求___、中断__判优__、中断响应、中断处理和中断返回。P230</p>
+</li>
+<li><p>简述段定义伪指令SEGMENT&#x2F;ENDS中各种定位类型所表示的段起始地址。（P147）</p>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line">在 在 <span class="number">8086</span> 汇编语言中，使用 SEGMENT 和 和 ENDS 伪指令来定义段。段定义伪指令 SEGMENT/ENDS</span><br><span class="line">中的各种定位类型表示的段起始地址如下：</span><br><span class="line"><span class="keyword">PUBLIC</span> ：表示的是公共段，可以被其他模块调用。</span><br><span class="line"><span class="built_in">STACK</span> ：表示的是堆栈段，用于存放函数的局部变量和参数。</span><br><span class="line"><span class="built_in">DATA</span> ：表示的是数据段，用于存放程序中使用的静态数据。</span><br><span class="line">CODE ：表示的是代码段，用于存放程序的指令代码。</span><br><span class="line">这些定位类型所表示的段起始地址在程序执行时会被加载到内存的不同位置，以便程序正确地访问和执行其中的数据和指令。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简述寄存器的位数和段的位数两个概念的关系。P121</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">寄存器的位数和段的位数是两个不同的概念，它们之间的关系如下：</span><br><span class="line">寄存器的位数：指的是 一个寄存器可以存储的在 二进制位数。在 x86 架构中，通用寄存器的位数为<span class="number">16</span> 位或 <span class="number">32</span> 位，表示寄存器能够存储的数据大小。</span><br><span class="line">段的位数：指的是 <span class="meta">CPU</span> 地址总线的位数，决定了 <span class="meta">CPU</span> 可以寻址的内存空间大小。在 x86 架构中，</span><br><span class="line">为 段的位数为 <span class="number">20</span> 位，因此最大可寻址的内存空间为 <span class="number">2</span>^<span class="number">20</span> ，即 1MB 。</span><br><span class="line">这两个概念之间的关系在于，段的位数决定了 <span class="meta">CPU</span> 可以寻址的内存空间大小，而寄存器的位数决定了 <span class="meta">CPU</span> 可以一次处理的数据大小。因此，段的位数限制了 <span class="meta">CPU</span> 可以访问的内存空间大小，而寄存器的位数则限制了 <span class="meta">CPU</span> 可以处理的数据大小。 </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8255A工作在方式1时，哪些引脚是联络线？P278</p>
+<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line">在<span class="number">8255</span><span class="variable">A</span> 芯片工作在方式 <span class="number">1</span> 时，<span class="variable">A0</span> 、<span class="variable">A1</span> 、<span class="variable">A2</span> 引脚用作与 <span class="built_in">I</span><span class="operator">/</span><span class="built_in">O</span> 端口 <span class="variable">A</span> 的地址线，<span class="variable">B0</span> 、<span class="variable">B1</span> 、<span class="variable">B2</span> 引脚与用作与 <span class="built_in">I</span><span class="operator">/</span><span class="built_in">O</span> 端口 <span class="variable">B</span> 的地址线，<span class="variable">C0</span> 、<span class="variable">C1</span> 、<span class="variable">C2</span> 引脚用作与 <span class="built_in">I</span><span class="operator">/</span><span class="built_in">O</span> 端口 <span class="built_in">C</span> 的地址线。这些引脚被称为联络线，用于与 <span class="variable">CPU</span> 进行地址线的联络，以实现对 <span class="number">8255</span><span class="variable">A</span> 芯片的寻址和控制。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>异步串行通信和同步串行通信的主要区别是什么?P289</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">异步串行通信和同步串行通信的主要区别在于时钟信号的方式和数据的起始和结束标志，</span><br><span class="line">这些区别决定了它们在实际应用中的特点和适用场景。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简述段定义伪指令SEGMENT&#x2F;ENDS中各种组合类型表示的链接关系。P147</p>
+</li>
+</ol>
+<img src = "./1.png">
+
+<ol start="75">
+<li><p>简述宏与过程的区别。P144</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">宏是在预处理阶段进行文本替换的代码重用机制，适用于简单的代码替换和代码生成；而过程是在运行时被调用执行的代码块，支持局部变量和参数传递，适用于封装一系列操作和提高代码的可维护性。选择使用宏还是过程取决于具体的需求和场景。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8255A工作在方式2时，哪些引脚是联络线？</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">当 <span class="number">8255</span>A 工作在方式 <span class="number">2</span> 时，其中的引脚 <span class="built_in">A0</span> 、<span class="built_in">A1</span> 、<span class="built_in">A2</span> 和 CS （片选）是联络线。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>78、 什么叫异步数据通信？P289</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">答：异步数据通信是指通信中收发双方没有共同的时间基准，往往以字符为单位一位一位进行传输、接收。</span><br></pre></td></tr></table></figure>
+
+<ol start="79">
+<li>画出查询式输入的接口电路图，绘制程序流程图，编写查询式输入程序，添加必要的注释</li>
+</ol>
+<img src = "./2.png">
+
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">IN_TEST:</span> <span class="keyword">IN</span> <span class="built_in">AL</span>,STATUS <span class="comment">; 读入状态信息</span></span><br><span class="line">         <span class="keyword">TEST</span> <span class="built_in">AL</span>,<span class="number">80H</span> <span class="comment">; 检查READY是否为1</span></span><br><span class="line">         <span class="keyword">JZ</span> IN_TEST <span class="comment">; 条件不满足，继续查询</span></span><br><span class="line">         <span class="keyword">IN</span> <span class="built_in">AL</span>,DATAS <span class="comment">; 条件满足，读入数据</span></span><br></pre></td></tr></table></figure>
+
+<ol start="80">
+<li>用全译码法将4片6264芯片与系统总线相连构成32K×8b存储区。</li>
+</ol>
+<img src = "./3.png">
+
+
+<ol start="81">
+<li>内存中自TABLE开始的I6个单元连续存放着0~15的平方值(平方表)。任给一数0≤x≤15)在XX单元，编写汇编语言源程序，查表求x的平方值，并将结果存入YY单元P151<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">DATA   <span class="meta">SEGMENT</span></span><br><span class="line">TABLE  <span class="built_in">DB</span> <span class="number">0</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">25</span>,<span class="number">36</span>,<span class="number">49</span>,<span class="number">64</span>,<span class="number">81</span>,<span class="number">100</span>,<span class="number">121</span>,<span class="number">144</span>,<span class="number">169</span>,<span class="number">196</span>,<span class="number">225</span></span><br><span class="line">XX      <span class="built_in">DB</span> ?</span><br><span class="line">YY      <span class="built_in">DB</span> ?</span><br><span class="line">DATA   ENDS </span><br><span class="line">STACK   <span class="meta">SEGMENT</span> PARA STACK <span class="string">&#x27;STACK&#x27;</span></span><br><span class="line"><span class="built_in">DB</span> <span class="number">100</span> DUP(?)</span><br><span class="line">STACK   ENDS</span><br><span class="line">CODE    <span class="meta">SEGMENT</span></span><br><span class="line"><span class="meta">ASSUME</span>  <span class="built_in">CS</span>:CODE, <span class="built_in">DS</span>:DATA </span><br><span class="line">START  PROC  <span class="built_in">FAR</span></span><br><span class="line"><span class="keyword">PUSH</span>  <span class="built_in">DS</span> </span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AX</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">PUSH</span>  <span class="built_in">AX</span></span><br><span class="line"><span class="keyword">MOV</span>   <span class="built_in">AX</span>,DATA </span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">DS</span>,<span class="built_in">AX</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">BX</span>,OFFSET TABLE</span><br><span class="line"><span class="keyword">MOV</span>  <span class="number">AH</span>,<span class="number">0</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AL</span>,XX</span><br><span class="line"><span class="keyword">ADD</span>  <span class="built_in">BX</span>,<span class="built_in">AX</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AL</span>,[<span class="built_in">BX</span>]</span><br><span class="line"><span class="keyword">MOV</span>  YY,<span class="built_in">AL</span></span><br><span class="line"><span class="keyword">RET</span></span><br><span class="line">START  ENDP</span><br><span class="line">CODE  ENDS</span><br><span class="line">END  START</span><br></pre></td></tr></table></figure></li>
+<li>某8255A端口地址范围为03F8H~03 FBH，A组和B组均工作在方式0，A口作为数据输出端口，C口低4位作为状态信号输入口，其他端口未用，试画出8255A与系统地址线低八位的连接图，并编写初始化程序</li>
+</ol>
+<img src = "./4.png">
+
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">初始化程序：</span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">DX</span>, <span class="number">03FBH</span></span><br><span class="line"><span class="keyword">MOV</span>  <span class="built_in">AL</span>, <span class="number">81H</span></span><br><span class="line"><span class="keyword">OUT</span>   <span class="built_in">DX</span>, <span class="built_in">AL</span></span><br></pre></td></tr></table></figure>
+
+<ol start="83">
+<li>8253的片选信号如下图连接，列出8253内各计数器及控制字寄存器的一组地址，若计数器的CLK都接1MHz时钟信号，欲利用该8253产生1KHz 的方波，简单说明如何实现(说明利用的计数器，工作方式及计数初值)，写出编程的有关内容。</li>
+</ol>
+<p>计数器0的地址为3B0H，计数器1的地址为3B1H，计数器2的地址为3B2H，控制字寄存器的地址为3B3H</p>
+<img src = "./5.png">
+
+<ol start="84">
+<li>画出查询式输出的接口电路图，绘制程序流程图，编写查询式输入程序，添加必要的注释。</li>
+</ol>
+<img src = "./6.png">
+
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">          <span class="keyword">MOV</span> <span class="built_in">BX</span>,OFFSET STORE</span><br><span class="line"><span class="symbol">OUT_TEST:</span> <span class="keyword">IN</span> <span class="built_in">AL</span>,STATUS   <span class="comment">; 读入状态信息</span></span><br><span class="line">          <span class="keyword">AND</span> <span class="built_in">AL</span>,<span class="number">80H</span>    <span class="comment">; 检查BUSY位</span></span><br><span class="line">          <span class="keyword">JNZ</span> OUT_TEST  <span class="comment">; BUSY则等待</span></span><br><span class="line">          <span class="keyword">MOV</span> <span class="built_in">AL</span>,[<span class="built_in">BX</span>]   <span class="comment">; 空闲，则从缓冲区STORE中取数据</span></span><br><span class="line">          <span class="keyword">OUT</span> DATAS,<span class="built_in">AL</span>  <span class="comment">; 输出数据</span></span><br><span class="line">          <span class="keyword">INC</span> <span class="built_in">BX</span></span><br></pre></td></tr></table></figure>
+
+<ol start="85">
+<li>画出CPU中断控制的数据输入&#x2F;输出接口电路图，简述其工作过程。</li>
+</ol>
+<img src = "./7.png">
+
+<p>工作过程:</p>
+<p>当输入装置输入一个数据时，发出选通信号，该信号将数据存入锁存器，同时使D触发器置“1”，发出中断请求。若中断是开放的，则CPU接收中断请求信号并将当前指令执行完后，暂停正在执行的程序，发出中断响应信号INTA。这时外设将一个中断类型码放到数据总线，CPU依据该中断类型码转入相应的中断服务程序。在中断服务程序中通过数据端口读取数据，同时清除中断请求标志。中断处理完毕，CPU返回被中断的程序继续执行。</p>
+<ol start="86">
+<li><p>编写汇编语言源程序，打印输出字符串“THIS TS A SAMPLE PROGRAM. “。P129</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="comment">; SAMPLE PROGRAM DISPLAY MESSAGE</span></span><br><span class="line">DATA      <span class="meta">SEGMENT</span></span><br><span class="line">MESSAGE  <span class="built_in">DB</span> <span class="string">&#x27;THIS IS A SAMPLE PROGRAM.&#x27;</span></span><br><span class="line">            <span class="built_in">DB</span> <span class="number">0DH</span>,<span class="number">0AH</span>,<span class="string">&#x27;$&#x27;</span></span><br><span class="line">DATA       ENDS</span><br><span class="line">STACK      <span class="meta">SEGMENT</span> PARA STACK <span class="string">&#x27;STACK&#x27;</span></span><br><span class="line">             <span class="built_in">DB</span> <span class="number">1024</span> DUP(<span class="number">0</span>)</span><br><span class="line">STACK      ENDS</span><br><span class="line">CODE       <span class="meta">SEGMENT</span></span><br><span class="line">             <span class="meta">ASSUME</span>  <span class="built_in">CS</span>:CODE, <span class="built_in">DS</span>:DATA,<span class="built_in">SS</span>:STACK </span><br><span class="line">             MAIN PROC <span class="built_in">FAR</span></span><br><span class="line"><span class="symbol">START:</span>      <span class="keyword">PUSH</span> <span class="built_in">DS</span></span><br><span class="line">                  <span class="keyword">MOV</span>  <span class="built_in">AX</span>,<span class="number">0</span></span><br><span class="line">                  <span class="keyword">PUSH</span>  <span class="built_in">AX</span></span><br><span class="line">                  <span class="keyword">MOV</span>   <span class="built_in">AX</span>,DATA</span><br><span class="line">                  <span class="keyword">MOV</span>   <span class="built_in">DS</span>,<span class="built_in">AX</span></span><br><span class="line">                  <span class="keyword">LEA</span>     <span class="built_in">BX</span>,MESSAGE</span><br><span class="line"><span class="symbol">LOOP1:</span>      <span class="keyword">CMP</span> <span class="built_in">BYTE</span> <span class="built_in">PTR</span> [<span class="built_in">BX</span>],<span class="string">&#x27;$&#x27;</span></span><br><span class="line">                   <span class="keyword">JE</span>      LOOP2</span><br><span class="line">                  <span class="keyword">MOV</span>  <span class="number">AH</span>,<span class="number">2</span></span><br><span class="line">                  <span class="keyword">MOV</span>   <span class="built_in">DL</span>,[<span class="built_in">BX</span>]</span><br><span class="line">                  <span class="keyword">INT</span>      <span class="number">21H</span></span><br><span class="line">                  <span class="keyword">INC</span>      <span class="built_in">BX</span></span><br><span class="line">                  <span class="keyword">JMP</span>     LOOP1</span><br><span class="line"><span class="symbol">LOOP2:</span>     <span class="keyword">RET</span></span><br><span class="line">                  MAIN    ENDP</span><br><span class="line">CODE         ENDS</span><br><span class="line">                   END START</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下图中，AD0~AD7为8086&#x2F;8088CPU低八位地址线，试分析8259A占用了几个端口，地址分别为什么？其中ICW1的地址是什么？8255A占用了几个端口，地址分别为什么？其中控制寄存器的地址是什么？###############</p>
+</li>
+</ol>
+<p>答：8259A占2个端口；地址分别为：20H，22H或24H，26H；<br>ICW1的地址：20H或24H；<br>8255A占4个端口；地址：80H，82H，84H，86H<br>控制寄存器的地址：86H</p>
+<ol start="88">
+<li>设8253的计数器0工作在方式1，计数初值为2050H;计数器1工作在方式2,计数初值为3000H; 数器2工作在方式3, 计数初值为1000H，各命令字的D0均为1。如果三个计数器的GATE都接高电平,三个计数器的CLK都接2MHz时钟信号，画出OUT0，OUT1、OUT2的输出波形. ###############</li>
+</ol>
+<img src = "./8.png">]]></content>
+      <categories>
+        <category>微机原理</category>
+      </categories>
+      <tags>
+        <tag>考试专用</tag>
+        <tag>微机原理</tag>
       </tags>
   </entry>
 </search>
